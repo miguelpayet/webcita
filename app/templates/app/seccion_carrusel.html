@@ -1,0 +1,51 @@
+<div class="carrusel margenes-seccion">
+    {% if seccion.tipo == 2 %}
+        <h1>{{ seccion.titulo }}</h1>
+    {% endif %}
+    <div class="col-md-12 micarrusel">
+        <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for fila in seccion.carrusel %}
+                    <li data-target="#micarrusel-{{ seccion.posicion }}" data-slide-to="{{ forloop.counter0 }}"
+                        class="{{ imagen.clase }}">
+                    </li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for fila in seccion.carrusel %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row">
+                            {% for imagen in fila %}
+                                <div class="{{ seccion.clase }}">
+                                    {% if seccion.tipo == 2 %}
+                                        {# si el texto se mueve en el tipo 2 hay que ajustar este % #}
+                                        <div class="d-flex align-items-md-end" style="height: 90%;">
+                                    {% endif %}
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
+                                         alt="{{ imagen.texto }}"/>
+                                    {% if seccion.tipo == 2 %}
+                                        </div>
+                                    {% endif %}
+                                    <p class="texto-foto-{{ seccion.tipo }} {{ imagen.clase }}"
+                                       style="{{ imagen.estilo }}">
+                                        {{ imagen.texto }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#micarrusel-{{ seccion.posicion }}" role="button"
+               data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#micarrusel-{{ seccion.posicion }}" role="button"
+               data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+</div>

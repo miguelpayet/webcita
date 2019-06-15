@@ -1,0 +1,27 @@
+* bloque pie de página
+
+* usar componente bootstrap para opciones
+
+* comprimir el html generado
+* factorizar la lista de opciones q aparece 2 veces
+* gdpr
+* generar una lista de url disponibles en el site y actualizarla cada vez que se graba un objeto url-able
+* gracefully handle and log exceptions
+* hacer que los integer con valores fijos presenten como lista en admin
+* juntar y minimizar javascript
+* nombres de campos consistentes en el admin
+* optimizado para seo
+* orden consistente en el admin
+* registrar los errores en bd
+* titulo y descripción para cada ruta
+* todas las imágenes deben tener texto alt
+* usar cdn para jquery, bootstrap
+* validar el html generado
+* validar los campos a valores lógicos en el admin
+
+https://docs.djangoproject.com/en/2.2/topics/i18n/translation/#how-django-discovers-language-preference
+https://docs.djangoproject.com/en/2.2/topics/i18n/translation/#url-internationalization
+
+** traducir etiquetas y probar cookie de lenguaje -> usar i18n
+** https://docs.djangoproject.com/en/2.2/topics/i18n/translation/#url-internationalization
+** refrescar el cookie de idioma en cada visita

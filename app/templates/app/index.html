@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% load my_markdown %}
+{% load static %}
+
+{% block title %}lunarumi{% endblock %}
+
+{% block content %}
+    {% for s in secciones %}
+        {% include s.seccion with seccion=s %}
+    {% endfor %}
+{% endblock %}

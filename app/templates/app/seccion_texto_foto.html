@@ -1,0 +1,22 @@
+{% load my_markdown %}
+
+<div class="texto-con-foto margenes-seccion" style="{{ seccion.estilo }}">
+    <div class="row">
+        {% for n in seccion.rango %}
+            {% if seccion.tipo == 1 and n == 0 or seccion.tipo == 2 and n == 1 %}
+                <div class="col-md-5">
+                    <div class="texto">
+                        {{ seccion.texto | my_markdown }}
+                    </div>
+                </div>
+            {% endif %}
+            {% if seccion.tipo == 1 and n == 1 or seccion.tipo == 2 and n == 0 %}
+                <div class="col-md-7">
+                    <div class="texto-con-foto">
+                        <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

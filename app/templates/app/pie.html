@@ -1,0 +1,63 @@
+{% load my_markdown %}
+{% load static %}
+
+<div class="row">
+    <div class="col-md-2 offset-md-1">
+        <ul class="nav flex-column">
+            {% for o in opciones %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h3>{{ contacto.titulo }}</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row d-flex align-items-md-baseline">
+                    <div class="col-md-2">
+                        <img src="{{ MEDIA_URL }}icono-mail.jpg">
+                    </div>
+                    <div class="col-md-8">
+                        <a href="mailto:{{ contacto.mail }}">
+                            {{ contacto.mail }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ MEDIA_URL }}icono-mapa.jpg">
+                    </div>
+                    <div class="col-md-8">
+                        {{ contacto.direccion | my_markdown }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row d-flex">
+                    <div class="col-md-2">
+                        <img src="{{ MEDIA_URL }}icono-telefono.jpg">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="telefono">
+                            {{ contacto.telefonos | my_markdown }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3>{{ params.titulosocial }}</h3>
+        <ul class="nav">
+            {% for social in contacto.social %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ social.direccion }}" target="_blank">
+                        <img src="{{ MEDIA_URL }}{{ social.imagen }}" alt="{{ social.nombre }}"/>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

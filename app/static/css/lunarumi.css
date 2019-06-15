@@ -1,0 +1,106 @@
+.carousel-inicio {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.carrusel .texto-foto-1 {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1rem;
+}
+
+.carrusel .texto-foto-2 {
+    color: #999999;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.margenes-seccion {
+    margin-top: 10px;
+}
+
+.ocultar {
+    display: none;
+}
+
+.opciones {
+    height: 70%;
+}
+
+.seccion-foto {
+    background-color: #FAECDF;
+}
+
+.seccion-foto h1, .carrusel h1 {
+    color: #858377;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.seccion-foto p {
+    color: #999;
+    text-align: center;
+}
+
+.texto-con-foto .texto {
+    font-size: 1.5rem;
+    margin: 5% 10% 0 20%;
+}
+
+.texto-con-foto .texto h2 {
+    color: #DD862D;
+    font-size: 2.6rem;
+    line-height: 1.5rem;
+}
+
+.web-header .idioma li {
+    display: inline;
+}
+
+.web-header .idioma li:after {
+    content: " / ";
+}
+
+.web-header .idioma li:last-child:after {
+    content: "";
+}
+
+.web-header .idioma ul {
+    text-align: right;
+}
+
+html {
+    font-size: 12pt;
+}
+
+img, embed, object, video {
+    height: auto;
+    max-width: 100%;
+}
+
+.pie-fondo-gris {
+    background-color: #999999;
+}
+
+.web-pie {
+    color: #fff;
+    padding-top: 4rem;
+}
+
+.web-pie a:link {
+    color: #fff;
+}
+
+.web-pie a:visited {
+    color: #fff;
+}
+
+.web-pie a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.web-pie a:active {
+    color: #ddd;
+}

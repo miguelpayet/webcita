@@ -1,0 +1,27 @@
+<div class="seccion-foto margenes-seccion">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ seccion.titulo }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="row">
+                {% for fila in seccion.filas %}
+                    {% for foto in fila.fotos %}
+                        <div class="{{ seccion.clase }}">
+                            {% if foto is None %}
+                                &nbsp;
+                            {% else %}
+                                <div class="foto">
+                                    <img class="d-block" src="{{ MEDIA_URL }}{{ foto.imagen }}" alt="{{ foto.texto }}"/>
+                                    <p>{{ foto.texto }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

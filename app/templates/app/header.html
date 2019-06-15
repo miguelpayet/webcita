@@ -1,0 +1,74 @@
+{% load i18n %}
+
+<div class="row">
+    <div class="col-md-3 offset-md-1">
+        <div class="logo">
+            <a href="/">
+                <img class="img-fluid" src="{{ MEDIA_URL }}{{ params.logo_superior }}"/>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="idioma">
+                    <ul>
+                        {% for i in idiomas %}
+                            {% if i.codigo == cur_language %}
+                                <li>{{ i.nombre }}</li>
+                            {% else %}
+                                <li><a href="javascript:cambiar_idioma('{{ i.codigo }}');">{{ i.nombre }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row opciones">
+            <div class="col-md-12  d-flex justify-content-end align-items-end">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            {% for o in opciones %}
+                                <li class="nav-item pr-5">
+                                    <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="ocultar">
+        <script>
+            cambiar_idioma = function (codigo) {
+                if (jQuery) {
+                    let jqobj = jQuery('form#form_idioma');
+                    if (jqobj.length) {
+                        let form = jqobj.get(0);
+                        form.elements["language"].value = codigo
+                        form.submit();
+                    } else {
+                        console.log("no existe form en página");
+                    }
+                    console.log('bye');
+                } else {
+                    console.log('no existe jQuery en página');
+                }
+                return false;
+            }
+        </script>
+        <form id="form_idioma" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}"/>
+            <input name="language" type="text"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </div>
+</div>
