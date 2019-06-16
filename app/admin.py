@@ -10,6 +10,7 @@ from app.models import Opcion
 from app.models import Parametro
 from app.models import SeccionCarrusel
 from app.models import SeccionFoto
+from app.models import SeccionTexto
 from app.models import SeccionTextoFoto
 from app.models import Social
 from app.models import TextoContacto
@@ -19,6 +20,7 @@ from app.models import TextoOpcion
 from app.models import TextoParametro
 from app.models import TextoSeccionCarrusel
 from app.models import TextoSeccionFoto
+from app.models import TextoSeccionTexto
 from app.models import TextoSeccionTextoFoto
 
 
@@ -88,8 +90,8 @@ class SeccionCarruselAdmin(nested_admin.NestedModelAdmin):
     extra = 0
     fields = ('opcion', 'nombre', 'posicion', 'fotosfila', 'tipo')
     inlines = [TextoSeccionCarruselInline, ImagenSeccionCarruselAdmin]
-    list_display = ('nombre', 'posicion',)
-    ordering = ('posicion',)
+    list_display = ('opcion', 'nombre', 'posicion',)
+    ordering = ('opcion', 'posicion',)
 
 
 admin.site.register(SeccionCarrusel, SeccionCarruselAdmin)
@@ -132,16 +134,33 @@ class SeccionFotoAdmin(nested_admin.NestedModelAdmin):
 admin.site.register(SeccionFoto, SeccionFotoAdmin)
 
 
-# seccion texto foto
-class SeccionTextoFotoTextoInline(admin.TabularInline):
+# seccion texto
+class TextoSeccionTextoInline(admin.TabularInline):
     extra = 0
-    fields = ('idioma', 'texto',)
+    fields = ('idioma', 'titulo', 'texto')
+    model = TextoSeccionTexto
+
+
+class SeccionTextoAdmin(admin.ModelAdmin):
+    fields = ('opcion', 'nombre', 'posicion')
+    inlines = (TextoSeccionTextoInline,)
+    list_display = ('nombre', 'posicion')
+    ordering = ('posicion', 'nombre')
+
+
+admin.site.register(SeccionTexto, SeccionTextoAdmin)
+
+
+# seccion texto foto
+class TextoSeccionTextoFotoInline(admin.TabularInline):
+    extra = 0
+    fields = ('idioma', 'titulo', 'texto',)
     model = TextoSeccionTextoFoto
 
 
 class SeccionTextoFotoAdmin(admin.ModelAdmin):
     fields = ('imagen', 'nombre', 'opcion', 'posicion', 'tipo', 'color')
-    inlines = (SeccionTextoFotoTextoInline,)
+    inlines = (TextoSeccionTextoFotoInline,)
     list_display = ('opcion', 'posicion', 'nombre')
     ordering = ('opcion', 'posicion',)
 
@@ -159,7 +178,7 @@ class OpcionTextoInline(admin.TabularInline):
 class OpcionAdmin(admin.ModelAdmin):
     fields = ('posicion', 'nombre',)
     inlines = (OpcionTextoInline,)
-    list_display = ('posicion', 'nombre',)
+    list_display = ('nombre', 'posicion',)
     ordering = ('posicion',)
 
 

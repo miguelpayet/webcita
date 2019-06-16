@@ -4,6 +4,7 @@ from .Contacto import Contacto
 from .Contacto import TextoContacto
 from .Idioma import Idioma
 from .Opcion import Opcion
+from .Opcion import TextoOpcion
 from .Parametro import Parametro
 from .Parametro import TextoParametro
 from .SeccionCarrusel import ImagenSeccionCarrusel
@@ -15,7 +16,8 @@ from .SeccionFoto import FotoFilaSeccionFoto
 from .SeccionFoto import SeccionFoto
 from .SeccionFoto import TextoFotoFila
 from .SeccionFoto import TextoSeccionFoto
+from .SeccionTexto import SeccionTexto
+from .SeccionTexto import TextoSeccionTexto
 from .SeccionTextoFoto import SeccionTextoFoto
 from .Social import Social
-from .TextoOpcion import TextoOpcion
 from .TextoSeccionTextoFoto import TextoSeccionTextoFoto

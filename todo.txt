@@ -3,7 +3,7 @@
 * usar componente bootstrap para opciones
 
 * comprimir el html generado
-* factorizar la lista de opciones q aparece 2 veces
+* factorizar la lista de opciones q aparece 2 veces en la página
 * gdpr
 * generar una lista de url disponibles en el site y actualizarla cada vez que se graba un objeto url-able
 * gracefully handle and log exceptions
@@ -12,9 +12,12 @@
 * nombres de campos consistentes en el admin
 * optimizado para seo
 * orden consistente en el admin
+* página 404
 * registrar los errores en bd
-* titulo y descripción para cada ruta
+* reordenar los templates y funciones como plugins con metadata
+* titulo y descripción seo para cada ruta
 * todas las imágenes deben tener texto alt
+* traducir los slugs
 * usar cdn para jquery, bootstrap
 * validar el html generado
 * validar los campos a valores lógicos en el admin

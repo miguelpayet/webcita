@@ -1,11 +1,12 @@
 {% load my_markdown %}
 
-<div class="texto-con-foto margenes-seccion" style="{{ seccion.estilo }}">
+<div class="seccion-texto-con-foto margenes-seccion" style="{{ seccion.estilo }}">
     <div class="row">
         {% for n in seccion.rango %}
             {% if seccion.tipo == 1 and n == 0 or seccion.tipo == 2 and n == 1 %}
                 <div class="col-md-5">
                     <div class="texto">
+                        <h2>{{ seccion.titulo }}</h2>
                         {{ seccion.texto | my_markdown }}
                     </div>
                 </div>
