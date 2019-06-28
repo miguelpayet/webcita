@@ -1,13 +1,18 @@
 {% load my_markdown %}
 
 <div class="seccion-texto margenes-seccion">
+    {% if seccion.tipo == 2 %}
+        <div class="col-md-12">
+            <h1>{{ seccion.titulo }}</h1>
+        </div>
+    {% endif %}
     <div class="row">
-        <div class="col-md-4 offset-md-1">
-            <div class="texto">
+        {% if seccion.tipo == 1 %}
+            <div class="col-md-4 offset-md-1">
                 <h1>{{ seccion.titulo }}</h1>
             </div>
-        </div>
-        <div class="col-md-6">
+        {% endif %}
+        <div class="{% if seccion.tipo == 1 %}col-md-6{% else %}col-md-7 offset-md-5{% endif %}">
             <div class="texto">
                 {{ seccion.texto | my_markdown }}
             </div>

@@ -125,7 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$150000$WEoWfTNgjC6K$KbfOSI212qmAVg//wXoGN/mJe8DTsSBgQMM62s1eoqI=','2019-06-15 19:41:10.536965',1,'admin','','','miguelpayet@gmail.com',1,1,'2019-06-03 01:29:09.963055');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$150000$WEoWfTNgjC6K$KbfOSI212qmAVg//wXoGN/mJe8DTsSBgQMM62s1eoqI=','2019-06-22 03:58:31.611257',1,'admin','','','miguelpayet@gmail.com',1,1,'2019-06-03 01:29:09.963055');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +232,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +241,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2019-06-03 01:39:38.649408','1','Español',1,'[{\"added\": {}}]',7,1),(2,'2019-06-03 01:39:47.387972','2','Inglés',1,'[{\"added\": {}}]',7,1),(3,'2019-06-04 03:06:54.049248','1','Inicio',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"2\"}}]',9,1),(4,'2019-06-04 18:14:33.739885','1','2014x768-1.png',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"2\"}}]',8,1),(5,'2019-06-04 18:15:12.153986','2','2014x768-2.png',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"4\"}}]',8,1),(6,'2019-06-04 18:15:38.584314','1','2014x768-1.png',2,'[{\"changed\": {\"name\": \"Texto Imagen\", \"object\": \"2\", \"fields\": [\"texto\"]}}]',8,1),(7,'2019-06-05 03:14:12.386747','2','Inglés',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(8,'2019-06-05 03:14:18.254687','1','Español',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(9,'2019-06-06 02:31:15.726711','2','Inglés',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(10,'2019-06-06 02:31:24.333870','2','Inglés',2,'[]',7,1),(11,'2019-06-06 02:31:33.001101','1','Español',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(12,'2019-06-06 03:19:16.510666','1','Inicio',2,'[{\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Inicio\", \"fields\": [\"direccion\"]}}, {\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Home\", \"fields\": [\"direccion\"]}}]',9,1),(13,'2019-06-06 03:20:09.112874','2','Quienes Somos',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Quienes Somos\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Who We Are\"}}]',9,1),(14,'2019-06-06 03:20:48.941130','3','Instalaciones',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Instalaciones\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Facilities\"}}]',9,1),(15,'2019-06-06 03:21:12.075241','4','Tours',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Tours\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Tours\"}}]',9,1),(16,'2019-06-06 03:21:33.660739','5','Servicios',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Servicios\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Services\"}}]',9,1),(17,'2019-06-06 03:22:08.182556','6','Contacto',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Contacto\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Contact\"}}]',9,1),(18,'2019-06-08 19:34:11.512243','8','Quienes Somos',1,'[{\"added\": {}}]',10,1),(19,'2019-06-08 19:37:31.169850','8','Quienes Somos',2,'[{\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"2\"}}]',10,1),(20,'2019-06-09 14:10:02.676547','6','Fotos Página Inicial - 1',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"matrimonial_jMteVDV.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Matrimonial\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double Room\"}}]',11,1),(21,'2019-06-09 14:10:52.324418','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"doble-1.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(22,'2019-06-09 14:11:22.046734','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"doble-2.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(23,'2019-06-09 14:11:44.326069','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"triple.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Triple\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Triple Room\"}}]',11,1),(24,'2019-06-09 14:17:59.514099','6','Fotos Página Inicial - 1',2,'[]',11,1),(25,'2019-06-10 04:24:29.943264','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\"}}]',11,1),(26,'2019-06-10 04:25:44.269398','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\", \"fields\": [\"texto\"]}}]',11,1),(27,'2019-06-11 02:00:40.367751','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"3\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\", \"fields\": [\"texto\"]}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(28,'2019-06-11 02:01:53.330730','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"4\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Triple\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Triple Room\"}}]',11,1),(29,'2019-06-11 02:10:58.431563','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Vereda Interior\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Inner Walkway\"}}]',11,1),(30,'2019-06-11 02:12:31.049082','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"4\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Jardines\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Gardens\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Comedor\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Dining Room\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Ave\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Bird\"}}]',11,1),(31,'2019-06-11 02:14:24.029073','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Inner Walkway\", \"fields\": [\"texto\"]}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Balcones\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Balconies\"}}]',11,1),(32,'2019-06-11 02:15:01.271471','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Arboles Frutales\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Fruit Trees\"}}]',11,1),(33,'2019-06-11 03:28:15.365809','2','Carrusel Página Inicial',1,'[{\"added\": {}}]',15,1),(34,'2019-06-11 03:28:36.474041','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\"}}]',15,1),(35,'2019-06-11 03:30:06.846675','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"5\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"6\"}}]',15,1),(36,'2019-06-11 03:30:37.835328','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"7\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"8\"}}]',15,1),(37,'2019-06-12 00:36:11.439804','8','Quienes Somos',2,'[]',10,1),(38,'2019-06-12 00:36:18.007510','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}]',10,1),(39,'2019-06-12 00:37:36.120037','6','Fotos Página Inicial - 1',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}]',11,1),(40,'2019-06-12 01:06:13.658478','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"fotos_fila\"]}}]',15,1),(41,'2019-06-12 01:07:56.289384','3','Caminatas y Tours',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"6\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"9\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"10\"}}]',15,1),(42,'2019-06-12 01:08:51.486106','3','Caminatas y Tours',2,'[{\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"7\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"11\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"12\"}}]',15,1),(43,'2019-06-12 03:53:11.959861','9','Servicios',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"4\"}}]',10,1),(44,'2019-06-13 00:09:17.954811','1','Parametro object (1)',1,'[{\"added\": {}}]',17,1),(45,'2019-06-13 00:18:12.213257','1','Parámetro 1',2,'[{\"added\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\"}}, {\"added\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 2\"}}]',17,1),(46,'2019-06-13 00:19:55.307559','1','Parámetro 1',2,'[{\"changed\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\", \"fields\": [\"copyright\"]}}]',17,1),(47,'2019-06-13 01:02:22.143643','1','Parámetro 1',2,'[]',17,1),(48,'2019-06-13 01:03:36.359033','1','1',1,'[{\"added\": {}}]',18,1),(49,'2019-06-13 01:06:32.271322','1','1',2,'[{\"added\": {\"name\": \"Texto de Contacto\", \"object\": \"<class \'app.models.Contacto.TextoContacto\'> 1\"}}, {\"added\": {\"name\": \"Texto de Contacto\", \"object\": \"<class \'app.models.Contacto.TextoContacto\'> 2\"}}]',18,1),(50,'2019-06-13 02:05:54.455782','1','Facebook',1,'[{\"added\": {}}]',19,1),(51,'2019-06-13 02:06:11.546834','2','Instagram',1,'[{\"added\": {}}]',19,1),(52,'2019-06-13 02:29:05.514618','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"estilo\"]}}]',10,1),(53,'2019-06-13 02:29:14.345932','9','Servicios',2,'[{\"changed\": {\"fields\": [\"estilo\"]}}]',10,1),(54,'2019-06-14 02:16:15.001062','1','Inicio',2,'[{\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Inicio\", \"fields\": [\"direccion\"]}}, {\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Home\", \"fields\": [\"direccion\"]}}]',9,1),(55,'2019-06-14 02:49:58.056040','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 5\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 6\", \"fields\": [\"texto\"]}}]',15,1),(56,'2019-06-14 03:02:56.296348','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\", \"ancho\", \"color\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\", \"color\"]}}]',15,1),(57,'2019-06-14 23:42:42.619471','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"imagen\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"imagen\"]}}]',15,1),(58,'2019-06-14 23:44:22.120615','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 5\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 6\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 7\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 8\", \"fields\": [\"texto\"]}}]',15,1),(59,'2019-06-14 23:48:38.862800','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}]',15,1),(60,'2019-06-14 23:49:08.816334','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(61,'2019-06-14 23:49:52.269039','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\"]}}]',15,1),(62,'2019-06-14 23:50:23.030506','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(63,'2019-06-14 23:50:43.484933','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}]',15,1),(64,'2019-06-14 23:51:33.177113','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\"]}}]',15,1),(65,'2019-06-14 23:53:35.650456','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(66,'2019-06-14 23:53:40.272710','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(67,'2019-06-14 23:54:09.555145','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(68,'2019-06-14 23:54:39.822889','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(69,'2019-06-14 23:55:23.456862','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(70,'2019-06-14 23:55:47.778634','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(71,'2019-06-14 23:56:14.123099','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(72,'2019-06-14 23:56:43.897564','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(73,'2019-06-15 00:09:07.869546','8','Quienes Somos',2,'[{\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 1\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 2\", \"fields\": [\"texto\"]}}]',10,1),(74,'2019-06-15 00:57:25.386428','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Texto de Secci\\u00f3n Foto\", \"object\": \"<class \'app.models.SeccionFoto.TextoSeccionFoto\'> 1\"}}, {\"added\": {\"name\": \"Texto de Secci\\u00f3n Foto\", \"object\": \"<class \'app.models.SeccionFoto.TextoSeccionFoto\'> 2\"}}]',11,1),(75,'2019-06-15 17:04:05.972695','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 1\"}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 2\"}}]',15,1),(76,'2019-06-15 17:06:26.941496','3','Caminatas y Tours',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 3\"}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 4\"}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"6\", \"fields\": [\"ancho\", \"color\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"7\", \"fields\": [\"ancho\", \"color\"]}}]',15,1),(77,'2019-06-15 17:19:32.737207','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"4\", \"fields\": [\"posx\"]}}]',15,1),(78,'2019-06-15 17:20:38.685802','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"4\", \"fields\": [\"posx\"]}}]',15,1),(79,'2019-06-15 18:21:55.057585','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(80,'2019-06-15 18:22:16.389554','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(81,'2019-06-15 18:22:25.216767','9','Servicios',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(82,'2019-06-15 19:52:03.251659','1','Parámetro 1',2,'[{\"changed\": {\"name\": \"Valores\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\", \"fields\": [\"titulosocial\"]}}, {\"changed\": {\"name\": \"Valores\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 2\", \"fields\": [\"titulosocial\"]}}]',17,1);
+INSERT INTO `django_admin_log` VALUES (1,'2019-06-03 01:39:38.649408','1','Español',1,'[{\"added\": {}}]',7,1),(2,'2019-06-03 01:39:47.387972','2','Inglés',1,'[{\"added\": {}}]',7,1),(3,'2019-06-04 03:06:54.049248','1','Inicio',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"2\"}}]',9,1),(4,'2019-06-04 18:14:33.739885','1','2014x768-1.png',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"2\"}}]',8,1),(5,'2019-06-04 18:15:12.153986','2','2014x768-2.png',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Texto Imagen\", \"object\": \"4\"}}]',8,1),(6,'2019-06-04 18:15:38.584314','1','2014x768-1.png',2,'[{\"changed\": {\"name\": \"Texto Imagen\", \"object\": \"2\", \"fields\": [\"texto\"]}}]',8,1),(7,'2019-06-05 03:14:12.386747','2','Inglés',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(8,'2019-06-05 03:14:18.254687','1','Español',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(9,'2019-06-06 02:31:15.726711','2','Inglés',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(10,'2019-06-06 02:31:24.333870','2','Inglés',2,'[]',7,1),(11,'2019-06-06 02:31:33.001101','1','Español',2,'[{\"changed\": {\"fields\": [\"codigo\"]}}]',7,1),(12,'2019-06-06 03:19:16.510666','1','Inicio',2,'[{\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Inicio\", \"fields\": [\"direccion\"]}}, {\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Home\", \"fields\": [\"direccion\"]}}]',9,1),(13,'2019-06-06 03:20:09.112874','2','Quienes Somos',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Quienes Somos\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Who We Are\"}}]',9,1),(14,'2019-06-06 03:20:48.941130','3','Instalaciones',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Instalaciones\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Facilities\"}}]',9,1),(15,'2019-06-06 03:21:12.075241','4','Tours',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Tours\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Tours\"}}]',9,1),(16,'2019-06-06 03:21:33.660739','5','Servicios',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Servicios\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Services\"}}]',9,1),(17,'2019-06-06 03:22:08.182556','6','Contacto',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Contacto\"}}, {\"added\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Contact\"}}]',9,1),(18,'2019-06-08 19:34:11.512243','8','Quienes Somos',1,'[{\"added\": {}}]',10,1),(19,'2019-06-08 19:37:31.169850','8','Quienes Somos',2,'[{\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"2\"}}]',10,1),(20,'2019-06-09 14:10:02.676547','6','Fotos Página Inicial - 1',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"matrimonial_jMteVDV.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Matrimonial\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double Room\"}}]',11,1),(21,'2019-06-09 14:10:52.324418','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"doble-1.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(22,'2019-06-09 14:11:22.046734','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"doble-2.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(23,'2019-06-09 14:11:44.326069','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Secci\\u00f3n Foto\", \"object\": \"triple.jpg\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Triple\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Triple Room\"}}]',11,1),(24,'2019-06-09 14:17:59.514099','6','Fotos Página Inicial - 1',2,'[]',11,1),(25,'2019-06-10 04:24:29.943264','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\"}}]',11,1),(26,'2019-06-10 04:25:44.269398','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\", \"fields\": [\"texto\"]}}]',11,1),(27,'2019-06-11 02:00:40.367751','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"3\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Double room\", \"fields\": [\"texto\"]}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Doble\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Twin Room\"}}]',11,1),(28,'2019-06-11 02:01:53.330730','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"4\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Habitaci\\u00f3n Triple\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Triple Room\"}}]',11,1),(29,'2019-06-11 02:10:58.431563','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Vereda Interior\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Inner Walkway\"}}]',11,1),(30,'2019-06-11 02:12:31.049082','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"4\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Jardines\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Gardens\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Comedor\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Dining Room\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Ave\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Bird\"}}]',11,1),(31,'2019-06-11 02:14:24.029073','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Fila Secci\\u00f3n Foto\", \"object\": \"2\"}}, {\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"changed\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Inner Walkway\", \"fields\": [\"texto\"]}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Balcones\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Balconies\"}}]',11,1),(32,'2019-06-11 02:15:01.271471','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Foto de Fila Secci\\u00f3n Foto\", \"object\": \"1\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Arboles Frutales\"}}, {\"added\": {\"name\": \"Texto de Foto de Secci\\u00f3n Foto\", \"object\": \"Fruit Trees\"}}]',11,1),(33,'2019-06-11 03:28:15.365809','2','Carrusel Página Inicial',1,'[{\"added\": {}}]',15,1),(34,'2019-06-11 03:28:36.474041','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\"}}]',15,1),(35,'2019-06-11 03:30:06.846675','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"5\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"6\"}}]',15,1),(36,'2019-06-11 03:30:37.835328','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"7\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"8\"}}]',15,1),(37,'2019-06-12 00:36:11.439804','8','Quienes Somos',2,'[]',10,1),(38,'2019-06-12 00:36:18.007510','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}]',10,1),(39,'2019-06-12 00:37:36.120037','6','Fotos Página Inicial - 1',2,'[{\"changed\": {\"fields\": [\"posicion\"]}}]',11,1),(40,'2019-06-12 01:06:13.658478','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"fotos_fila\"]}}]',15,1),(41,'2019-06-12 01:07:56.289384','3','Caminatas y Tours',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"6\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"9\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"10\"}}]',15,1),(42,'2019-06-12 01:08:51.486106','3','Caminatas y Tours',2,'[{\"added\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"7\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"11\"}}, {\"added\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"12\"}}]',15,1),(43,'2019-06-12 03:53:11.959861','9','Servicios',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"3\"}}, {\"added\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"4\"}}]',10,1),(44,'2019-06-13 00:09:17.954811','1','Parametro object (1)',1,'[{\"added\": {}}]',17,1),(45,'2019-06-13 00:18:12.213257','1','Parámetro 1',2,'[{\"added\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\"}}, {\"added\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 2\"}}]',17,1),(46,'2019-06-13 00:19:55.307559','1','Parámetro 1',2,'[{\"changed\": {\"name\": \"Texto de Par\\u00e1metro\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\", \"fields\": [\"copyright\"]}}]',17,1),(47,'2019-06-13 01:02:22.143643','1','Parámetro 1',2,'[]',17,1),(48,'2019-06-13 01:03:36.359033','1','1',1,'[{\"added\": {}}]',18,1),(49,'2019-06-13 01:06:32.271322','1','1',2,'[{\"added\": {\"name\": \"Texto de Contacto\", \"object\": \"<class \'app.models.Contacto.TextoContacto\'> 1\"}}, {\"added\": {\"name\": \"Texto de Contacto\", \"object\": \"<class \'app.models.Contacto.TextoContacto\'> 2\"}}]',18,1),(50,'2019-06-13 02:05:54.455782','1','Facebook',1,'[{\"added\": {}}]',19,1),(51,'2019-06-13 02:06:11.546834','2','Instagram',1,'[{\"added\": {}}]',19,1),(52,'2019-06-13 02:29:05.514618','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"estilo\"]}}]',10,1),(53,'2019-06-13 02:29:14.345932','9','Servicios',2,'[{\"changed\": {\"fields\": [\"estilo\"]}}]',10,1),(54,'2019-06-14 02:16:15.001062','1','Inicio',2,'[{\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Inicio\", \"fields\": [\"direccion\"]}}, {\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Home\", \"fields\": [\"direccion\"]}}]',9,1),(55,'2019-06-14 02:49:58.056040','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 5\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 6\", \"fields\": [\"texto\"]}}]',15,1),(56,'2019-06-14 03:02:56.296348','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\", \"ancho\", \"color\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\", \"color\"]}}]',15,1),(57,'2019-06-14 23:42:42.619471','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"imagen\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"imagen\"]}}]',15,1),(58,'2019-06-14 23:44:22.120615','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 5\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 6\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 7\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Texto de Imagen de Secci\\u00f3n Carrusel\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoImagenSeccionCarrusel\'> 8\", \"fields\": [\"texto\"]}}]',15,1),(59,'2019-06-14 23:48:38.862800','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\", \"ancho\"]}}]',15,1),(60,'2019-06-14 23:49:08.816334','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(61,'2019-06-14 23:49:52.269039','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\"]}}]',15,1),(62,'2019-06-14 23:50:23.030506','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(63,'2019-06-14 23:50:43.484933','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posy\"]}}]',15,1),(64,'2019-06-14 23:51:33.177113','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"4\", \"fields\": [\"posx\", \"posy\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\"]}}]',15,1),(65,'2019-06-14 23:53:35.650456','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(66,'2019-06-14 23:53:40.272710','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posy\"]}}]',15,1),(67,'2019-06-14 23:54:09.555145','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(68,'2019-06-14 23:54:39.822889','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(69,'2019-06-14 23:55:23.456862','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(70,'2019-06-14 23:55:47.778634','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"ancho\"]}}]',15,1),(71,'2019-06-14 23:56:14.123099','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(72,'2019-06-14 23:56:43.897564','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen Secci\\u00f3n Carrusel\", \"object\": \"5\", \"fields\": [\"posx\"]}}]',15,1),(73,'2019-06-15 00:09:07.869546','8','Quienes Somos',2,'[{\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 1\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 2\", \"fields\": [\"texto\"]}}]',10,1),(74,'2019-06-15 00:57:25.386428','6','Fotos Página Inicial - 1',2,'[{\"added\": {\"name\": \"Texto de Secci\\u00f3n Foto\", \"object\": \"<class \'app.models.SeccionFoto.TextoSeccionFoto\'> 1\"}}, {\"added\": {\"name\": \"Texto de Secci\\u00f3n Foto\", \"object\": \"<class \'app.models.SeccionFoto.TextoSeccionFoto\'> 2\"}}]',11,1),(75,'2019-06-15 17:04:05.972695','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 1\"}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 2\"}}]',15,1),(76,'2019-06-15 17:06:26.941496','3','Caminatas y Tours',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 3\"}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 4\"}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"6\", \"fields\": [\"ancho\", \"color\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"7\", \"fields\": [\"ancho\", \"color\"]}}]',15,1),(77,'2019-06-15 17:19:32.737207','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"4\", \"fields\": [\"posx\"]}}]',15,1),(78,'2019-06-15 17:20:38.685802','2','Carrusel Página Inicial',2,'[{\"changed\": {\"fields\": [\"tipo\"]}}, {\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"4\", \"fields\": [\"posx\"]}}]',15,1),(79,'2019-06-15 18:21:55.057585','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(80,'2019-06-15 18:22:16.389554','8','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(81,'2019-06-15 18:22:25.216767','9','Servicios',2,'[{\"changed\": {\"fields\": [\"color\"]}}]',10,1),(82,'2019-06-15 19:52:03.251659','1','Parámetro 1',2,'[{\"changed\": {\"name\": \"Valores\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 1\", \"fields\": [\"titulosocial\"]}}, {\"changed\": {\"name\": \"Valores\", \"object\": \"<class \'app.models.Parametro.TextoParametro\'> 2\", \"fields\": [\"titulosocial\"]}}]',17,1),(83,'2019-06-16 01:53:46.144591','4','Quienes Somos',1,'[{\"added\": {}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 5\"}}, {\"added\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> 6\"}}, {\"added\": {\"name\": \"Im\\u00e1gen\", \"object\": \"8\"}}, {\"added\": {\"name\": \"Texto de la Imagen\", \"object\": \"8( rel\\u00e1jate en el valle sagrado)\"}}, {\"added\": {\"name\": \"Texto de la Imagen\", \"object\": \"8( relax in the sacred valley)\"}}]',15,1),(84,'2019-06-16 02:03:27.879104','8','Quienes Somos',2,'[{\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 1\", \"fields\": [\"titulo\", \"texto\"]}}, {\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 2\", \"fields\": [\"titulo\", \"texto\"]}}]',10,1),(85,'2019-06-16 02:03:51.627976','9','Servicios',2,'[{\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 3\", \"fields\": [\"titulo\", \"texto\"]}}, {\"changed\": {\"name\": \"Secci\\u00f3n Texto con Foto\", \"object\": \"<class \'app.models.TextoSeccionTextoFoto.TextoSeccionTextoFoto\'> 4\", \"fields\": [\"titulo\", \"texto\"]}}]',10,1),(86,'2019-06-16 02:05:21.098095','9','Servicios',2,'[]',10,1),(87,'2019-06-16 02:40:00.544549','4','Quienes Somos',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Texto\", \"object\": \"<class \'app.models.SeccionTexto.TextoSeccionTexto\'> 1\"}}, {\"added\": {\"name\": \"Texto\", \"object\": \"<class \'app.models.SeccionTexto.TextoSeccionTexto\'> 2\"}}]',20,1),(88,'2019-06-16 02:55:29.087861','4','Quienes Somos Inicial',2,'[{\"changed\": {\"fields\": [\"nombre\"]}}]',15,1),(89,'2019-06-16 02:56:03.230937','5','Quienes Somos Final',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Im\\u00e1gen\", \"object\": \"9\"}}]',15,1),(90,'2019-06-16 14:56:36.498566','2','Carrusel Página Inicial',2,'[{\"deleted\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> None\"}}, {\"deleted\": {\"name\": \"T\\u00edtulo\", \"object\": \"<class \'app.models.SeccionCarrusel.TextoSeccionCarrusel\'> None\"}}]',15,1),(91,'2019-06-16 14:58:10.076271','2','Carrusel Página Inicial',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"5\", \"fields\": [\"posx\", \"posy\"]}}]',15,1),(92,'2019-06-16 22:22:43.389057','3','Instalaciones',2,'[{\"changed\": {\"name\": \"Texto Opci\\u00f3n\", \"object\": \"Facilities\", \"fields\": [\"direccion\"]}}]',9,1),(93,'2019-06-16 22:28:38.716804','6','Carrusel instalaciones',1,'[{\"added\": {}}, {\"added\": {\"name\": \"Im\\u00e1gen\", \"object\": \"10\"}}]',15,1),(94,'2019-06-16 22:29:18.483465','6','Carrusel instalaciones',2,'[{\"added\": {\"name\": \"Texto de la Imagen\", \"object\": \"10( deja todo en nuestras manos)\"}}, {\"added\": {\"name\": \"Texto de la Imagen\", \"object\": \"10( leave everything in our hands)\"}}]',15,1),(95,'2019-06-16 22:29:41.380532','6','Carrusel instalaciones',2,'[{\"changed\": {\"name\": \"Im\\u00e1gen\", \"object\": \"10\", \"fields\": [\"ancho\"]}}]',15,1),(96,'2019-06-16 22:38:31.238180','5','Servicios',2,'[{\"changed\": {\"name\": \"Detalle\", \"object\": \"Services\", \"fields\": [\"direccion\"]}}]',9,1),(97,'2019-06-16 22:38:37.609427','6','Contacto',2,'[{\"changed\": {\"name\": \"Detalle\", \"object\": \"Contact\", \"fields\": [\"direccion\"]}}]',9,1),(98,'2019-06-16 22:39:12.359668','2','Quienes Somos',2,'[{\"changed\": {\"name\": \"Detalle\", \"object\": \"Who We Are\", \"fields\": [\"direccion\"]}}]',9,1),(99,'2019-06-18 00:47:16.152530','3','Instalaciones',2,'[{\"added\": {\"name\": \"Sub Opci\\u00f3n\", \"object\": \"Cuartos\"}}, {\"added\": {\"name\": \"Detalle\", \"object\": \"Cuartos\"}}, {\"added\": {\"name\": \"Detalle\", \"object\": \"Rooms\"}}]',9,1),(100,'2019-06-18 00:49:59.739961','3','Instalaciones',2,'[{\"added\": {\"name\": \"Sub Opci\\u00f3n\", \"object\": \"Ambientes\"}}, {\"changed\": {\"name\": \"Detalle\", \"object\": \"Cuartos\", \"fields\": [\"direccion\"]}}, {\"changed\": {\"name\": \"Detalle\", \"object\": \"Rooms\", \"fields\": [\"direccion\"]}}, {\"added\": {\"name\": \"Detalle\", \"object\": \"Ambientes\"}}, {\"added\": {\"name\": \"Detalle\", \"object\": \"Amenities\"}}]',9,1),(101,'2019-06-18 03:09:59.403992','1','Inicio',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}]',9,1),(102,'2019-06-19 01:28:45.773735','2','Quienes Somos',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}]',9,1),(103,'2019-06-19 01:43:19.101396','3','Instalaciones_Cuartos',2,'[{\"changed\": {\"fields\": [\"nombre\"]}}]',22,1),(104,'2019-06-19 01:44:06.828343','7','Instalaciones_Ambientes',1,'[{\"added\": {}}]',22,1),(105,'2019-06-19 02:10:35.431159','3','Instalaciones',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}, {\"changed\": {\"name\": \"Sub Opci\\u00f3n\", \"object\": \"Cuartos\", \"fields\": [\"pagina\"]}}, {\"changed\": {\"name\": \"Sub Opci\\u00f3n\", \"object\": \"Ambientes\", \"fields\": [\"pagina\"]}}]',9,1),(106,'2019-06-19 02:29:25.395860','4','Tours',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}]',9,1),(107,'2019-06-19 02:29:31.881500','5','Servicios',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}]',9,1),(108,'2019-06-19 02:29:38.981276','6','Contacto',2,'[{\"changed\": {\"fields\": [\"pagina\"]}}]',9,1),(109,'2019-06-20 02:44:17.251957','1','Ambientes',1,'[{\"added\": {}}]',23,1),(110,'2019-06-20 02:44:27.601243','2','Cuartos',1,'[{\"added\": {}}]',23,1),(111,'2019-06-20 02:47:05.974595','2','Cuartos',2,'[{\"added\": {\"name\": \"Detalle\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoSeccionInstalacion\'> 1\"}}, {\"added\": {\"name\": \"Detalle\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoSeccionInstalacion\'> 2\"}}]',23,1),(112,'2019-06-20 02:53:11.977585','2','Cuartos',2,'[{\"added\": {\"name\": \"Foto de Instalaci\\u00f3n\", \"object\": \"doble.jpg\"}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 1\"}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 2\"}}]',23,1),(113,'2019-06-20 03:22:22.213399','2','Cuartos',2,'[{\"added\": {\"name\": \"Foto de Instalaci\\u00f3n\", \"object\": \"matrimonial_jyCl4Nn.jpg\"}}, {\"added\": {\"name\": \"Foto de Instalaci\\u00f3n\", \"object\": \"triple_oyD41Zb.jpg\"}}, {\"changed\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 1\", \"fields\": [\"texto\"]}}, {\"changed\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 2\", \"fields\": [\"texto\"]}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 3\"}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 4\"}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 5\"}}, {\"added\": {\"name\": \"Foto de Foto\", \"object\": \"<class \'app.models.SeccionInstalacion.TextoFotoInstalacion\'> 6\"}}, {\"added\": {\"name\": \"Foto de Instalaci\\u00f3n\", \"object\": \"doble-detalle.jpg\"}}, {\"added\": {\"name\": \"Foto de Instalaci\\u00f3n\", \"object\": \"doble-detalle_SEzOyT2.jpg\"}}]',23,1),(114,'2019-06-20 03:35:21.828220','2','Cuartos',2,'[]',23,1),(115,'2019-06-20 03:53:59.865912','2','Cuartos',2,'[{\"added\": {\"name\": \"Foto de Foto Instalaci\\u00f3n\", \"object\": \"doble-detalle-2.jpg\"}}]',23,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +258,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +267,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(18,'app','contacto'),(13,'app','filaseccionfoto'),(14,'app','fotofilaseccionfoto'),(7,'app','idioma'),(8,'app','imageninicio'),(16,'app','imagenseccioncarrusel'),(9,'app','opcion'),(17,'app','parametro'),(15,'app','seccioncarrusel'),(11,'app','seccionfoto'),(12,'app','seccionfotofoto'),(10,'app','secciontextofoto'),(19,'app','social'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(6,'sessions','session');
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(18,'app','contacto'),(13,'app','filaseccionfoto'),(14,'app','fotofilaseccionfoto'),(24,'app','fotoinstalacion'),(7,'app','idioma'),(8,'app','imageninicio'),(16,'app','imagenseccioncarrusel'),(9,'app','opcion'),(22,'app','pagina'),(17,'app','parametro'),(15,'app','seccioncarrusel'),(11,'app','seccionfoto'),(12,'app','seccionfotofoto'),(23,'app','seccioninstalacion'),(20,'app','secciontexto'),(10,'app','secciontextofoto'),(19,'app','social'),(21,'app','subopcion'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(6,'sessions','session');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +319,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('0flahheh0imdyvwh8n47begvcaf5dqt5','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-29 17:00:44.372589'),('0yr6bak367ucvurne5zdei4ljh819bu9','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-28 03:10:05.162226'),('2wirwmkuszs0gvo8usflw353pkqsnckk','ZWNmNTM0NWRiOGYxNzdmZDk5YzIzNTI1OWMzMTcwNTU1Yjk5ZTUyYjp7Il9sYW5ndWFnZSI6ImVzIn0=','2019-06-28 02:07:00.733924'),('3u35w6f91bnng8tzno9uh7psti8d1e4h','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-18 18:12:01.849159'),('4kg4qq2vxok9v1n4ohutyts2pf60oih8','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-23 15:55:03.366329'),('8709rwy67jh3hx7g2rvi76s8ahujqdiy','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-22 18:32:34.020672'),('bdsgm297brwhwwe794txgr2e3xc175eb','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-29 19:41:20.066367'),('bfj72lzqo02zgxjrbj3kflst8b1l3icp','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-19 02:53:02.151332'),('fgk88sbe9qkndx1yhb1kpe3xk8hhi7cq','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-18 03:05:53.047655'),('ga3f4ry9nybntszu719ifts2egsrcccj','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-25 01:59:17.416579'),('jx4a5zihbcjasywzrzpgy4xn0ob3v89q','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-26 03:55:57.888973'),('le68difepykgumjsipugkd0dt88gq5k2','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-28 23:57:41.045364'),('s6bywo81pes5iuihk8s9ch84i3e5vvwt','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-20 03:50:00.699542'),('tnin79ynnhr99z048a18q1x38scu9pos','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-17 01:29:17.646386'),('vai46cdhvxvdzdkatcv25ae4je8813tj','YTA0MmM5ZDY4NWFhODgyMDRiYTZkZGIzZjZiYTI5NDJiZTNiNWRlNDp7Il9sYW5ndWFnZSI6ImZ5In0=','2019-06-20 01:58:26.438447');
+INSERT INTO `django_session` VALUES ('0flahheh0imdyvwh8n47begvcaf5dqt5','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-29 17:00:44.372589'),('0yr6bak367ucvurne5zdei4ljh819bu9','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-28 03:10:05.162226'),('2wirwmkuszs0gvo8usflw353pkqsnckk','ZWNmNTM0NWRiOGYxNzdmZDk5YzIzNTI1OWMzMTcwNTU1Yjk5ZTUyYjp7Il9sYW5ndWFnZSI6ImVzIn0=','2019-06-28 02:07:00.733924'),('3u35w6f91bnng8tzno9uh7psti8d1e4h','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-18 18:12:01.849159'),('42243qnnsth6fc41wjrw6tdcx70qxlzs','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-07-03 01:28:37.140230'),('4kg4qq2vxok9v1n4ohutyts2pf60oih8','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-23 15:55:03.366329'),('8709rwy67jh3hx7g2rvi76s8ahujqdiy','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-22 18:32:34.020672'),('bdsgm297brwhwwe794txgr2e3xc175eb','YzZhYTNiY2MwNzA1NDc4MjIwYTM2NTliMDAwZGU0OTcxOGNiZjU2Mzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZW4ifQ==','2019-06-30 15:25:33.430017'),('bfj72lzqo02zgxjrbj3kflst8b1l3icp','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-19 02:53:02.151332'),('fgk88sbe9qkndx1yhb1kpe3xk8hhi7cq','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-18 03:05:53.047655'),('ga3f4ry9nybntszu719ifts2egsrcccj','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-25 01:59:17.416579'),('jx4a5zihbcjasywzrzpgy4xn0ob3v89q','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-26 03:55:57.888973'),('le68difepykgumjsipugkd0dt88gq5k2','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-28 23:57:41.045364'),('mvrtaexnhdvyjdp1fcweukphw953g6t0','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-07-06 03:58:31.623293'),('s6bywo81pes5iuihk8s9ch84i3e5vvwt','NGJhYTEwZTNjNTc2NTc1NjQwNTBjMzViNDYwZGJkODNkOTBhZDcyNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIiwiX2xhbmd1YWdlIjoiZXMifQ==','2019-06-20 03:50:00.699542'),('tnin79ynnhr99z048a18q1x38scu9pos','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-06-17 01:29:17.646386'),('vai46cdhvxvdzdkatcv25ae4je8813tj','YTA0MmM5ZDY4NWFhODgyMDRiYTZkZGIzZjZiYTI5NDJiZTNiNWRlNDp7Il9sYW5ndWFnZSI6ImZ5In0=','2019-06-20 01:58:26.438447'),('z3dw8l2zqkajl00p79i2n9tyb5sqb04s','NjMyYzk5YWYxNTkxZTQ2M2I0ZmJhMjAyNjYzZWI1MmE3MTgzMjU2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjYTEzMjI0MTYxNWNjOGUwNDE5YTNiMWVlNGNjNzQxNzNmMDA3YzdiIn0=','2019-07-04 02:31:41.328101');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,6 +379,33 @@ INSERT INTO `foto_fila` VALUES (2,'matrimonial_fQEA1uY.jpg',1,2),(3,'doble-1_p83
 UNLOCK TABLES;
 
 --
+-- Table structure for table `foto_instalacion`
+--
+
+DROP TABLE IF EXISTS `foto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foto_instalacion` (
+  `idfoto` int(11) NOT NULL AUTO_INCREMENT,
+  `idseccion` int(11) NOT NULL,
+  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idfoto`),
+  KEY `fk_foto_instalacion_instalacion1_idx` (`idseccion`),
+  CONSTRAINT `fk_foto_instalacion_instalacion1` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `foto_instalacion`
+--
+
+LOCK TABLES `foto_instalacion` WRITE;
+/*!40000 ALTER TABLE `foto_instalacion` DISABLE KEYS */;
+INSERT INTO `foto_instalacion` VALUES (1,2,'doble.jpg'),(2,2,'matrimonial_jyCl4Nn.jpg'),(3,2,'triple_oyD41Zb.jpg');
+/*!40000 ALTER TABLE `foto_instalacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `idioma`
 --
 
@@ -425,7 +452,7 @@ CREATE TABLE `imagen_seccion_carrusel` (
   PRIMARY KEY (`idimagen`),
   KEY `fk_carrusel_idseccion_seccion_idx` (`idseccion`),
   CONSTRAINT `fk_carrusel_idseccion_seccion` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,8 +461,36 @@ CREATE TABLE `imagen_seccion_carrusel` (
 
 LOCK TABLES `imagen_seccion_carrusel` WRITE;
 /*!40000 ALTER TABLE `imagen_seccion_carrusel` DISABLE KEYS */;
-INSERT INTO `imagen_seccion_carrusel` VALUES (4,2,1,'CARRUSEL-1.jpg',12,8,20,'ffffff'),(5,2,2,'CARRUSEL-2.jpg',7,6,25,'858279'),(6,3,0,'machupicchu.jpg',0,0,0,'000000'),(7,3,0,'maras-moray.jpg',0,0,0,'000000');
+INSERT INTO `imagen_seccion_carrusel` VALUES (4,2,1,'CARRUSEL-1.jpg',12,8,20,'ffffff'),(5,2,2,'CARRUSEL-2.jpg',6,7,25,'858279'),(6,3,0,'machupicchu.jpg',0,0,0,'000000'),(7,3,0,'maras-moray.jpg',0,0,0,'000000'),(8,4,1,'quienes-somos-1.jpg',7,6,25,'858279'),(9,5,0,'quienes-somos-2.jpg',0,0,0,'000000'),(10,6,1,'instalaciones-1.jpg',8,8,30,'FFFFFF');
 /*!40000 ALTER TABLE `imagen_seccion_carrusel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `instalacion`
+--
+
+DROP TABLE IF EXISTS `instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `instalacion` (
+  `idseccion` int(11) NOT NULL AUTO_INCREMENT,
+  `idpagina` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idseccion`),
+  KEY `fk_instalacion_pagina_idx` (`idpagina`),
+  CONSTRAINT `fk_instalacion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `instalacion`
+--
+
+LOCK TABLES `instalacion` WRITE;
+/*!40000 ALTER TABLE `instalacion` DISABLE KEYS */;
+INSERT INTO `instalacion` VALUES (1,7,'Ambientes',2),(2,3,'Cuartos',2);
+/*!40000 ALTER TABLE `instalacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -449,7 +504,10 @@ CREATE TABLE `opcion` (
   `idopcion` int(11) NOT NULL AUTO_INCREMENT,
   `posicion` int(11) DEFAULT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`idopcion`)
+  `idpagina` int(11) NOT NULL,
+  PRIMARY KEY (`idopcion`),
+  KEY `fk_opcion_pagina1_idx` (`idpagina`),
+  CONSTRAINT `fk_opcion_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -459,8 +517,32 @@ CREATE TABLE `opcion` (
 
 LOCK TABLES `opcion` WRITE;
 /*!40000 ALTER TABLE `opcion` DISABLE KEYS */;
-INSERT INTO `opcion` VALUES (1,1,'Inicio'),(2,2,'Quienes Somos'),(3,3,'Instalaciones'),(4,4,'Tours'),(5,5,'Servicios'),(6,6,'Contacto');
+INSERT INTO `opcion` VALUES (1,1,'Inicio',1),(2,2,'Quienes Somos',2),(3,3,'Instalaciones',7),(4,4,'Tours',4),(5,5,'Servicios',5),(6,6,'Contacto',6);
 /*!40000 ALTER TABLE `opcion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pagina`
+--
+
+DROP TABLE IF EXISTS `pagina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pagina` (
+  `idpagina` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idpagina`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pagina`
+--
+
+LOCK TABLES `pagina` WRITE;
+/*!40000 ALTER TABLE `pagina` DISABLE KEYS */;
+INSERT INTO `pagina` VALUES (1,'Inicio'),(2,'Quienes Somos'),(3,'Instalaciones_Cuartos'),(4,'Tours'),(5,'Servicios'),(6,'Contacto'),(7,'Instalaciones_Ambientes');
+/*!40000 ALTER TABLE `pagina` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -498,15 +580,15 @@ DROP TABLE IF EXISTS `seccion_carrusel`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_carrusel` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fotosfila` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_carrusel_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_seccion_carrusel_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -515,7 +597,7 @@ CREATE TABLE `seccion_carrusel` (
 
 LOCK TABLES `seccion_carrusel` WRITE;
 /*!40000 ALTER TABLE `seccion_carrusel` DISABLE KEYS */;
-INSERT INTO `seccion_carrusel` VALUES (2,1,'Carrusel Página Inicial',1,1,1),(3,1,'Caminatas y Tours',4,2,2);
+INSERT INTO `seccion_carrusel` VALUES (2,1,'Carrusel Página Inicial',1,1,1),(3,1,'Caminatas y Tours',4,2,2),(4,2,'Quienes Somos Inicial',1,1,1),(5,2,'Quienes Somos Final',3,1,3),(6,3,'Carrusel instalaciones',1,1,1);
 /*!40000 ALTER TABLE `seccion_carrusel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -528,12 +610,12 @@ DROP TABLE IF EXISTS `seccion_foto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_foto_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_seccion_foto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -575,6 +657,34 @@ INSERT INTO `seccion_foto_foto` VALUES (1,'matrimonial_jMteVDV.jpg',NULL,0),(2,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `seccion_texto`
+--
+
+DROP TABLE IF EXISTS `seccion_texto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `seccion_texto` (
+  `idseccion` int(11) NOT NULL AUTO_INCREMENT,
+  `idpagina` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idseccion`),
+  KEY `fk_sección texto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_sección texto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `seccion_texto`
+--
+
+LOCK TABLES `seccion_texto` WRITE;
+/*!40000 ALTER TABLE `seccion_texto` DISABLE KEYS */;
+INSERT INTO `seccion_texto` VALUES (4,2,'Quienes Somos',2);
+/*!40000 ALTER TABLE `seccion_texto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `seccion_texto_foto`
 --
 
@@ -583,15 +693,15 @@ DROP TABLE IF EXISTS `seccion_texto_foto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_texto_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `posicion` int(11) NOT NULL,
   `imagen` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` int(11) NOT NULL,
   `color` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_texto_foto_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_seccion_texto_foto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -630,6 +740,37 @@ LOCK TABLES `social` WRITE;
 /*!40000 ALTER TABLE `social` DISABLE KEYS */;
 INSERT INTO `social` VALUES (1,'Facebook','icono-facebook_2TFMP3G.jpg','https://facebook.com',1),(2,'Instagram','icono-instagram_5A4T7jv.jpg','https://instagram.com',2);
 /*!40000 ALTER TABLE `social` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subopcion`
+--
+
+DROP TABLE IF EXISTS `subopcion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subopcion` (
+  `idsubopcion` int(11) NOT NULL AUTO_INCREMENT,
+  `idopcion` int(11) DEFAULT NULL,
+  `idpagina` int(11) DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idsubopcion`),
+  KEY `fk_subopcion_opcion_idx` (`idopcion`),
+  KEY `fk_subopcion_pagina_idx` (`idpagina`),
+  CONSTRAINT `fk_subopcion_opcion` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_subopcion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subopcion`
+--
+
+LOCK TABLES `subopcion` WRITE;
+/*!40000 ALTER TABLE `subopcion` DISABLE KEYS */;
+INSERT INTO `subopcion` VALUES (2,3,3,1,'Cuartos'),(3,3,7,2,'Ambientes');
+/*!40000 ALTER TABLE `subopcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -693,6 +834,37 @@ INSERT INTO `texto_foto_fila` VALUES (9,1,2,'Habitación Matrimonial'),(10,2,2,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `texto_foto_instalacion`
+--
+
+DROP TABLE IF EXISTS `texto_foto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_foto_instalacion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `ididioma` int(11) NOT NULL,
+  `idfoto` int(11) NOT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_foto_instalacion_idioma1_idx` (`ididioma`),
+  KEY `fk_texto_foto_instalacion_foto_instalacion1_idx` (`idfoto`),
+  CONSTRAINT `fk_texto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfoto`) REFERENCES `foto_instalacion` (`idfoto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_foto_instalacion_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `texto_foto_instalacion`
+--
+
+LOCK TABLES `texto_foto_instalacion` WRITE;
+/*!40000 ALTER TABLE `texto_foto_instalacion` DISABLE KEYS */;
+INSERT INTO `texto_foto_instalacion` VALUES (1,1,1,'Doble','Habitación Doble\r\n\r\n<br />\r\n\r\nDos camas\r\n\r\nBaño privado\r\n\r\n Internet - cable'),(2,2,1,'Twin','Twin Room\r\n\r\n<br />\r\n\r\nTwo beds\r\n\r\nPrivate bathroom\r\n\r\nCable & wi-fi'),(3,1,2,'Habitación matrimonial','Habitación matrimonial\r\n\r\n<br />\r\n\r\nUna cama matrimonial\r\n\r\nBaño privado\r\n\r\n Internet - cable'),(4,2,2,'Double room','Double bed\r\n\r\n<br />\r\n\r\nSingle queen size bed\r\n\r\nPrivate bathroom\r\n\r\nCable & wi-fi'),(5,1,3,'Habitación triple','Habitación triple\r\n\r\n<br />\r\n\r\nTres camas\r\n\r\nBaño privado\r\n\r\n Internet - cable'),(6,2,3,'Triple room','Triple room\r\n\r\n<br />\r\n\r\nThree beds\r\n\r\nPrivate bathroom\r\n\r\nCable & wi-fi');
+/*!40000 ALTER TABLE `texto_foto_instalacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `texto_imagen`
 --
 
@@ -709,7 +881,7 @@ CREATE TABLE `texto_imagen` (
   KEY `fk_imagen_inicio_string_idioma1_idx` (`ididioma`),
   CONSTRAINT `fk_imagen_inicio_string_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_imagen_inicio_string_imagen_inicio1` FOREIGN KEY (`idimagen`) REFERENCES `imagen_seccion_carrusel` (`idimagen`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,8 +890,38 @@ CREATE TABLE `texto_imagen` (
 
 LOCK TABLES `texto_imagen` WRITE;
 /*!40000 ALTER TABLE `texto_imagen` DISABLE KEYS */;
-INSERT INTO `texto_imagen` VALUES (5,1,4,'vive una experiencia andina'),(6,2,4,'experience the andes'),(7,1,5,'relájate en el valle sagrado'),(8,2,5,'relax in the sacred valley'),(9,1,6,'Machu Picchu'),(10,2,6,'Machu Picchu'),(11,1,7,'Maras Moray'),(12,2,7,'Maras Moray');
+INSERT INTO `texto_imagen` VALUES (5,1,4,'vive una experiencia andina'),(6,2,4,'experience the andes'),(7,1,5,'relájate en el valle sagrado'),(8,2,5,'relax in the sacred valley'),(9,1,6,'Machu Picchu'),(10,2,6,'Machu Picchu'),(11,1,7,'Maras Moray'),(12,2,7,'Maras Moray'),(13,1,8,'relájate en el valle sagrado'),(14,2,8,'relax in the sacred valley'),(15,1,10,'deja todo en nuestras manos'),(16,2,10,'leave everything in our hands');
 /*!40000 ALTER TABLE `texto_imagen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `texto_instalacion`
+--
+
+DROP TABLE IF EXISTS `texto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_instalacion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `idseccion` int(11) DEFAULT NULL,
+  `ididioma` int(11) DEFAULT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_instalacion_instalacion_idx` (`idseccion`),
+  KEY `fk_texto_instalacion_idioma_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_instalacion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_instalacion_instalacion` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `texto_instalacion`
+--
+
+LOCK TABLES `texto_instalacion` WRITE;
+/*!40000 ALTER TABLE `texto_instalacion` DISABLE KEYS */;
+INSERT INTO `texto_instalacion` VALUES (1,2,1,'Cuartos'),(2,2,2,'Rooms');
+/*!40000 ALTER TABLE `texto_instalacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -749,7 +951,7 @@ CREATE TABLE `texto_opcion` (
 
 LOCK TABLES `texto_opcion` WRITE;
 /*!40000 ALTER TABLE `texto_opcion` DISABLE KEYS */;
-INSERT INTO `texto_opcion` VALUES (1,1,1,'Inicio',''),(2,1,2,'Home',''),(3,2,1,'Quienes Somos','quienes-somos'),(4,2,2,'Who We Are','who-we-are'),(5,3,1,'Instalaciones','instalaciones'),(6,3,2,'Facilities','facilities'),(7,4,1,'Tours','tours'),(8,4,2,'Tours','tours'),(9,5,1,'Servicios','servicios'),(10,5,2,'Services','services'),(11,6,1,'Contacto','contacto'),(12,6,2,'Contact','contact');
+INSERT INTO `texto_opcion` VALUES (1,1,1,'Inicio',''),(2,1,2,'Home',''),(3,2,1,'Quienes Somos','quienes-somos'),(4,2,2,'Who We Are','quienes-somos'),(5,3,1,'Instalaciones','instalaciones'),(6,3,2,'Facilities','instalaciones'),(7,4,1,'Tours','tours'),(8,4,2,'Tours','tours'),(9,5,1,'Servicios','servicios'),(10,5,2,'Services','servicios'),(11,6,1,'Contacto','contacto'),(12,6,2,'Contact','contacto');
 /*!40000 ALTER TABLE `texto_opcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -801,7 +1003,7 @@ CREATE TABLE `texto_seccion_carrusel` (
   KEY `fk_texto_seccion_carrusel_idioma1_idx` (`ididioma`),
   CONSTRAINT `fk_texto_seccion_carrusel_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_texto_seccion_carrusel_seccion_carrusel1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -810,7 +1012,7 @@ CREATE TABLE `texto_seccion_carrusel` (
 
 LOCK TABLES `texto_seccion_carrusel` WRITE;
 /*!40000 ALTER TABLE `texto_seccion_carrusel` DISABLE KEYS */;
-INSERT INTO `texto_seccion_carrusel` VALUES (1,2,1,'Sin título'),(2,2,2,'No title'),(3,3,1,'Caminatas y tours'),(4,3,2,'Tours and walks');
+INSERT INTO `texto_seccion_carrusel` VALUES (3,3,1,'Caminatas y tours'),(4,3,2,'Tours and walks'),(5,4,1,'Sin título'),(6,4,2,'No title');
 /*!40000 ALTER TABLE `texto_seccion_carrusel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -845,6 +1047,37 @@ INSERT INTO `texto_seccion_foto` VALUES (1,6,1,'Cuartos y Ambientes'),(2,6,2,'Ro
 UNLOCK TABLES;
 
 --
+-- Table structure for table `texto_seccion_texto`
+--
+
+DROP TABLE IF EXISTS `texto_seccion_texto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_seccion_texto` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idseccion` int(11) NOT NULL,
+  `ididioma` int(11) NOT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_seccion_texto_sección texto1_idx` (`idseccion`),
+  KEY `fk_texto_seccion_texto_idioma1_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_seccion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_seccion_texto_sección texto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `texto_seccion_texto`
+--
+
+LOCK TABLES `texto_seccion_texto` WRITE;
+/*!40000 ALTER TABLE `texto_seccion_texto` DISABLE KEYS */;
+INSERT INTO `texto_seccion_texto` VALUES (1,'Quienes Somos','A los pies del nevado Chicón, en el Valle Sagrado del Urubamba encontrarás nuestro hotel.\r\n\r\nEmpieza tu día respirando aire puro, en medio de la naturaleza, árboles, flores, montañas, el cielo azul, el sol y al anochecer, la luna.\r\n\r\nSiente la calma y el olor al campo, donde puedes relajarte practicando las actividades que más te gustan.\r\n\r\nUn rico desayuno con quesos, cereales, mermeladas, aguaymanto, piña, pera, tumbos, naranjas frescas del lugar, es el principio de un día especial en Luna Rumi\r\n\r\nLa altura de 2,687 msnm es una ventaja para los visitantes. La temperatura anual fluctúa entre 14C y 23 C.',4,1),(2,'About Us','At the foot of the snowy Chicón, in the Sacred Valley of the Urubamba you will find our hotel.\r\n\r\nStart your day breathing pure air, in the midst of nature, trees, flowers, mountains, the blue sky, the sun and in the evening, the moon.\r\n\r\nFeel the calm and the smell of the countryside, where you can relax practicing the activities that you like most.\r\n\r\nA delicious breakfast with cheeses, cereals, jams, aguaymanto, pineapple, pear, tumbos, fresh local oranges, is the beginning of a special day in Luna Rumi\r\n\r\nThe height of 8,800 feet above sea level is an advantage for visitors. The annual temperature fluctuates between 57 and 73 degrees.',4,2);
+/*!40000 ALTER TABLE `texto_seccion_texto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `texto_seccion_texto_foto`
 --
 
@@ -855,6 +1088,7 @@ CREATE TABLE `texto_seccion_texto_foto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
+  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_seccion_texto_foto_texto_seccion_texto_foto1_idx` (`idseccion`),
@@ -870,8 +1104,39 @@ CREATE TABLE `texto_seccion_texto_foto` (
 
 LOCK TABLES `texto_seccion_texto_foto` WRITE;
 /*!40000 ALTER TABLE `texto_seccion_texto_foto` DISABLE KEYS */;
-INSERT INTO `texto_seccion_texto_foto` VALUES (1,8,1,'## Quienes Somos\r\n\r\nA los pies nevado Chicón, en el Valle Sagrado del Urubamba encontrarás nuestro hotel.\r\n\r\nSentirás la belleza y la calma del lugar y el olor al campo donde podrás relajarte practicando las actividades que más te gustan.\r\n\r\nEmpieza tu día respirando aire puro, en medio de la naturaleza. Intégrate con los árboles y flores, las  montañas bajo el cielo azul, el sol y al anochecer, la luna.'),(2,8,2,'## About us\r\n\r\nYou will find our hotel at the foot of the snowy Chicón mountain, in the Sacred Valley of the Urubamba.\r\n\r\nFeel the beauty, calm and fresh smell of the countryside where you can relax practicing your preferred activities.\r\n\r\nStart your day breathing pure air in the midst of nature. Integrate with the trees and flowers,  mountains under  blue sky, the sun and in the evening, the moon.'),(3,9,1,'# Servicios\r\n\r\nLuna Rumi te espera para que en la tranquilidad del Valle puedas, solo o acompañado, practicar Yoga, Tai Chi, Chi kung, stretching o realizar talleres de meditación, mindfullnes, retiros espirituales entre otras actividades.'),(4,9,2,'# Services\r\n\r\nLuna Rumi awaits so that you can, in the Valley quiet , alone or accompanied, practice Yoga, Tai Chi, Chi Kung, stretching or meditation workshops, mindfullnes exercises, spiritual retreats or our other activities.');
+INSERT INTO `texto_seccion_texto_foto` VALUES (1,8,1,'Quienes Somos','A los pies nevado Chicón, en el Valle Sagrado del Urubamba encontrarás nuestro hotel.\r\n\r\nSentirás la belleza y la calma del lugar y el olor al campo donde podrás relajarte practicando las actividades que más te gustan.\r\n\r\nEmpieza tu día respirando aire puro, en medio de la naturaleza. Intégrate con los árboles y flores, las  montañas bajo el cielo azul, el sol y al anochecer, la luna.'),(2,8,2,'About us','You will find our hotel at the foot of the snowy Chicón mountain, in the Sacred Valley of the Urubamba.\r\n\r\nFeel the beauty, calm and fresh smell of the countryside where you can relax practicing your preferred activities.\r\n\r\nStart your day breathing pure air in the midst of nature. Integrate with the trees and flowers,  mountains under  blue sky, the sun and in the evening, the moon.'),(3,9,1,'Servicios','Luna Rumi te espera para que en la tranquilidad del Valle puedas, solo o acompañado, practicar Yoga, Tai Chi, Chi kung, stretching o realizar talleres de meditación, mindfullnes, retiros espirituales entre otras actividades.'),(4,9,2,'Services','Luna Rumi awaits so that you can, in the Valley quiet , alone or accompanied, practice Yoga, Tai Chi, Chi Kung, stretching or meditation workshops, mindfullnes exercises, spiritual retreats or our other activities.');
 /*!40000 ALTER TABLE `texto_seccion_texto_foto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `texto_subopcion`
+--
+
+DROP TABLE IF EXISTS `texto_subopcion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_subopcion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `idsubopcion` int(11) NOT NULL,
+  `ididioma` int(11) DEFAULT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_subopcion_subopcion1_idx` (`idsubopcion`),
+  KEY `fk_texto_subopcion_idioma_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_subopcion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_subopcion_subopcion1` FOREIGN KEY (`idsubopcion`) REFERENCES `subopcion` (`idsubopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `texto_subopcion`
+--
+
+LOCK TABLES `texto_subopcion` WRITE;
+/*!40000 ALTER TABLE `texto_subopcion` DISABLE KEYS */;
+INSERT INTO `texto_subopcion` VALUES (1,2,1,'Cuartos','instalaciones/cuartos'),(2,2,2,'Rooms','instalaciones/cuartos'),(3,3,1,'Ambientes','instalaciones/ambientes'),(4,3,2,'Amenities','instalaciones/ambientes');
+/*!40000 ALTER TABLE `texto_subopcion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -883,4 +1148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-15 14:58:25
+-- Dump completed on 2019-06-21 23:39:40

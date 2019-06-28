@@ -5,6 +5,8 @@ from app.models.AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class SeccionTexto(AbstractSeccion):
+    tipo = models.IntegerField()
+
     class Meta:
         db_table = 'seccion_texto'
         managed = False

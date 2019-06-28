@@ -35,9 +35,23 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             {% for o in opciones %}
-                                <li class="nav-item pr-5">
-                                    <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
-                                </li>
+                                {% if o.es_padre %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{ o.titulo }}
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            {% for so in o.hijos %}
+                                                <a class="dropdown-item" href="/{{ so.handle }}">{{ so.titulo }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item pr-5">
+                                        <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
+                                    </li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

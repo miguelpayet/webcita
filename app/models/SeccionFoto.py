@@ -5,6 +5,8 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class SeccionFoto(AbstractSeccion):
+    fotos = models.IntegerField(verbose_name='Fotos por fila')
+
     class Meta:
         db_table = 'seccion_foto'
         managed = False
@@ -42,6 +44,7 @@ class FilaSeccionFoto(models.Model):
 
 
 class FotoFilaSeccionFoto(models.Model):
+    clase = models.CharField(max_length=15, blank=True)
     idfoto = models.AutoField(primary_key=True)
     imagen = models.ImageField(max_length=50)
     posicion = models.IntegerField()

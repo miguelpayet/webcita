@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql -huuubuntu -ulunarumi -plunarumi -D lunarumi
+mysql -ulunarumi -plunarumi -D lunarumi

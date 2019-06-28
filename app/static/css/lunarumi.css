@@ -1,19 +1,40 @@
+.quienes-somos .texto {
+    margin-top: 1rem;
+}
+
+.servicios h1 {
+    margin-left: 10%
+}
+
+h1 {
+    color: #858377;
+    line-height: 4rem;
+}
+
+h2 {
+    line-height: 4rem;
+}
+
+img, embed, object, video {
+    height: auto;
+    max-width: 100%;
+}
+
+#micarrusel-3 .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0088'%3e%3cpath d='M2.750l-1.51.52.52.5-2.52.51.51.54-4-4-4z'/%3e%3c/svg%3e");
+}
+
+#micarrusel-3 .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0088'%3e%3cpath d='M5.250l-44441.5-1.5-2.5-2.52.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+
 .carousel-inicio {
     padding-left: 0;
     padding-right: 0;
 }
 
-.seccion-carrusel .texto-foto-1 {
-    font-size: 4rem;
-    font-weight: 300;
-    line-height: 3.5rem;
-}
-
-.seccion-carrusel .texto-foto-2 {
-    color: #999999;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    text-align: center;
+.fondo-beige {
+    background-color: #FAECDF;
 }
 
 .margenes-seccion {
@@ -28,23 +49,33 @@
     height: 70%;
 }
 
-.seccion-foto {
-    background-color: #FAECDF;
-}
-
-.seccion-foto h1, .seccion-carrusel h1 {
-    color: #858377;
-    font-size: 4rem;
-    text-align: center;
+.pie-fondo-gris {
+    background-color: #999;
 }
 
 .quienes-somos .seccion-texto h1 {
-    color: #D9873E;
     text-align: right;
 }
 
-.quienes-somos .seccion-texto p {
+.seccion-texto p {
     font-size: 1.5rem;
+}
+
+.seccion-carrusel .texto-foto-1 {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 3.5rem;
+}
+
+.seccion-carrusel .texto-foto-2 {
+    color: #999;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.seccion-foto {
+    background-color: #FAECDF;
 }
 
 .seccion-foto p {
@@ -54,13 +85,11 @@
 
 .seccion-texto-con-foto .texto {
     font-size: 1.5rem;
-    margin: 5% 10% 0 20%;
+    margin: 2% 10% 0 20%;
 }
 
 .seccion-texto-con-foto .texto h2 {
     color: #DD862D;
-    font-size: 2.6rem;
-    line-height: 1.5rem;
 }
 
 .web-header .idioma li {
@@ -79,22 +108,18 @@
     text-align: right;
 }
 
-html {
-    font-size: 12pt;
-}
-
-img, embed, object, video {
-    height: auto;
-    max-width: 100%;
-}
-
-.pie-fondo-gris {
-    background-color: #999999;
-}
-
 .web-pie {
     color: #fff;
     padding-top: 4rem;
+}
+
+.web-pie a:active {
+    color: #ddd;
+}
+
+.web-pie a:hover {
+    color: #ddd;
+    text-decoration: underline;
 }
 
 .web-pie a:link {
@@ -103,21 +128,4 @@ img, embed, object, video {
 
 .web-pie a:visited {
     color: #fff;
-}
-
-.web-pie a:hover {
-    color: #ddd;
-    text-decoration: underline;
-}
-
-.web-pie a:active {
-    color: #ddd;
-}
-
-#micarrusel-3 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
-}
-
-#micarrusel-3 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
 }

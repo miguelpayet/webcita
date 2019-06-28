@@ -1,28 +1,27 @@
 from app.models import Contacto
 from app.models import Idioma
-from app.models import Opcion
 from app.models import Parametro
 from app.models import Social
 
+from app.models.Contacto import TextoContacto
 
-# parte del pie
+
 def contacto(cur_language):
-    contact = Contacto.objects.all().first()
+    contact = Contacto.objects.first()
     if not contact:
         raise Exception("no hay registro de contacto")
     try:
-        textini = contact.textocontacto_set.get(idioma__codigo=cur_language)
-    except Exception:
+        txt = contact.textocontacto_set.get(idioma__codigo=cur_language)
+    except TextoContacto.DoesNotExist:
         raise Exception('no hay texto contacto para %s' % cur_language)
     list_social = []
     qs_social = Social.objects.all().order_by('posicion')
     for s in qs_social:
         list_social.append({'imagen': s.imagen, 'direccion': s.direccion, 'nombre': s.nombre})
-    return {'direccion': contact.direccion, 'mail': contact.mail, 'social': list_social, 'telefonos': contact.telefonos,
-            'titulo': textini.titulo}
+    return {'direccion': contact.direccion, 'mapa': contact.mapa, 'mail': contact.mail, 'social': list_social,
+            'telefonos': contact.telefonos, 'texto': txt, 'titulo': txt.titulo}
 
 
-# parte del header
 def idiomas(cur_language):
     idioma = Idioma.objects.get(codigo=cur_language)
     if not idioma:
@@ -33,55 +32,38 @@ def idiomas(cur_language):
     return idioma, arr_idioma
 
 
-# parte del header y del pie
-def opciones(view_name, cur_language):
-    opcion = None
-    arr_opcion = []
-    for o in Opcion.objects.filter().order_by('posicion'):
-        try:
-            textini = o.textoopcion_set.get(idioma__codigo=cur_language)
-        except Exception:
-            raise Exception("opción tiene 0 o más de 1 texto en %s" % o.nombre)
-        arr_opcion.append({'handle': textini.direccion, 'titulo': textini.titulo})
-        if o.nombre == view_name:
-            opcion = o
-    if not opcion:
-        raise Exception('no existe opcion ' + view_name)
-    return opcion, arr_opcion
-
-
 # parametros
 def parametros(cur_language):
     param = Parametro.objects.all().first()
     if not param:
         raise Exception("no hay registro de parámetros")
     try:
-        textini = param.textoparametro_set.get(idioma__codigo=cur_language)
+        txt = param.textoparametro_set.get(idioma__codigo=cur_language)
     except Exception:
         raise Exception('no hay texto parámetro para %s' % cur_language)
-    return {'copyright': textini.copyright, 'logo_inferior': param.logomarron, 'logo_superior': param.logoblanco,
-            'titulosocial': textini.titulosocial}
+    return {'copyright': txt.copyright, 'logo_inferior': param.logomarron, 'logo_superior': param.logoblanco,
+            'titulosocial': txt.titulosocial}
 
 
 # sección texto
-def texto(opcion, cur_language, secciones):
-    for seccion in opcion.secciontexto_set.all():
+def texto(pagina, cur_language, secciones):
+    for seccion in pagina.secciontexto_set.all():
         try:
-            textini = seccion.textosecciontexto_set.get(idioma__codigo=cur_language)
+            txt = seccion.textosecciontexto_set.get(idioma__codigo=cur_language)
         except Exception:
-            raise Exception("texto tiene 0 o más de 1 texto %s", opcion.nombre)
+            raise Exception("texto tiene 0 o más de 1 texto %s", pagina.nombre)
         secciones.append({'nombre': seccion.nombre, 'posicion': seccion.posicion, 'seccion': 'app/seccion_texto.html',
-                          'texto': textini.texto, 'titulo': textini.titulo})
+                          'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})
 
 
 # sección texto foto
-def texto_foto(opcion, cur_language, secciones):
-    for seccion in opcion.secciontextofoto_set.all():
+def texto_foto(pagina, cur_language, secciones):
+    for seccion in pagina.secciontextofoto_set.all():
         try:
-            textini = seccion.textosecciontextofoto_set.get(idioma__codigo=cur_language)
+            txt = seccion.textosecciontextofoto_set.get(idioma__codigo=cur_language)
         except Exception:
-            raise Exception("texto foto tiene 0 o más de 1 texto %s", opcion.nombre)
+            raise Exception("texto foto tiene 0 o más de 1 texto %s", pagina.nombre)
         estilo = 'background-color: #%s;' % seccion.color
         secciones.append({'estilo': estilo, 'imagen': seccion.imagen, 'nombre': seccion.nombre, 'posicion': seccion.posicion,
-                          'rango': range(2), 'seccion': 'app/seccion_texto_foto.html', 'texto': textini.texto, 'tipo': seccion.tipo,
-                          'titulo': textini.titulo})
+                          'posicion_foto': seccion.posicion_foto, 'rango': range(2), 'seccion': 'app/seccion_texto_foto.html',
+                          'subtipo': seccion.subtipo, 'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})

@@ -1,23 +1,49 @@
 {% load my_markdown %}
 
 <div class="seccion-texto-con-foto margenes-seccion" style="{{ seccion.estilo }}">
-    <div class="row">
-        {% for n in seccion.rango %}
-            {% if seccion.tipo == 1 and n == 0 or seccion.tipo == 2 and n == 1 %}
-                <div class="col-md-5">
-                    <div class="texto">
-                        <h2>{{ seccion.titulo }}</h2>
-                        {{ seccion.texto | my_markdown }}
+    {% if seccion.tipo == 1 %}
+        <div class="row">
+            {% for n in seccion.rango %}
+                {% if seccion.subtipo == 1 %}
+                    {% if seccion.posicion_foto == 1 and n == 0 or seccion.posicion_foto == 2 and n == 0 %}
+                        <div class="col-md-2">&nbsp;</div>
+                    {% endif %}
+                {% endif %}
+                {% if seccion.posicion_foto == 1 and n == 0 or seccion.posicion_foto == 2 and n == 1 %}
+                    <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-5{% endif %}">
+                        <div class="texto">
+                            {% include 'app/titulo_seccion.html' %}
+                            {{ seccion.texto | my_markdown }}
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-            {% if seccion.tipo == 1 and n == 1 or seccion.tipo == 2 and n == 0 %}
-                <div class="col-md-7">
-                    <div class="texto-con-foto">
+                {% endif %}
+                {% if seccion.posicion_foto == 1 and n == 1 or seccion.posicion_foto == 2 and n == 0 %}
+                    <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-7{% endif %}">
+                        <div class="texto-con-foto">
+                            <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if seccion.tipo == 2 %}
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                {% include 'app/titulo_seccion.html' %}
+            </div>
+            <div class="row">
+                <div class="col-md-2 offset-md-1">
+                    {% if seccion.imagen %}
                         <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
-                    </div>
+                    {% else %}
+                        &nbsp;
+                    {% endif %}
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+                <div class="col-md-8">
+                    {{ seccion.texto | my_markdown }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 </div>

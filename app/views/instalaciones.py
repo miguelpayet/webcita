@@ -1,20 +1,27 @@
 from django.shortcuts import render
 
 from app.common import carrusel
+from app.common import instalacion
 from app.common import utils
-from app.common.secciones import texto
 
 
-def instalaciones(request):
+def instalaciones_cuartos(request):
+    return instalaciones(request, 'Cuartos')
+
+
+def instalaciones_ambientes(request):
+    return instalaciones(request, 'Ambientes')
+
+
+def instalaciones(request, view_name):
     # variables
-    view_name = 'Instalaciones'
-    (arr_idioma, arr_opcion, contact, cur_language, idioma, opcion, params) = utils.datos_comunes(view_name)
+    (arr_idioma, arr_opcion, contact, cur_language, idioma, opcion, pagina, params) = utils.datos_comunes(view_name)
     # secciones
     secciones = []
     # carrusel
-    carrusel(opcion, cur_language, secciones)
-    # seccion texto
-    texto(opcion, cur_language, secciones)
+    carrusel(pagina, cur_language, secciones)
+    # instalación
+    instalacion(view_name, cur_language, secciones)
     # sortear las secciones por posicion
     secciones = utils.sort_secciones(secciones)
     # invocar vista

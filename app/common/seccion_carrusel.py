@@ -4,8 +4,8 @@ from app.models.SeccionCarrusel import TextoImagenSeccionCarrusel
 from app.models.SeccionCarrusel import TextoSeccionCarrusel
 
 
-def carrusel(opcion, cur_language, secciones):
-    for i in opcion.seccioncarrusel_set.all():
+def carrusel(pagina, cur_language, secciones):
+    for i in pagina.seccioncarrusel_set.all():
         titulo = ""
         if i.tipo == 2:
             try:

@@ -5,34 +5,29 @@ from app.models import Contacto
 from app.models import FilaSeccionFoto
 from app.models import FotoFilaSeccionFoto
 from app.models import Idioma
-from app.models import ImagenSeccionCarrusel
-from app.models import Opcion
+from app.models import Pagina
 from app.models import Parametro
-from app.models import SeccionCarrusel
 from app.models import SeccionFoto
 from app.models import SeccionTexto
 from app.models import SeccionTextoFoto
 from app.models import Social
 from app.models import TextoContacto
 from app.models import TextoFotoFila
-from app.models import TextoImagenSeccionCarrusel
-from app.models import TextoOpcion
 from app.models import TextoParametro
-from app.models import TextoSeccionCarrusel
 from app.models import TextoSeccionFoto
 from app.models import TextoSeccionTexto
 from app.models import TextoSeccionTextoFoto
 
 
 # contacto
-class TextoContactoInline(admin.TabularInline):
+class TextoContactoInline(admin.StackedInline):
     model = TextoContacto
-    fields = ('idioma', 'titulo',)
+    fields = ('idioma', 'titulo', 'nombre', 'apellido', 'email', 'comentarios', 'titulo_email',)
     extra = 0
 
 
 class ContactoAdmin(admin.ModelAdmin):
-    fields = ('mail', 'direccion', 'telefonos',)
+    fields = ('mail', 'direccion', 'telefonos', 'mapa')
     inlines = (TextoContactoInline,)
     list_display = ('idcontacto',)
 
@@ -47,6 +42,16 @@ class IdiomaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Idioma, IdiomaAdmin)
+
+
+# paginas
+class PaginaAdmin(admin.ModelAdmin):
+    fields = ('nombre',)
+    list_display = ('nombre',)
+    ordering = ('nombre',)
+
+
+admin.site.register(Pagina, PaginaAdmin)
 
 
 # parametros
@@ -65,38 +70,6 @@ class ParametroAdmin(admin.ModelAdmin):
 admin.site.register(Parametro, ParametroAdmin)
 
 
-# sección carrusel
-class TextoImagenSeccionCarruselInline(nested_admin.NestedTabularInline):
-    extra = 0
-    fields = ('idioma', 'texto', 'imagen',)
-    model = TextoImagenSeccionCarrusel
-
-
-class TextoSeccionCarruselInline(nested_admin.NestedTabularInline):
-    extra = 0
-    fields = ('idioma', 'titulo',)
-    model = TextoSeccionCarrusel
-
-
-class ImagenSeccionCarruselAdmin(nested_admin.NestedTabularInline):
-    extra = 0
-    fields = ('imagen', 'posicion', 'posx', 'posy', 'ancho', 'color')
-    inlines = [TextoImagenSeccionCarruselInline]
-    list_display = ('posicion', 'imagen',)
-    model = ImagenSeccionCarrusel
-
-
-class SeccionCarruselAdmin(nested_admin.NestedModelAdmin):
-    extra = 0
-    fields = ('opcion', 'nombre', 'posicion', 'fotosfila', 'tipo')
-    inlines = [TextoSeccionCarruselInline, ImagenSeccionCarruselAdmin]
-    list_display = ('opcion', 'nombre', 'posicion',)
-    ordering = ('opcion', 'posicion',)
-
-
-admin.site.register(SeccionCarrusel, SeccionCarruselAdmin)
-
-
 # seccion foto
 class TextoFotoFilaInline(nested_admin.NestedTabularInline):
     extra = 0
@@ -112,7 +85,7 @@ class TextoFotoInline(nested_admin.NestedTabularInline):
 
 class FotoFilaSeccionFotoInline(nested_admin.NestedTabularInline):
     extra = 0
-    fields = ('imagen', 'posicion',)
+    fields = ('imagen', 'posicion', 'clase',)
     inlines = [TextoFotoFilaInline]
     model = FotoFilaSeccionFoto
 
@@ -125,10 +98,10 @@ class FilaSeccionFotoInline(nested_admin.NestedTabularInline):
 
 
 class SeccionFotoAdmin(nested_admin.NestedModelAdmin):
-    fields = ('nombre', 'opcion', 'posicion',)
+    fields = ('pagina', 'posicion', 'nombre', 'fotos',)
     inlines = [TextoFotoInline, FilaSeccionFotoInline]
-    list_display = ('opcion', 'posicion', 'nombre',)
-    ordering = ('opcion', 'posicion',)
+    list_display = ('pagina', 'nombre', 'posicion')
+    ordering = ('pagina', 'posicion',)
 
 
 admin.site.register(SeccionFoto, SeccionFotoAdmin)
@@ -142,9 +115,9 @@ class TextoSeccionTextoInline(admin.TabularInline):
 
 
 class SeccionTextoAdmin(admin.ModelAdmin):
-    fields = ('opcion', 'nombre', 'posicion')
+    fields = ('pagina', 'nombre', 'posicion', 'tipo',)
     inlines = (TextoSeccionTextoInline,)
-    list_display = ('nombre', 'posicion')
+    list_display = ('nombre', 'posicion', 'tipo',)
     ordering = ('posicion', 'nombre')
 
 
@@ -159,30 +132,13 @@ class TextoSeccionTextoFotoInline(admin.TabularInline):
 
 
 class SeccionTextoFotoAdmin(admin.ModelAdmin):
-    fields = ('imagen', 'nombre', 'opcion', 'posicion', 'tipo', 'color')
+    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'tipo', 'subtipo', 'posicion_foto', 'color')
     inlines = (TextoSeccionTextoFotoInline,)
-    list_display = ('opcion', 'posicion', 'nombre')
-    ordering = ('opcion', 'posicion',)
+    list_display = ('pagina', 'posicion', 'nombre', 'tipo', 'subtipo', 'posicion_foto',)
+    ordering = ('pagina', 'posicion',)
 
 
 admin.site.register(SeccionTextoFoto, SeccionTextoFotoAdmin)
-
-
-# sección texto imagen
-class OpcionTextoInline(admin.TabularInline):
-    extra = 0
-    fields = ('idioma', 'titulo', 'direccion')
-    model = TextoOpcion
-
-
-class OpcionAdmin(admin.ModelAdmin):
-    fields = ('posicion', 'nombre',)
-    inlines = (OpcionTextoInline,)
-    list_display = ('nombre', 'posicion',)
-    ordering = ('posicion',)
-
-
-admin.site.register(Opcion, OpcionAdmin)
 
 
 # social

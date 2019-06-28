@@ -166,7 +166,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,6 +253,23 @@ CREATE TABLE `foto_fila` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `foto_instalacion`
+--
+
+DROP TABLE IF EXISTS `foto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foto_instalacion` (
+  `idfoto` int(11) NOT NULL AUTO_INCREMENT,
+  `idseccion` int(11) NOT NULL,
+  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idfoto`),
+  KEY `fk_foto_instalacion_instalacion1_idx` (`idseccion`),
+  CONSTRAINT `fk_foto_instalacion_instalacion1` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `idioma`
 --
 
@@ -289,7 +306,25 @@ CREATE TABLE `imagen_seccion_carrusel` (
   PRIMARY KEY (`idimagen`),
   KEY `fk_carrusel_idseccion_seccion_idx` (`idseccion`),
   CONSTRAINT `fk_carrusel_idseccion_seccion` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `instalacion`
+--
+
+DROP TABLE IF EXISTS `instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `instalacion` (
+  `idseccion` int(11) NOT NULL AUTO_INCREMENT,
+  `idpagina` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idseccion`),
+  KEY `fk_instalacion_pagina_idx` (`idpagina`),
+  CONSTRAINT `fk_instalacion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,8 +338,25 @@ CREATE TABLE `opcion` (
   `idopcion` int(11) NOT NULL AUTO_INCREMENT,
   `posicion` int(11) DEFAULT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`idopcion`)
+  `idpagina` int(11) NOT NULL,
+  PRIMARY KEY (`idopcion`),
+  KEY `fk_opcion_pagina1_idx` (`idpagina`),
+  CONSTRAINT `fk_opcion_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pagina`
+--
+
+DROP TABLE IF EXISTS `pagina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pagina` (
+  `idpagina` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idpagina`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,15 +384,15 @@ DROP TABLE IF EXISTS `seccion_carrusel`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_carrusel` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fotosfila` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_carrusel_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_seccion_carrusel_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,12 +404,12 @@ DROP TABLE IF EXISTS `seccion_foto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_foto_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_seccion_foto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -379,6 +431,24 @@ CREATE TABLE `seccion_foto_foto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `seccion_texto`
+--
+
+DROP TABLE IF EXISTS `seccion_texto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `seccion_texto` (
+  `idseccion` int(11) NOT NULL AUTO_INCREMENT,
+  `idpagina` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idseccion`),
+  KEY `fk_sección texto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_sección texto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `seccion_texto_foto`
 --
 
@@ -387,15 +457,15 @@ DROP TABLE IF EXISTS `seccion_texto_foto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_texto_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
-  `idopcion` int(11) NOT NULL,
+  `idpagina` int(11) NOT NULL,
   `nombre` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `posicion` int(11) NOT NULL,
   `imagen` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` int(11) NOT NULL,
   `color` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
-  KEY `fk_seccion_texto_foto_opcion1_idx` (`idopcion`),
-  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_seccion_texto_foto_opcion1_idx` (`idpagina`),
+  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -414,6 +484,27 @@ CREATE TABLE `social` (
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idsocial`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `subopcion`
+--
+
+DROP TABLE IF EXISTS `subopcion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subopcion` (
+  `idsubopcion` int(11) NOT NULL AUTO_INCREMENT,
+  `idopcion` int(11) DEFAULT NULL,
+  `idpagina` int(11) DEFAULT NULL,
+  `posicion` int(11) DEFAULT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idsubopcion`),
+  KEY `fk_subopcion_opcion_idx` (`idopcion`),
+  KEY `fk_subopcion_pagina_idx` (`idpagina`),
+  CONSTRAINT `fk_subopcion_opcion` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_subopcion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,6 +548,27 @@ CREATE TABLE `texto_foto_fila` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `texto_foto_instalacion`
+--
+
+DROP TABLE IF EXISTS `texto_foto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_foto_instalacion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `ididioma` int(11) NOT NULL,
+  `idfoto` int(11) NOT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_foto_instalacion_idioma1_idx` (`ididioma`),
+  KEY `fk_texto_foto_instalacion_foto_instalacion1_idx` (`idfoto`),
+  CONSTRAINT `fk_texto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfoto`) REFERENCES `foto_instalacion` (`idfoto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_foto_instalacion_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `texto_imagen`
 --
 
@@ -473,7 +585,27 @@ CREATE TABLE `texto_imagen` (
   KEY `fk_imagen_inicio_string_idioma1_idx` (`ididioma`),
   CONSTRAINT `fk_imagen_inicio_string_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_imagen_inicio_string_imagen_inicio1` FOREIGN KEY (`idimagen`) REFERENCES `imagen_seccion_carrusel` (`idimagen`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `texto_instalacion`
+--
+
+DROP TABLE IF EXISTS `texto_instalacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_instalacion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `idseccion` int(11) DEFAULT NULL,
+  `ididioma` int(11) DEFAULT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_instalacion_instalacion_idx` (`idseccion`),
+  KEY `fk_texto_instalacion_idioma_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_instalacion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_instalacion_instalacion` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -535,7 +667,7 @@ CREATE TABLE `texto_seccion_carrusel` (
   KEY `fk_texto_seccion_carrusel_idioma1_idx` (`ididioma`),
   CONSTRAINT `fk_texto_seccion_carrusel_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_texto_seccion_carrusel_seccion_carrusel1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -559,6 +691,27 @@ CREATE TABLE `texto_seccion_foto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `texto_seccion_texto`
+--
+
+DROP TABLE IF EXISTS `texto_seccion_texto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_seccion_texto` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idseccion` int(11) NOT NULL,
+  `ididioma` int(11) NOT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_seccion_texto_sección texto1_idx` (`idseccion`),
+  KEY `fk_texto_seccion_texto_idioma1_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_seccion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_seccion_texto_sección texto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `texto_seccion_texto_foto`
 --
 
@@ -569,12 +722,34 @@ CREATE TABLE `texto_seccion_texto_foto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
+  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_seccion_texto_foto_texto_seccion_texto_foto1_idx` (`idseccion`),
   KEY `fk_seccion_texto_foto_texto_idioma1_idx` (`ididioma`),
   CONSTRAINT `fk_seccion_texto_foto_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_seccion_texto_foto_texto_seccion_texto_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto_foto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `texto_subopcion`
+--
+
+DROP TABLE IF EXISTS `texto_subopcion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texto_subopcion` (
+  `idtexto` int(11) NOT NULL AUTO_INCREMENT,
+  `idsubopcion` int(11) NOT NULL,
+  `ididioma` int(11) DEFAULT NULL,
+  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idtexto`),
+  KEY `fk_texto_subopcion_subopcion1_idx` (`idsubopcion`),
+  KEY `fk_texto_subopcion_idioma_idx` (`ididioma`),
+  CONSTRAINT `fk_texto_subopcion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_texto_subopcion_subopcion1` FOREIGN KEY (`idsubopcion`) REFERENCES `subopcion` (`idsubopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -587,4 +762,4 @@ CREATE TABLE `texto_seccion_texto_foto` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-15 14:58:26
+-- Dump completed on 2019-06-21 23:39:40

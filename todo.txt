@@ -13,8 +13,9 @@
 * optimizado para seo
 * orden consistente en el admin
 * página 404
+* que cada view lea sus secciones de forma genérica
 * registrar los errores en bd
-* reordenar los templates y funciones como plugins con metadata
+* reordenar los templates y funciones como plugins con metadata (ej. view instalaciones)
 * titulo y descripción seo para cada ruta
 * todas las imágenes deben tener texto alt
 * traducir los slugs
@@ -22,6 +23,7 @@
 * validar el html generado
 * validar los campos a valores lógicos en el admin
 
+https://stackoverflow.com/questions/2106823/limit-a-single-record-in-model-for-django-app
 https://docs.djangoproject.com/en/2.2/topics/i18n/translation/#how-django-discovers-language-preference
 https://docs.djangoproject.com/en/2.2/topics/i18n/translation/#url-internationalization
 

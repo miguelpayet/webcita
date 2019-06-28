@@ -7,6 +7,7 @@ class Contacto(models.Model):
     direccion = models.TextField(max_length=512)
     idcontacto = models.AutoField(primary_key=True)
     mail = models.CharField(max_length=45)
+    mapa = models.ImageField(max_length=50)
     telefonos = models.TextField(max_length=512)
 
     def __str__(self):
@@ -23,8 +24,13 @@ class Contacto(models.Model):
 
 
 class TextoContacto(AbstractTextoSeccion):
+    apellido = models.CharField(max_length=45)
+    comentarios = models.CharField(max_length=45)
     contacto = models.ForeignKey('Contacto', on_delete=models.CASCADE, db_column='idcontacto')
+    email = models.CharField(max_length=45)
+    nombre = models.CharField(max_length=45)
     titulo = models.CharField(max_length=45)
+    titulo_email = models.CharField(max_length=45)
 
     class Meta:
         db_table = 'texto_contacto'
