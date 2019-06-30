@@ -17,7 +17,7 @@ class SeccionTexto(AbstractSeccion):
 class TextoSeccionTexto(AbstractTextoSeccion):
     titulo = models.CharField(max_length=128)
     texto = models.TextField(max_length=1024)
-    idseccion = models.ForeignKey('SeccionTexto', on_delete=models.CASCADE, db_column='idseccion')
+    idseccion = models.ForeignKey('SeccionTexto', on_delete=models.CASCADE, db_column='idseccion', related_name='textos')
 
     class Meta:
         db_table = 'texto_seccion_texto'

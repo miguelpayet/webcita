@@ -4,12 +4,12 @@ from app.models.SeccionCarrusel import TextoImagenSeccionCarrusel
 from app.models.SeccionCarrusel import TextoSeccionCarrusel
 
 
-def carrusel(pagina, cur_language, secciones):
+def carrusel(pagina, idioma, secciones):
     for i in pagina.seccioncarrusel_set.all():
         titulo = ""
         if i.tipo == 2:
             try:
-                texto = i.textoseccioncarrusel_set.get(idioma__codigo=cur_language)
+                texto = i.textoseccioncarrusel_set.get(idioma=idioma)
                 titulo = texto.titulo
             except (MultipleObjectsReturned, TextoSeccionCarrusel.DoesNotExist):
                 raise Exception("carrusel %s no tiene título" % i.nombre)
@@ -17,13 +17,13 @@ def carrusel(pagina, cur_language, secciones):
             clase = "col-md-10 offset-md-1"
         else:
             clase = "col-md-" + str(int(round(12 / i.fotosfila)))
-        list_fotos = obtener_fotos(i, cur_language)
+        list_fotos = obtener_fotos(i, idioma)
         secciones.append({
             'carrusel': list_fotos, 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion, 'seccion': 'app/seccion_carrusel.html',
             'tipo': i.tipo, 'titulo': titulo})
 
 
-def obtener_fotos(seccion, cur_language):
+def obtener_fotos(seccion, idioma):
     list_fotos = []
     qs_fotos = seccion.imagenseccioncarrusel_set.all().order_by('posicion')
     list_filas = []
@@ -33,7 +33,7 @@ def obtener_fotos(seccion, cur_language):
             list_filas.append(list_fotos)
             list_fotos = []
         try:
-            texto = foto.textoimagenseccioncarrusel_set.get(idioma__codigo=cur_language)
+            texto = foto.textoimagenseccioncarrusel_set.get(idioma=idioma)
             texto_foto = texto.texto
         except (MultipleObjectsReturned, TextoImagenSeccionCarrusel.DoesNotExist):
             if seccion.tipo != 3:

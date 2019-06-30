@@ -2,16 +2,16 @@ from app.models import Opcion
 from app.models import SubOpcion
 
 
-def opciones(view_name, cur_language):
+def opciones(view_name, idioma):
     # datos de las opciones
     arr_opcion = []
     for o in Opcion.objects.filter().order_by('posicion'):
         try:
-            txt = o.textoopcion_set.get(idioma__codigo=cur_language)
+            txt = o.textoopcion_set.get(idioma=idioma)
         except Exception:
             raise Exception("opción tiene 0 o más de 1 texto en %s" % o.nombre)
         if o.subopcion_set.count() > 0:
-            arr_subopcion = subopciones(o, cur_language)
+            arr_subopcion = subopciones(o, idioma)
             arr_opcion.append({'es_padre': True, 'handle': txt.direccion, 'titulo': txt.titulo, 'hijos': arr_subopcion})
         else:
             arr_opcion.append({'es_padre': False, 'handle': txt.direccion, 'titulo': txt.titulo})
@@ -30,11 +30,11 @@ def opcion_actual(view_name):
     return opcion
 
 
-def subopciones(opcion, cur_language):
+def subopciones(opcion, idioma):
     arr_subopcion = []
     for so in opcion.subopcion_set.all().prefetch_related('pagina'):
         try:
-            txt = so.textosubopcion_set.get(idioma__codigo=cur_language)
+            txt = so.textosubopcion_set.get(idioma=idioma)
         except Exception:
             raise Exception("subopción tiene 0 o más de 1 texto en %s" % opcion.nombre)
         arr_subopcion.append({'handle': txt.direccion, 'titulo': txt.titulo})

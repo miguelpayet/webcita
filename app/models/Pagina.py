@@ -1,5 +1,7 @@
 from django.db import models
 
+from app.models.AbstractTextoSeccion import AbstractTextoSeccion
+
 
 class Pagina(models.Model):
     idpagina = models.AutoField(primary_key=True)
@@ -16,3 +18,15 @@ class Pagina(models.Model):
         managed = False
         verbose_name = 'Página'
         verbose_name_plural = 'Páginas'
+
+
+class TextoPagina(AbstractTextoSeccion):
+    titulo = models.CharField(max_length=45)
+    descripcion = models.TextField(max_length=512)
+    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina', related_name='textos')
+
+    class Meta:
+        db_table = 'texto_pagina'
+        managed = False
+        verbose_name = 'Texto Página'
+        verbose_name_plural = 'Textos Página'

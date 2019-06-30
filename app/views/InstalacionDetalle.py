@@ -32,20 +32,3 @@ class InstalacionDetalle(TemplateView):
         dict_padre = {'hijo': dict_hijo}
         return render(request, 'app/seccion_instalacion_detalle.html', {'imagen': dict_padre})
         # return HttpResponse('<h1>idfoto %s</h1>' % idfoto, content_type='application/html')
-
-    def nada(self):
-        txt = None
-        # try:
-        #     txt = foto.textofotoinstalacion_set.get(idioma__codigo=cur_language)
-        # except TextoFotoInstalacion.DoesNotExist:
-        #     raise Exception("no existe texto para foto %s en instalación %s" % (foto.imagen, seccion.nombre))
-        # arr_detalle = fotos_instalacion_detalle(foto.idfoto)
-        # dict_hijo = {'active': active, 'fotos': arr_detalle, 'texto': txt.texto}
-        # arr_fotos[pos] = {'active': active, 'id': foto.idfoto, 'imagen': foto.imagen, 'texto': txt.titulo, 'hijo': dict_hijo}
-        # active = False
-        # if (pos + 1) == total:
-        #     arr_filas.append({'active': tiene_foto_activa(arr_fotos), 'fotos': arr_fotos})
-        # pos += 1
-        # if pos < total:  # añadir última fila
-        #     arr_filas.append(arr_filas)
-        # return arr_filas

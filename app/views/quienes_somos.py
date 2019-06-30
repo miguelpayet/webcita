@@ -8,17 +8,16 @@ from app.common.secciones import texto
 def quienes_somos(request):
     # variables
     view_name = 'Quienes Somos'
-    (arr_idioma, arr_opcion, contact, cur_language, idioma, opcion, pagina, params) = utils.datos_comunes(view_name)
+    (context, idioma, opcion, pagina) = utils.datos_comunes(view_name)
     # secciones
     secciones = []
     # carrusel
-    carrusel(pagina, cur_language, secciones)
+    carrusel(pagina, idioma, secciones)
     # seccion texto
-    texto(pagina, cur_language, secciones)
+    texto(pagina, idioma, secciones)
     # sortear las secciones por posicion
     secciones = utils.sort_secciones(secciones)
     # invocar vista
-    context = {'clase': 'quienes-somos', 'contacto': contact, 'cur_language': cur_language, 'idiomas': arr_idioma, 'opciones': arr_opcion,
-               'params': params, 'secciones': secciones}
+    context.update(clase='quienes-somos', secciones=secciones)
     response = render(request, 'app/pagina.html', context)
     return response

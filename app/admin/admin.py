@@ -13,6 +13,7 @@ from app.models import SeccionTextoFoto
 from app.models import Social
 from app.models import TextoContacto
 from app.models import TextoFotoFila
+from app.models import TextoPagina
 from app.models import TextoParametro
 from app.models import TextoSeccionFoto
 from app.models import TextoSeccionTexto
@@ -45,8 +46,15 @@ admin.site.register(Idioma, IdiomaAdmin)
 
 
 # paginas
+class TextoPaginaInline(admin.TabularInline):
+    extra = 0
+    fields = ('idioma', 'titulo', 'descripcion')
+    model = TextoPagina
+
+
 class PaginaAdmin(admin.ModelAdmin):
     fields = ('nombre',)
+    inlines = (TextoPaginaInline,)
     list_display = ('nombre',)
     ordering = ('nombre',)
 

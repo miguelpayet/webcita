@@ -4,14 +4,14 @@ from app.models import TextoFotoInstalacion
 from app.models import TextoSeccionInstalacion
 
 
-def instalacion(view_name, cur_language, secciones):
+def instalacion(view_name, idioma, secciones):
     try:
         seccion = SeccionInstalacion.objects.get(nombre=view_name)
         try:
-            txt = seccion.textoseccioninstalacion_set.get(idioma__codigo=cur_language)
+            txt = seccion.textoseccioninstalacion_set.get(idioma=idioma)
         except TextoSeccionInstalacion.DoesNotExist as ex:
             raise Exception("no existe texto para instalación %s" % view_name)
-        arr_filas = fotos_instalacion(seccion, cur_language)
+        arr_filas = fotos_instalacion(seccion, idioma)
         clase = "col-md-%s" % (12 // seccion.total_fila)
         dict_seccion = {'clase': clase, 'filas': arr_filas, 'posicion': seccion.posicion, 'seccion': 'app/seccion_instalacion.html',
                         'titulo': txt.titulo}
@@ -20,7 +20,7 @@ def instalacion(view_name, cur_language, secciones):
         raise Exception("no existe sección instalación para %s" % view_name)
 
 
-def fotos_instalacion(seccion, cur_language):
+def fotos_instalacion(seccion, idioma):
     active = True
     pos = 0
     total = seccion.total_fila
@@ -29,7 +29,7 @@ def fotos_instalacion(seccion, cur_language):
     for foto in seccion.fotoinstalacion_set.all():
         txt = None
         try:
-            txt = foto.textofotoinstalacion_set.get(idioma__codigo=cur_language)
+            txt = foto.textofotoinstalacion_set.get(idioma=idioma)
         except TextoFotoInstalacion.DoesNotExist:
             raise Exception("no existe texto para foto %s en instalación %s" % (foto.imagen, seccion.nombre))
         arr_detalle = fotos_instalacion_detalle(foto.idfoto)
