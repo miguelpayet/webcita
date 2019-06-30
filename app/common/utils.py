@@ -23,10 +23,10 @@ def datos_comunes(view_name):
     # datos de contacto
     contact = contacto(idioma)
     # pagina
-    pagina = get_pagina(opcion, idioma)
+    (pagina, dict_pagina) = get_pagina(opcion, idioma)
     # diccionario de contexto
     context = {'cur_language': idioma.codigo, 'contacto': contact, 'idiomas': arr_idioma, 'opciones': arr_opcion,
-               'params': params}
+               'pagina': dict_pagina, 'params': params}
     return context, idioma, opcion, pagina
 
 
@@ -40,10 +40,10 @@ def get_pagina(opcion, idioma):
     except Exception:
         raise Exception('opción %s no tiene página' % opcion.nombre)
     try:
-        pagina.textos.get(idioma=idioma)
+        txt = pagina.textos.get(idioma=idioma)
     except TextoPagina.DoesNotExist:
-        raise Exception("pagina %s no tiene nombre en %s" % (pagina.nombre, idioma.nombre))
-    return pagina
+        raise Exception("pagina %s no tiene textos en %s" % (pagina.nombre, idioma.nombre))
+    return pagina, {'titulo_pagina': txt.titulo, 'descripcion_pagina': txt.descripcion}
 
 
 # sortear las secciones por posicion

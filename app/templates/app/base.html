@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html lang="{{ cur_language }}">
 <head>
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
     </style>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/lunarumi.css" %}"/>
+    <meta name="description" content="{{ pagina.descripcion_pagina }}">
     <script type="text/javascript" src="{% static "js/jquery-3.4.1.min.js" %}"></script>
-    <title>{% block title %}lunarumi{% endblock %}</title>
+    <title>{{ pagina.titulo_pagina }}</title>
 </head>
-
 <body>
 <div class="container-fluid">
     <div class="web-header margenes-seccion">
@@ -27,6 +27,7 @@
 </div>
 <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ga.min.js" %}"></script>
 </body>
 </html>
 
