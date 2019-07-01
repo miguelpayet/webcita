@@ -19,15 +19,13 @@
                                 <div class="carousel-inner">
                                     {% for fila in seccion.filas %}
                                         <div class="carousel-item {% if fila.active %}active{% endif %}">
-                                            <div class="row">
+                                            <div class="row justify-content-center text-align:center">
                                                 {% for imagen in fila.fotos %}
-                                                    <div class="d-flex align-items-md-end {{ seccion.clase }}">
+                                                    <div class="col">
                                                         <a onclick="javascript:cargarSubCarrusel({{ imagen.id }}); return false;">
-                                                            <div class="d-flex align-items-md-end justify-content-center" style="height: 90%;">
-                                                                <img class="d-block w-75"
-                                                                     src="{{ MEDIA_URL }}{{ imagen.imagen }}"
-                                                                     alt="{{ imagen.texto }}"/>
-                                                            </div>
+                                                            <img class="d-block"
+                                                                 src="{{ MEDIA_URL }}{{ imagen.imagen }}"
+                                                                 alt="{{ imagen.texto }}"/>
                                                             <div>
                                                                 <p class="text-center texto-foto-instalacion">
                                                                     {{ imagen.texto }}
@@ -64,15 +62,6 @@
                                 <div class="col-md-6 offset-md-3">
                                     <div id="mi-carrusel-hijo-{{ seccion.posicion }}" class="carousel slide"
                                          data-ride="carousel">
-                                        {% comment %}
-                                        <ol class="carousel-indicators">
-                                            {% for fila in imagen.hijo.fotos %}
-                                                <li data-target="#mi-carrusel-hijo-{{ seccion.posicion }}"
-                                                    data-slide-to="{{ forloop.counter0 }}">
-                                                </li>
-                                            {% endfor %}
-                                        </ol>
-                                        {% endcomment %}
                                         <div id="detalle-instalacion" class="carousel-inner">
                                             {% block carrusel-detalle %}
                                                 {% include "app/seccion_instalacion_detalle.html" %}

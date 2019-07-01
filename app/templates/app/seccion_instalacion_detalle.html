@@ -3,10 +3,8 @@
 {% block carrusel-detalle %}
     {% for foto in imagen.hijo.fotos %}
         <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
-            <div class="d-flex align-items-md-end justify-content-center" style="height: 90%;">
-                <img class="img-fluid" src="{{ MEDIA_URL }}{{ foto.imagen }}"
-                     alt="{{ imagen.texto }}"/>
-            </div>
+            <img class="d-block" src="{{ MEDIA_URL }}{{ foto.imagen }}"
+                 alt="{{ imagen.texto }}"/>
             <div class="text-center">
                 <p class="texto-foto-instalacion">
                     {{ imagen.hijo.texto | my_markdown }}

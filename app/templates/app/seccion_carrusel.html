@@ -21,12 +21,11 @@
                 <div class="carousel-inner">
                     {% for fila in seccion.carrusel %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <div class="row">
+                            <div class="row d-flex align-items-end">
                                 {% for imagen in fila %}
                                     <div class="{{ seccion.clase }}">
                                         {% if seccion.tipo == 2 %}
-                                            {# si el texto se mueve en el tipo 2 hay que ajustar este % #}
-                                            <div class="d-flex align-items-md-end" style="height: 90%;">
+                                            <div class="">
                                         {% endif %}
                                         <img class="d-block w-100" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
                                              alt="{{ imagen.texto }}"/>
