@@ -6,13 +6,13 @@ from django.urls import path
 from django.urls import re_path
 from django.views.static import serve
 
-from app.views import contacto
-from app.views import index
-from app.views import instalaciones_ambientes
-from app.views import instalaciones_cuartos
-from app.views import quienes_somos
-from app.views import servicios
-from app.views import tours
+from app.views import IndexView
+from app.views import ContactoView
+from app.views import InstalacionesAmbientesView
+from app.views import InstalacionesCuartosView
+from app.views import QuienesSomosView
+from app.views import ServiciosView
+from app.views import ToursView
 from app.views.InstalacionDetalle import InstalacionDetalle
 
 # admin
@@ -26,11 +26,11 @@ urlpatterns = [
 
 # site
 urlpatterns += i18n_patterns(
-    path('', index, name='index'),
-    path('contacto', contacto, name="contacto"),
-    path('instalaciones/ambientes', instalaciones_ambientes, name="ambientes"),
-    path('instalaciones/cuartos', instalaciones_cuartos, name="cuartos"),
-    path('quienes-somos', quienes_somos, name="quienes-somos"),
-    path('servicios', servicios, name="servicios"),
-    path('tours', tours, name="tours"),
+    path('', IndexView.as_view(), name='index'),
+    path('contacto', ContactoView.as_view(), name="contacto"),
+    path('instalaciones/ambientes', InstalacionesAmbientesView.as_view(), name="ambientes"),
+    path('instalaciones/cuartos', InstalacionesCuartosView.as_view(), name="cuartos"),
+    path('quienes-somos', QuienesSomosView.as_view(), name="quienes-somos"),
+    path('servicios', ServiciosView.as_view(), name="servicios"),
+    path('tours', ToursView.as_view(), name="tours"),
 )

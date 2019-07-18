@@ -1,17 +1,15 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import TemplateView
 
 from app.common import utils
 from app.common.seccion_instalacion import fotos_instalacion_detalle
 from app.models.SeccionInstalacion import FotoInstalacion
 from app.models.SeccionInstalacion import TextoFotoInstalacion
+from app.views.MyViewBase import MyViewBase
 
 
-class InstalacionDetalle(TemplateView):
+class InstalacionDetalle(MyViewBase):
 
-    def get(self, request, *args, **kwargs):
-        idfoto = None
+    def get_context_data(self, **kwargs):
         try:
             idfoto_param = self.request.GET.get('id')
             idfoto = int(idfoto_param)
@@ -30,5 +28,4 @@ class InstalacionDetalle(TemplateView):
         arr_detalle = fotos_instalacion_detalle(foto.idfoto)
         dict_hijo = {'active': True, 'fotos': arr_detalle, 'texto': txt.texto}
         dict_padre = {'hijo': dict_hijo}
-        return render(request, 'app/seccion_instalacion_detalle.html', {'imagen': dict_padre})
-        # return HttpResponse('<h1>idfoto %s</h1>' % idfoto, content_type='application/html')
+        return {'imagen': dict_padre}
