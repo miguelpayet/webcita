@@ -9,7 +9,10 @@ from app.common import utils
 
 
 class MyViewBase(TemplateView):
-    template_name = 'app/pagina.html'
+    nombre_clase = ''
+    secciones = []
+    template_name = 'pagina.html'
+    view_name = ''
 
     def __init__(self):
         self.context = {}
@@ -20,6 +23,14 @@ class MyViewBase(TemplateView):
 
     def datos_comunes(self):
         (self.context, self.idioma, self.opcion, self.pagina) = utils.datos_comunes(self.__class__.view_name)
+
+    def get_context_data(self, **kwargs):
+        self.datos_comunes()
+        secciones = []
+        for s in self.secciones:
+            obj = s(self)
+            obj(secciones)
+        return self.ordenar_contexto(self.nombre_clase, secciones)
 
     def ordenar_contexto(self, nombre_clase, secciones):
         # sortear las secciones por posicion

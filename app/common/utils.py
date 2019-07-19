@@ -4,9 +4,9 @@ from django.utils import translation
 
 from app.common.opciones import opcion_actual
 from app.common.opciones import opciones
-from app.common.secciones import contacto
-from app.common.secciones import idiomas
-from app.common.secciones import parametros
+from deprecated.secciones import contacto
+from deprecated.secciones import idiomas
+from deprecated.secciones import parametros
 from app.models.Pagina import TextoPagina
 
 

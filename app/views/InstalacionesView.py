@@ -1,21 +1,12 @@
-from app.common import carrusel
-from app.common import instalacion
+from app.secciones import Carrusel
+from app.secciones import Instalacion
 from app.views.MyViewBase import MyViewBase
 
 
 class InstalacionesView(MyViewBase):
+    nombre_clase = 'inicio'
+    secciones = [Carrusel, Instalacion]
     view_name = ''
-
-    def get_context_data(self, **kwargs):
-        # variables
-        self.datos_comunes()
-        # secciones
-        secciones = []
-        # carrusel
-        carrusel(self.pagina, self.idioma, secciones)
-        # instalación
-        instalacion(self.__class__.view_name, self.idioma, secciones)
-        return self.ordenar_contexto('instalaciones', secciones)
 
 
 class InstalacionesCuartosView(InstalacionesView):

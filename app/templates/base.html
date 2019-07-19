@@ -17,13 +17,13 @@
 <body>
 <div class="container-fluid">
     <div class="web-header margenes-seccion">
-        {% block header %}{% include "app/header.html" %}{% endblock %}
+        {% block header %}{% include "header.html" %}{% endblock %}
     </div>
     <div class="web-content">
         {% block content %}{% endblock %}
     </div>
     <div class="web-pie pie-fondo-gris">
-        {% block pie %}{% include "app/pie.html" %}{% endblock %}
+        {% block pie %}{% include "pie.html" %}{% endblock %}
     </div>
 </div>
 <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>

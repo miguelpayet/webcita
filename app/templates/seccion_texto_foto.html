@@ -16,7 +16,7 @@
             {% endif %}
             <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-5{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-1{% else %}order-md-12{% endif %}">
                 <div class="texto">
-                    {% include 'app/titulo_seccion.html' %}
+                    {% include 'titulo_seccion.html' %}
                     {{ seccion.texto | my_markdown }}
                 </div>
             </div>
@@ -30,7 +30,7 @@
     {% if seccion.tipo == 2 %}
         <div class="row">
             <div class="col-md-10 offset-md-1">
-                {% include 'app/titulo_seccion.html' %}
+                {% include 'titulo_seccion.html' %}
             </div>
             <div class="row">
                 <div class="col-md-2 offset-md-1">

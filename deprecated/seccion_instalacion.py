@@ -13,7 +13,7 @@ def instalacion(view_name, idioma, secciones):
             raise Exception("no existe texto para instalación %s" % view_name)
         arr_filas = fotos_instalacion(seccion, idioma)
         clase = "col-md-%s" % (12 // seccion.total_fila)
-        dict_seccion = {'clase': clase, 'filas': arr_filas, 'posicion': seccion.posicion, 'seccion': 'app/seccion_instalacion.html',
+        dict_seccion = {'clase': clase, 'filas': arr_filas, 'posicion': seccion.posicion, 'seccion': 'seccion_instalacion.html',
                         'titulo': txt.titulo}
         secciones.append(dict_seccion)
     except SeccionInstalacion.DoesNotExist:

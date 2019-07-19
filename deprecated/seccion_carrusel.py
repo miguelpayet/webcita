@@ -19,7 +19,7 @@ def carrusel(pagina, idioma, secciones):
             clase = "col-md-" + str(int(round(12 / i.fotosfila)))
         list_fotos = obtener_fotos(i, idioma)
         secciones.append({
-            'carrusel': list_fotos, 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion, 'seccion': 'app/seccion_carrusel.html',
+            'carrusel': list_fotos, 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion, 'seccion': 'seccion_carrusel.html',
             'tipo': i.tipo, 'titulo': titulo})
 
 

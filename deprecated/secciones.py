@@ -53,7 +53,7 @@ def texto(pagina, idioma, secciones):
             txt = seccion.textos.get(idioma=idioma)
         except Exception:
             raise Exception("texto tiene 0 o más de 1 texto %s", pagina.nombre)
-        secciones.append({'nombre': seccion.nombre, 'posicion': seccion.posicion, 'seccion': 'app/seccion_texto.html',
+        secciones.append({'nombre': seccion.nombre, 'posicion': seccion.posicion, 'seccion': 'seccion_texto.html',
                           'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})
 
 
@@ -66,5 +66,5 @@ def texto_foto(pagina, idioma, secciones):
             raise Exception("texto foto tiene 0 o más de 1 texto %s", pagina.nombre)
         estilo = 'background-color: #%s;' % seccion.color
         secciones.append({'estilo': estilo, 'imagen': seccion.imagen, 'nombre': seccion.nombre, 'posicion': seccion.posicion,
-                          'posicion_foto': seccion.posicion_foto, 'rango': range(2), 'seccion': 'app/seccion_texto_foto.html',
+                          'posicion_foto': seccion.posicion_foto, 'rango': range(2), 'seccion': 'seccion_texto_foto.html',
                           'subtipo': seccion.subtipo, 'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})

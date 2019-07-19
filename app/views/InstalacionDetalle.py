@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 
 from app.common import utils
-from app.common.seccion_instalacion import fotos_instalacion_detalle
+from deprecated.seccion_instalacion import fotos_instalacion_detalle
 from app.models.SeccionInstalacion import FotoInstalacion
 from app.models.SeccionInstalacion import TextoFotoInstalacion
 from app.views.MyViewBase import MyViewBase
