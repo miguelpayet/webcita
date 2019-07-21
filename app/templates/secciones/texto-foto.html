@@ -14,13 +14,13 @@
                     </div>
                 {% endif %}
             {% endif %}
-            <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-5{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-1{% else %}order-md-12{% endif %}">
+            <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-4{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-1{% else %}order-md-12{% endif %}">
                 <div class="texto">
                     {% include 'titulo_seccion.html' %}
                     {{ seccion.texto | my_markdown }}
                 </div>
             </div>
-            <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-6{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-12{% else %}order-md-1{% endif %}">
+            <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-7{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-12{% else %}order-md-1{% endif %}">
                 <div class="texto-con-foto">
                     <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
                 </div>
