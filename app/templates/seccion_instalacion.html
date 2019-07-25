@@ -1,12 +1,12 @@
 <div class="seccion-instalacion">
     <div class=" fondo-beige">
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-md-12 text-center">
-                {% include 'titulo_seccion.html' %}
+                {% include 'secciones/titulo-seccion.html' %}
             </div>
-            <div class="row">
+            <div class="row no-gutters">
                 <div class="col-md-12 micarrusel">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col-md-10 offset-md-1">
                             <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
@@ -19,7 +19,7 @@
                                 <div class="carousel-inner">
                                     {% for fila in seccion.filas %}
                                         <div class="carousel-item {% if fila.active %}active{% endif %}">
-                                            <div class="row justify-content-center text-align:center">
+                                            <div class="row no-gutters justify-content-center text-align:center">
                                                 {% for imagen in fila.fotos %}
                                                     <div class="col">
                                                         <a onclick="javascript:cargarSubCarrusel({{ imagen.id }}); return false;">
@@ -58,7 +58,7 @@
                 {% if fila.active %}
                     {% for imagen in fila.fotos %}
                         {% if imagen.active %}
-                            <div class="row">
+                            <div class="row no-gutters">
                                 <div class="col-md-6 offset-md-3">
                                     <div id="mi-carrusel-hijo-{{ seccion.posicion }}" class="carousel slide"
                                          data-ride="carousel">

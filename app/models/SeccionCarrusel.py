@@ -5,6 +5,7 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class SeccionCarrusel(AbstractSeccion):
+    clase = models.CharField(max_length=20, blank=True, verbose_name='Clase')
     fotosfila = models.IntegerField(verbose_name='Fotos por fila')
     tipo = models.IntegerField()
 

@@ -5,7 +5,7 @@ from .SeccionBase import SeccionBase
 
 
 class Foto(SeccionBase):
-    template_seccion = 'seccion_foto.html'
+    template_seccion = 'secciones/foto.html'
 
     def __call__(self, secciones):
         try:

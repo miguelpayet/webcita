@@ -1,12 +1,12 @@
-<div class="seccion-carrusel margenes-seccion">
-    <div class="row">
+<div class="seccion-carrusel {{ seccion.clase }}">
+    <div class="row no-gutters">
         <div class="col-md-12">
             <div class="text-center">
-                {% include 'titulo_seccion.html' %}
+                {% include 'secciones/titulo-seccion.html' %}
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row no-gutters">
         <div class="col-md-12 micarrusel">
             <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -18,18 +18,16 @@
                 </ol>
                 <div class="carousel-inner">
                     {% for fila in seccion.carrusel %}
-                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <div class="row d-flex align-items-end">
-                                {% for imagen in fila %}
-                                    <div class="{{ seccion.clase }}">
-                                        <div class="">
-                                            <img class="d-block w-100" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
-                                                 alt="{{ imagen.texto }}"/>
-                                        </div>
-                                    </div>
-                                {% endfor %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row d-flex align-items-end">
+                            {% for imagen in fila %}
+                            <div class="{{ seccion.columnas }} {% if forloop.counter0 == 0 %}offset-md-1{% endif %}">
+                                <img class="d-block w-100" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
+                                     alt="{{ imagen.texto }}"/>
                             </div>
+                            {% endfor %}
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
                 <a class="carousel-control-prev" href="#micarrusel-{{ seccion.posicion }}" role="button"

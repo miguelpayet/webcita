@@ -19,7 +19,7 @@ def carrusel(pagina, idioma, secciones):
             clase = "col-md-" + str(int(round(12 / i.fotosfila)))
         list_fotos = obtener_fotos(i, idioma)
         secciones.append({
-            'carrusel': list_fotos, 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion, 'seccion': 'seccion_carrusel.html',
+            'carrusel': list_fotos, 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion, 'seccion': 'carrusel.html',
             'tipo': i.tipo, 'titulo': titulo})
 
 
@@ -40,10 +40,10 @@ def obtener_fotos(seccion, idioma):
                 raise Exception("imagen tiene 0 o más de 1 texto en carrusel " + seccion.nombre)
             else:
                 texto_foto = ''
-        if seccion.tipo == 1:
-            estilo = 'position:absolute; top:%s%%; left:%s%%; width:%s%%;color: #%s;' % (foto.posy, foto.posx, foto.ancho, foto.color)
-        else:
-            estilo = ''
+        # if seccion.tipo == 1:
+        #    estilo = 'position:absolute; top:%s%%; left:%s%%; width:%s%%;color: #%s;' % (foto.posy, foto.posx, foto.ancho, foto.color)
+        # else:
+        #    estilo = ''
         clase = (pos == 0 if "active" else "")
         list_fotos.append({'clase': clase, 'estilo': estilo, 'imagen': foto.imagen, 'pos': pos, 'texto': texto_foto})
         pos += 1

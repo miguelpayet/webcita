@@ -9,6 +9,7 @@
 * gracefully handle and log exceptions
 * hacer que los integer con valores fijos presenten como lista en admin
 * juntar y minimizar javascript
+* las clases y los colores hacerlos con un dropdown
 * nombres de campos consistentes en el admin
 * optimizado para seo
 * orden consistente en el admin

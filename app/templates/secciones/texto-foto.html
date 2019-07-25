@@ -1,8 +1,8 @@
 {% load my_markdown %}
 
-<div class="seccion-texto-con-foto margenes-seccion" style="{{ seccion.estilo }}">
+<div class="seccion-texto-con-foto " style="{{ seccion.estilo }}">
     {% if seccion.tipo == 1 %}
-        <div class="row">
+        <div class="row no-gutters">
             {% if seccion.subtipo == 1 %}
                 <div class="col-md-2 d-sm-none d-md-block">
                     &nbsp;
@@ -16,7 +16,7 @@
             {% endif %}
             <div class="{% if seccion.subtipo == 1 %}col-md-4{% else %}col-md-4{% endif %} col-sm-12 {% if seccion.posicion_foto == 1 %}order-md-1{% else %}order-md-12{% endif %}">
                 <div class="texto">
-                    {% include 'titulo_seccion.html' %}
+                    {% include 'secciones/titulo-seccion.html' %}
                     {{ seccion.texto | my_markdown }}
                 </div>
             </div>
@@ -28,11 +28,11 @@
         </div>
     {% endif %}
     {% if seccion.tipo == 2 %}
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-md-10 offset-md-1">
-                {% include 'titulo_seccion.html' %}
+                {% include 'secciones/titulo-seccion.html' %}
             </div>
-            <div class="row">
+            <div class="row no-gutters">
                 <div class="col-md-2 offset-md-1">
                     {% if seccion.imagen %}
                         <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>

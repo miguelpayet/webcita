@@ -140,7 +140,7 @@ class TextoSeccionTextoFotoInline(admin.TabularInline):
 
 
 class SeccionTextoFotoAdmin(admin.ModelAdmin):
-    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'tipo', 'subtipo', 'posicion_foto', 'color')
+    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'tipo', 'subtipo', 'posicion_foto', 'color', 'clase')
     inlines = (TextoSeccionTextoFotoInline,)
     list_display = ('pagina', 'posicion', 'nombre', 'tipo', 'subtipo', 'posicion_foto',)
     ordering = ('pagina', 'posicion',)

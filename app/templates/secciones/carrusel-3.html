@@ -1,14 +1,5 @@
-<div class="seccion-carrusel margenes-seccion">
-    <div class="row">
-        <div class="col-md-12">
-            {% if seccion.tipo == 2 %}
-                <div class="text-center">
-                    {% include 'titulo_seccion.html' %}
-                </div>
-            {% endif %}
-        </div>
-    </div>
-    <div class="row">
+<div class="seccion-carrusel {{ seccion.clase }} ">
+    <div class="row no-gutters">
         <div class="col-md-12 micarrusel">
             <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -21,21 +12,11 @@
                 <div class="carousel-inner">
                     {% for fila in seccion.carrusel %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <div class="row d-flex align-items-end">
+                            <div class="row no-gutters d-flex align-items-end">
                                 {% for imagen in fila %}
-                                    <div class="{{ seccion.clase }}">
-                                        {% if seccion.tipo == 2 %}
-                                            <div class="">
-                                        {% endif %}
+                                    <div class="{{ seccion.columnas }}">
                                         <img class="d-block w-100" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
                                              alt="{{ imagen.texto }}"/>
-                                        {% if seccion.tipo == 2 %}
-                                            </div>
-                                        {% endif %}
-                                        <p class="texto-foto-{{ seccion.tipo }} {{ imagen.clase }} texto-250 altura-110"
-                                           style="{{ imagen.estilo }}">
-                                            {{ imagen.texto }}
-                                        </p>
                                     </div>
                                 {% endfor %}
                             </div>

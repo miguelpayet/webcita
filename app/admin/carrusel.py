@@ -29,9 +29,9 @@ class ImagenSeccionCarruselAdmin(nested_admin.NestedTabularInline):
 
 
 class SeccionCarruselAdmin(nested_admin.NestedModelAdmin):
-    fields = ('pagina', 'posicion', 'nombre', 'fotosfila', 'tipo')
+    fields = ('pagina', 'posicion', 'nombre', 'fotosfila', 'tipo', 'clase')
     inlines = [TextoSeccionCarruselInline, ImagenSeccionCarruselAdmin]
-    list_display = ('pagina', 'nombre', 'posicion',)
+    list_display = ('pagina', 'nombre', 'posicion', 'tipo',)
     ordering = ('pagina', 'posicion',)
 
 

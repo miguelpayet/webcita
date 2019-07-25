@@ -6,7 +6,7 @@ from .SeccionBase import SeccionBase
 
 
 class Instalacion(SeccionBase):
-    template_seccion = 'seccion_carrusel.html'
+    template_seccion = 'carrusel.html'
 
     def __call__(self, secciones):
         try:

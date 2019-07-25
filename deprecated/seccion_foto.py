@@ -20,7 +20,7 @@ def foto(view_name, idioma, secciones):
         (offset, arr_fotos) = obtener_fotos(f, idioma, total)
         arr_filas.append({'offset': offset, 'cantidad': len(arr_fotos), 'fotos': arr_fotos})
     dict_foto = {'clase': clase, 'filas': arr_filas, 'nombre': sec_foto.nombre, 'posicion': sec_foto.posicion,
-                 'seccion': 'seccion_foto.html', 'titulo': txt.titulo if txt else ''}
+                 'seccion': 'foto.html', 'titulo': txt.titulo if txt else ''}
     secciones.append(dict_foto)
 
 

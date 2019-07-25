@@ -6,23 +6,26 @@ from .SeccionBase import SeccionBase
 
 
 class Carrusel(SeccionBase):
-    template_seccion = 'seccion_carrusel.html'
+    template_seccion = 'secciones/carrusel-%s.html'
 
     def __call__(self, secciones):
-        for i in self.vista.pagina.seccioncarrusel_set.all():
+        for seccion in self.vista.pagina.seccioncarrusel_set.all():
             titulo = ""
-            if i.tipo == 2:
+            if seccion.tipo == 2:
                 try:
-                    texto = i.textoseccioncarrusel_set.get(idioma=self.vista.idioma)
+                    texto = seccion.textoseccioncarrusel_set.get(idioma=self.vista.idioma)
                     titulo = texto.titulo
                 except (MultipleObjectsReturned, TextoSeccionCarrusel.DoesNotExist):
-                    raise Exception("carrusel %s no tiene título" % i.nombre)
-            if i.tipo == 3:
-                clase = "col-md-10 offset-md-1"
+                    raise Exception("carrusel %s no tiene título" % seccion.nombre)
+            if seccion.tipo == 3:
+                columnas = "col-md-10 offset-md-1"
+            elif seccion.tipo == 2:
+                columnas = "col-md-" + str(int(round(10 / seccion.fotosfila)))
             else:
-                clase = "col-md-" + str(int(round(12 / i.fotosfila)))
-            secciones.append({'carrusel': self.obtener_fotos(i), 'clase': clase, 'fotos': i.fotosfila, 'posicion': i.posicion,
-                              'seccion': self.template_seccion, 'tipo': i.tipo, 'titulo': titulo})
+                columnas = "col-md-" + str(int(round(12 / seccion.fotosfila)))
+            secciones.append(
+                {'carrusel': self.obtener_fotos(seccion), 'clase': seccion.clase, 'columnas': columnas, 'fotos': seccion.fotosfila,
+                 'posicion': seccion.posicion, 'seccion': self.template_seccion % seccion.tipo, 'tipo': seccion.tipo, 'titulo': titulo})
 
     def obtener_fotos(self, seccion):
         list_fotos = []

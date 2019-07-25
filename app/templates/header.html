@@ -1,88 +1,90 @@
 {% load i18n %}
 
-<div class="row">
-    <div class="col-md-3 offset-md-1">
-        <div class="logo">
-            <a href="/">
-                <img class="img-fluid" src="{{ MEDIA_URL }}{{ params.logo_superior }}"/>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="idioma">
-                    <ul>
-                        {% for i in idiomas %}
-                            {% if i.codigo == cur_language %}
-                                <li>{{ i.nombre }}</li>
-                            {% else %}
-                                <li><a href="javascript:cambiar_idioma('{{ i.codigo }}');">{{ i.nombre }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+<header>
+    <div class="row no-gutters">
+        <div class="col-md-3 offset-md-1">
+            <div class="logo">
+                <a href="/">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}{{ params.logo_superior }}"/>
+                </a>
             </div>
         </div>
-        <div class="row opciones">
-            <div class="col-md-12  d-flex justify-content-end align-items-end">
-                <nav class="navbar navbar-expand-md navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            {% for o in opciones %}
-                                {% if o.es_padre %}
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{ o.titulo }}
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            {% for so in o.hijos %}
-                                                <a class="dropdown-item" href="/{{ so.handle }}">{{ so.titulo }}</a>
-                                            {% endfor %}
-                                        </div>
-                                    </li>
+        <div class="col-md-8">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="idioma">
+                        <ul>
+                            {% for i in idiomas %}
+                                {% if i.codigo == cur_language %}
+                                    <li>{{ i.nombre }}</li>
                                 {% else %}
-                                    <li class="nav-item pr-5">
-                                        <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
-                                    </li>
+                                    <li><a href="javascript:cambiar_idioma('{{ i.codigo }}');">{{ i.nombre }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
                     </div>
-                </nav>
+                </div>
+            </div>
+            <div class="row no-gutters opciones">
+                <div class="col-md-12  d-flex justify-content-end align-items-end">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                {% for o in opciones %}
+                                    {% if o.es_padre %}
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{ o.titulo }}
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                {% for so in o.hijos %}
+                                                    <a class="dropdown-item" href="/{{ so.handle }}">{{ so.titulo }}</a>
+                                                {% endfor %}
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item pr-5">
+                                            <a class="nav-link" href="/{{ o.handle }}">{{ o.titulo }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="ocultar">
-        <script>
-            cambiar_idioma = function (codigo) {
-                if (jQuery) {
-                    let jqobj = jQuery('form#form_idioma');
-                    if (jqobj.length) {
-                        let form = jqobj.get(0);
-                        form.elements["language"].value = codigo
-                        form.submit();
+        <div class="ocultar">
+            <script>
+                cambiar_idioma = function (codigo) {
+                    if (jQuery) {
+                        let jqobj = jQuery('form#form_idioma');
+                        if (jqobj.length) {
+                            let form = jqobj.get(0);
+                            form.elements["language"].value = codigo
+                            form.submit();
+                        } else {
+                            console.log("no existe form en página");
+                        }
+                        console.log('bye');
                     } else {
-                        console.log("no existe form en página");
+                        console.log('no existe jQuery en página');
                     }
-                    console.log('bye');
-                } else {
-                    console.log('no existe jQuery en página');
+                    return false;
                 }
-                return false;
-            }
-        </script>
-        <form id="form_idioma" action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}"/>
-            <input name="language" type="text"/>
-            <input type="submit" value="Go"/>
-        </form>
+            </script>
+            <form id="form_idioma" action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                <input name="language" type="text"/>
+                <input type="submit" value="Go"/>
+            </form>
+        </div>
     </div>
-</div>
+</header>

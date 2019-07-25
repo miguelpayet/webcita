@@ -1,23 +1,81 @@
-.quienes-somos .texto {
-    margin-top: 1rem;
+body {
+    font-size: calc(12px + 0.5vw)
 }
 
-.servicios h1 {
-    margin-left: 10%
-}
-
+/*
 h1 {
     color: #858377;
     line-height: 4rem;
 }
+*/
 
 h2 {
-    line-height: 4rem;
+    font-size: 200%;
+    line-height: 6rem;
 }
 
 img, embed, object, video {
     height: auto;
     max-width: 100%;
+}
+
+.inicio .seccion-foto h2 {
+    color: #858376;
+}
+
+.inicio .seccion-texto-con-foto .texto h1 {
+    color: #DD862D;
+    padding-bottom: 2rem;
+}
+
+.quienes-somos h1 {
+    color: #E28526;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.quienes-somos .texto {
+    margin: 1rem 0 0 1rem;
+}
+
+.altura-110 {
+    line-height: 100%
+}
+
+.margen-vertical-3-6 {
+    margin: 3% 0 6% 0;
+}
+
+.margen-vertical-3 {
+    margin: 3% 0;
+}
+
+.margen-vertical-6 {
+    margin: 6% 0;
+}
+
+.margen-20 .texto {
+    margin: 20% 0 0 30%;
+}
+
+.texto-100 {
+    font-size: 100%;
+}
+
+.texto-150 {
+    font-size: 150%;
+}
+
+.texto-200 {
+    font-size: 200%;
+}
+
+.texto-250 {
+    font-size: 250%;
+}
+
+.servicios h1 {
+    margin-left: 10%
 }
 
 #micarrusel-3 .carousel-control-next-icon {
@@ -49,27 +107,12 @@ img, embed, object, video {
     height: 70%;
 }
 
-.pie-fondo-gris {
-    background-color: #999;
-}
-
-.quienes-somos .seccion-texto h1 {
-    text-align: right;
-}
-
-.seccion-texto p {
-    font-size: 1.5rem;
-}
-
 .seccion-carrusel .texto-foto-1 {
-    font-size: 150%;
     font-weight: 300;
-    line-height: 150%;
 }
 
 .seccion-carrusel .texto-foto-2 {
     color: #999;
-    font-size: 1.5rem;
     line-height: 2rem;
     text-align: center;
 }
@@ -81,15 +124,6 @@ img, embed, object, video {
 .seccion-foto p {
     color: #999;
     text-align: center;
-}
-
-.seccion-texto-con-foto .texto {
-    font-size: 1.5rem;
-    margin: 0% 5%;
-}
-
-.seccion-texto-con-foto .texto h2 {
-    color: #DD862D;
 }
 
 .web-header .idioma li {
@@ -128,4 +162,14 @@ img, embed, object, video {
 
 .web-pie a:visited {
     color: #fff;
+}
+
+.web-pie .contacto, .web-pie .opciones  {
+    font-size: 90%;
+    line-height: 1.25rem;
+    border-right: 1px solid white
+}
+
+.web-pie-fondo-gris {
+    background-color: #999;
 }

@@ -1,0 +1,14 @@
+{% load my_markdown %}
+
+<div class="seccion-texto margenes-seccion">
+    <div class="row no-gutters">
+        <div class="col-md-3 offset-md-2">
+            <h1>{{ seccion.titulo }}</h1>
+        </div>
+        <div class="col-md-7">
+            <div class="texto">
+                {{ seccion.texto | my_markdown }}
+            </div>
+        </div>
+    </div>
+</div>

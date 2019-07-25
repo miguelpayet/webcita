@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.6-MariaDB, for osx10.14 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.23, for osx10.14 (x86_64)
 --
--- Host: localhost    Database: lunarumi
+-- Host: uuubuntu    Database: lunarumi
 -- ------------------------------------------------------
--- Server version	10.4.6-MariaDB
+-- Server version	8.0.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `auth_group`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -58,9 +58,9 @@ DROP TABLE IF EXISTS `auth_permission`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `content_type_id` int(11) NOT NULL,
-  `codename` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `codename` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
@@ -76,13 +76,13 @@ DROP TABLE IF EXISTS `auth_user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
-  `username` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `first_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(254) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL,
@@ -138,10 +138,10 @@ DROP TABLE IF EXISTS `contacto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contacto` (
   `idcontacto` int(11) NOT NULL AUTO_INCREMENT,
-  `mail` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `direccion` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telefonos` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mapa` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `telefonos` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `mapa` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idcontacto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -156,10 +156,10 @@ DROP TABLE IF EXISTS `django_admin_log`;
 CREATE TABLE `django_admin_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `action_time` datetime(6) NOT NULL,
-  `object_id` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `object_repr` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `object_id` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `object_repr` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `action_flag` smallint(5) unsigned NOT NULL,
-  `change_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `change_message` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -179,8 +179,8 @@ DROP TABLE IF EXISTS `django_content_type`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `app_label` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `model` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -195,8 +195,8 @@ DROP TABLE IF EXISTS `django_migrations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `django_migrations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `app` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -210,8 +210,8 @@ DROP TABLE IF EXISTS `django_session`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `django_session` (
-  `session_key` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `session_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_key` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expire_date` datetime(6) NOT NULL,
   PRIMARY KEY (`session_key`),
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
@@ -231,7 +231,7 @@ CREATE TABLE `fila_seccion_foto` (
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idfila`),
   KEY `fk_fila_seccion_foto_seccion_foto1_idx` (`idseccion`),
-  CONSTRAINT `fk_fila_seccion_foto_seccion_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_foto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_fila_seccion_foto_seccion_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_foto` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -244,13 +244,13 @@ DROP TABLE IF EXISTS `foto_fila`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `foto_fila` (
   `idfoto` int(11) NOT NULL AUTO_INCREMENT,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `idfila` int(11) NOT NULL,
-  `clase` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clase` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idfoto`),
   KEY `fk_foto_fila_fila_seccion_foto1_idx1` (`idfila`),
-  CONSTRAINT `fk_foto_fila_fila_seccion_foto1` FOREIGN KEY (`idfila`) REFERENCES `fila_seccion_foto` (`idfila`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_foto_fila_fila_seccion_foto1` FOREIGN KEY (`idfila`) REFERENCES `fila_seccion_foto` (`idfila`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -264,9 +264,10 @@ DROP TABLE IF EXISTS `foto_foto_instalacion`;
 CREATE TABLE `foto_foto_instalacion` (
   `idfoto` int(11) NOT NULL AUTO_INCREMENT,
   `idfotopadre` int(11) NOT NULL,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idfoto`),
-  CONSTRAINT `fk_foto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfotopadre`) REFERENCES `foto_instalacion` (`idfoto`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_foto_foto_instalacion_foto_instalacion1` (`idfotopadre`),
+  CONSTRAINT `fk_foto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfotopadre`) REFERENCES `foto_instalacion` (`idfoto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -280,10 +281,10 @@ DROP TABLE IF EXISTS `foto_instalacion`;
 CREATE TABLE `foto_instalacion` (
   `idfoto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idfoto`),
   KEY `fk_foto_instalacion_instalacion1_idx` (`idseccion`),
-  CONSTRAINT `fk_foto_instalacion_instalacion1` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_foto_instalacion_instalacion1` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -296,10 +297,10 @@ DROP TABLE IF EXISTS `idioma`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `idioma` (
   `ididioma` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `directorio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `codigo` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `directorio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -316,14 +317,14 @@ CREATE TABLE `imagen_seccion_carrusel` (
   `idimagen` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `posicion` int(11) NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `posx` int(11) DEFAULT NULL,
   `posy` int(11) DEFAULT NULL,
   `ancho` int(11) DEFAULT NULL,
-  `color` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idimagen`),
   KEY `fk_carrusel_idseccion_seccion_idx` (`idseccion`),
-  CONSTRAINT `fk_carrusel_idseccion_seccion` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_carrusel_idseccion_seccion` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -337,12 +338,12 @@ DROP TABLE IF EXISTS `instalacion`;
 CREATE TABLE `instalacion` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
   `idpagina` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `total_fila` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_instalacion_pagina_idx` (`idpagina`),
-  CONSTRAINT `fk_instalacion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_instalacion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -356,11 +357,11 @@ DROP TABLE IF EXISTS `opcion`;
 CREATE TABLE `opcion` (
   `idopcion` int(11) NOT NULL AUTO_INCREMENT,
   `posicion` int(11) DEFAULT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idpagina` int(11) NOT NULL,
   PRIMARY KEY (`idopcion`),
   KEY `fk_opcion_pagina1_idx` (`idpagina`),
-  CONSTRAINT `fk_opcion_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_opcion_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -373,7 +374,7 @@ DROP TABLE IF EXISTS `pagina`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pagina` (
   `idpagina` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -387,9 +388,9 @@ DROP TABLE IF EXISTS `parametro`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `parametro` (
   `idparametro` int(11) NOT NULL AUTO_INCREMENT,
-  `logoblanco` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `logomarron` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `copyright` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logoblanco` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logomarron` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `copyright` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idparametro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -404,13 +405,13 @@ DROP TABLE IF EXISTS `seccion_carrusel`;
 CREATE TABLE `seccion_carrusel` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
   `idpagina` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fotosfila` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_carrusel_opcion1_idx` (`idpagina`),
-  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -424,12 +425,12 @@ DROP TABLE IF EXISTS `seccion_foto`;
 CREATE TABLE `seccion_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
   `idpagina` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fotos` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_foto_opcion1_idx` (`idpagina`),
-  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -442,7 +443,7 @@ DROP TABLE IF EXISTS `seccion_foto_foto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seccion_foto_foto` (
   `idfoto` int(11) NOT NULL AUTO_INCREMENT,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fila_seccion_foto_idfila` int(11) NOT NULL,
   PRIMARY KEY (`idfoto`),
@@ -460,12 +461,12 @@ DROP TABLE IF EXISTS `seccion_texto`;
 CREATE TABLE `seccion_texto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
   `idpagina` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_sección texto_opcion1_idx` (`idpagina`),
-  CONSTRAINT `fk_sección texto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_sección texto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -479,16 +480,16 @@ DROP TABLE IF EXISTS `seccion_texto_foto`;
 CREATE TABLE `seccion_texto_foto` (
   `idseccion` int(11) NOT NULL AUTO_INCREMENT,
   `idpagina` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `posicion` int(11) NOT NULL,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` int(11) NOT NULL,
   `posicion_foto` int(11) DEFAULT NULL,
   `subtipo` int(11) DEFAULT NULL,
-  `color` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_texto_foto_opcion1_idx` (`idpagina`),
-  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -501,9 +502,9 @@ DROP TABLE IF EXISTS `social`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `social` (
   `idsocial` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `imagen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `direccion` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`idsocial`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -521,12 +522,12 @@ CREATE TABLE `subopcion` (
   `idopcion` int(11) DEFAULT NULL,
   `idpagina` int(11) DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idsubopcion`),
   KEY `fk_subopcion_opcion_idx` (`idopcion`),
   KEY `fk_subopcion_pagina_idx` (`idpagina`),
-  CONSTRAINT `fk_subopcion_opcion` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_subopcion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_subopcion_opcion` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`),
+  CONSTRAINT `fk_subopcion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -541,17 +542,17 @@ CREATE TABLE `texto_contacto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `ididioma` int(11) NOT NULL,
   `idcontacto` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `apellido` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `comentarios` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `titulo_email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `apellido` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comentarios` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo_email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_contacto_idioma1_idx` (`ididioma`),
   KEY `fk_texto_contacto_contacto1_idx` (`idcontacto`),
-  CONSTRAINT `fk_texto_contacto_contacto1` FOREIGN KEY (`idcontacto`) REFERENCES `contacto` (`idcontacto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_contacto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_contacto_contacto1` FOREIGN KEY (`idcontacto`) REFERENCES `contacto` (`idcontacto`),
+  CONSTRAINT `fk_texto_contacto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -566,12 +567,12 @@ CREATE TABLE `texto_foto_fila` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `ididioma` int(11) NOT NULL,
   `idfoto` int(11) NOT NULL,
-  `texto` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_seccion_foto_foto_texto_idioma1_idx` (`ididioma`),
   KEY `fk_idioma_foto_fila_foto_fila1_idx` (`idfoto`),
-  CONSTRAINT `fk_idioma_foto_fila_foto_fila1` FOREIGN KEY (`idfoto`) REFERENCES `foto_fila` (`idfoto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_seccion_foto_foto_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_idioma_foto_fila_foto_fila1` FOREIGN KEY (`idfoto`) REFERENCES `foto_fila` (`idfoto`),
+  CONSTRAINT `fk_seccion_foto_foto_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -586,13 +587,13 @@ CREATE TABLE `texto_foto_instalacion` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `ididioma` int(11) NOT NULL,
   `idfoto` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_foto_instalacion_idioma1_idx` (`ididioma`),
   KEY `fk_texto_foto_instalacion_foto_instalacion1_idx` (`idfoto`),
-  CONSTRAINT `fk_texto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfoto`) REFERENCES `foto_instalacion` (`idfoto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_foto_instalacion_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_foto_instalacion_foto_instalacion1` FOREIGN KEY (`idfoto`) REFERENCES `foto_instalacion` (`idfoto`),
+  CONSTRAINT `fk_texto_foto_instalacion_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -607,12 +608,12 @@ CREATE TABLE `texto_imagen` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `ididioma` int(11) NOT NULL,
   `idimagen` int(11) NOT NULL,
-  `texto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_imagen_inicio_string_imagen_inicio1_idx` (`idimagen`),
   KEY `fk_imagen_inicio_string_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_imagen_inicio_string_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_imagen_inicio_string_imagen_inicio1` FOREIGN KEY (`idimagen`) REFERENCES `imagen_seccion_carrusel` (`idimagen`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_imagen_inicio_string_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_imagen_inicio_string_imagen_inicio1` FOREIGN KEY (`idimagen`) REFERENCES `imagen_seccion_carrusel` (`idimagen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -627,12 +628,12 @@ CREATE TABLE `texto_instalacion` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) DEFAULT NULL,
   `ididioma` int(11) DEFAULT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_instalacion_instalacion_idx` (`idseccion`),
   KEY `fk_texto_instalacion_idioma_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_instalacion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_instalacion_instalacion` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_instalacion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_texto_instalacion_instalacion` FOREIGN KEY (`idseccion`) REFERENCES `instalacion` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -647,13 +648,13 @@ CREATE TABLE `texto_opcion` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idopcion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `direccion` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_opcion_texto_opcion1_idx` (`idopcion`),
   KEY `fk_opcion_texto_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_opcion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_opcion_texto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_opcion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_opcion_texto_opcion1` FOREIGN KEY (`idopcion`) REFERENCES `opcion` (`idopcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -668,13 +669,13 @@ CREATE TABLE `texto_pagina` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `ididioma` int(11) DEFAULT NULL,
   `idpagina` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `descripcion` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `pagina_texto_idioma_idx` (`ididioma`),
   KEY `fk_texto_pagina_pagina1_idx` (`idpagina`),
-  CONSTRAINT `fk_texto_pagina_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `pagina_texto_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_pagina_pagina1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`),
+  CONSTRAINT `pagina_texto_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -689,13 +690,13 @@ CREATE TABLE `texto_parametro` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idparametro` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
-  `copyright` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `titulosocial` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `copyright` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulosocial` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_parametro_parametro1_idx` (`idparametro`),
   KEY `fk_texto_parametro_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_parametro_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_parametro_parametro1` FOREIGN KEY (`idparametro`) REFERENCES `parametro` (`idparametro`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_parametro_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_texto_parametro_parametro1` FOREIGN KEY (`idparametro`) REFERENCES `parametro` (`idparametro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -710,12 +711,12 @@ CREATE TABLE `texto_seccion_carrusel` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_seccion_carrusel_seccion_carrusel1_idx` (`idseccion`),
   KEY `fk_texto_seccion_carrusel_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_seccion_carrusel_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_seccion_carrusel_seccion_carrusel1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_seccion_carrusel_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_texto_seccion_carrusel_seccion_carrusel1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_carrusel` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -730,12 +731,12 @@ CREATE TABLE `texto_seccion_foto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_seccion_foot_seccion_foto1_idx` (`idseccion`),
   KEY `fk_texto_seccion_foto_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_seccion_foot_seccion_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_foto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_seccion_foto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_seccion_foot_seccion_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_foto` (`idseccion`),
+  CONSTRAINT `fk_texto_seccion_foto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -748,15 +749,15 @@ DROP TABLE IF EXISTS `texto_seccion_texto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `texto_seccion_texto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_seccion_texto_sección texto1_idx` (`idseccion`),
   KEY `fk_texto_seccion_texto_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_seccion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_seccion_texto_sección texto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_seccion_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_texto_seccion_texto_sección texto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -771,13 +772,13 @@ CREATE TABLE `texto_seccion_texto_foto` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idseccion` int(11) NOT NULL,
   `ididioma` int(11) NOT NULL,
-  `titulo` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `texto` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`idtexto`),
   KEY `fk_seccion_texto_foto_texto_seccion_texto_foto1_idx` (`idseccion`),
   KEY `fk_seccion_texto_foto_texto_idioma1_idx` (`ididioma`),
-  CONSTRAINT `fk_seccion_texto_foto_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_seccion_texto_foto_texto_seccion_texto_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto_foto` (`idseccion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_seccion_texto_foto_texto_idioma1` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_seccion_texto_foto_texto_seccion_texto_foto1` FOREIGN KEY (`idseccion`) REFERENCES `seccion_texto_foto` (`idseccion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -792,13 +793,13 @@ CREATE TABLE `texto_subopcion` (
   `idtexto` int(11) NOT NULL AUTO_INCREMENT,
   `idsubopcion` int(11) NOT NULL,
   `ididioma` int(11) DEFAULT NULL,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `direccion` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idtexto`),
   KEY `fk_texto_subopcion_subopcion1_idx` (`idsubopcion`),
   KEY `fk_texto_subopcion_idioma_idx` (`ididioma`),
-  CONSTRAINT `fk_texto_subopcion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_texto_subopcion_subopcion1` FOREIGN KEY (`idsubopcion`) REFERENCES `subopcion` (`idsubopcion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_texto_subopcion_idioma` FOREIGN KEY (`ididioma`) REFERENCES `idioma` (`ididioma`),
+  CONSTRAINT `fk_texto_subopcion_subopcion1` FOREIGN KEY (`idsubopcion`) REFERENCES `subopcion` (`idsubopcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -811,4 +812,4 @@ CREATE TABLE `texto_subopcion` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-30 20:06:47
+-- Dump completed on 2019-07-19 21:16:04
