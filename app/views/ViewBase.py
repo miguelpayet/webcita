@@ -8,21 +8,20 @@ import app.middleware
 from app.common import utils
 
 
-class MyViewBase(TemplateView):
+class ViewBase(TemplateView):
     nombre_clase = ''
     secciones = []
     template_name = 'pagina.html'
     view_name = ''
 
     def __init__(self):
-        self.context = {}
+        self.context = {'vista': self.view_name}
         self.idioma = None
-        self.opcion = None
         self.pagina = None
         super().__init__()
 
     def datos_comunes(self):
-        (self.context, self.idioma, self.opcion, self.pagina) = utils.datos_comunes(self.__class__.view_name)
+        (self.context, self.idioma, self.pagina) = utils.datos_comunes(self.view_name)
 
     def get_context_data(self, **kwargs):
         self.datos_comunes()

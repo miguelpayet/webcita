@@ -1,20 +1,20 @@
-<div class="seccion-contacto">
+<div class="seccion-contacto {{ seccion.estilo }}">
     <div class="row no-gutters">
         <div class="col-md-12">
             {% include 'secciones/titulo-seccion.html' %}
         </div>
     </div>
-    <div class="row no-gutters">
+    <div class="row">
         <div class="col-md-6">
-            <div class="row no-gutters">
+            <div class="row no-gutters text-center">
                 <div class="col-md-12">
                     <h1>{{ seccion.titulo_email }}</h1>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-md-12">
-                    <form action="/your-name/" method="post">
-                        <div class="row no-gutters">
+                    <form action="" method="post">
+                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="frm_nombre">{{ seccion.nombre }}</label>
                                 <input id="frm_nombre" class="form-control" type="text" name="contacto_nombre" value="">
@@ -32,8 +32,7 @@
                         <div class="form-group">
                             <label for="frm_comentarios">{{ seccion.comentarios }}</label>
                             <textarea id="frm_comentarios" class="form-control" type="text" name="contacto_comentarios"
-                                      value=""
-                                      rows="5"></textarea>
+                                      value="" rows="5"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" value="OK">
                     </form>

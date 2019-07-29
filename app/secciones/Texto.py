@@ -1,3 +1,4 @@
+from app.models import SeccionTexto
 from .SeccionBase import SeccionBase
 
 
@@ -8,7 +9,8 @@ class Texto(SeccionBase):
         for seccion in self.vista.pagina.secciontexto_set.all():
             try:
                 txt = seccion.textos.get(idioma=self.vista.idioma)
-            except Exception:
-                raise Exception("texto tiene 0 o más de 1 texto %s", self.vista.pagina.nombre)
-            secciones.append({'nombre': seccion.nombre, 'posicion': seccion.posicion, 'seccion': self.template_seccion % seccion.tipo,
-                              'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})
+            except SeccionTexto.DoesNotExist:
+                raise Exception("sección texto %s no tiene texto en %s", (self.vista.pagina.nombre, self.vista.idioma))
+            secciones.append({'estilo': seccion.clase, 'nombre': seccion.nombre, 'posicion': seccion.posicion,
+                              'seccion': self.template_seccion % seccion.tipo, 'texto': txt.texto, 'tipo': seccion.tipo,
+                              'titulo': txt.titulo})

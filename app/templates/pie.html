@@ -12,58 +12,73 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-md-6 contacto">
+        <div class="col-md-3 direccion">
             <div class="row">
                 <div class="col-md-12 offset-md-1">
                     <h3>{{ contacto.titulo }}</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row d-flex align-items-md-baseline">
-                        <div class="col-md-2 offset-md-1">
-                            <img src="{{ MEDIA_URL }}icono-mail.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <a href="mailto:{{ contacto.mail }}">
-                                {{ contacto.mail }}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2  offset-md-1">
-                            <img src="{{ MEDIA_URL }}icono-mapa.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            {{ contacto.direccion | my_markdown }}
-                        </div>
-                    </div>
+            <div class="row d-flex align-items-md-baseline">
+                <div class="col-md-2 offset-md-1">
+                    <img src="{{ MEDIA_URL }}icono-mail.jpg">
                 </div>
-                <div class="col-md-6">
-                    <div class="row d-flex  offset-md-1">
-                        <div class="col-md-2">
-                            <img src="{{ MEDIA_URL }}icono-telefono.jpg">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="telefono">
-                                {{ contacto.telefonos | my_markdown }}
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-9">
+                    <a href="mailto:{{ contacto.mail }}">
+                        {{ contacto.mail }}
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex align-items-md-baseline">
+                <div class="col-md-2 offset-md-1">
+                    <img src="{{ MEDIA_URL }}icono-mapa.jpg">
+                </div>
+                <div class="col-md-9">
+                    {{ contacto.direccion | my_markdown }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 contacto">
+            <div class="row">
+                <div class="col-md-12 offset-md-1">
+                    <h3>&nbsp;</h3>
+                </div>
+            </div>
+            <div class="row d-flex align-items-md-baseline">
+                <div class="col-md-2 offset-md-1">
+                    <img src="{{ MEDIA_URL }}icono-telefono.jpg">
+                </div>
+                <div class="col-md-9 telefono">
+                    {{ contacto.telefonos | my_markdown }}
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <h3>{{ params.titulosocial }}</h3>
-            <ul class="nav">
-                {% for social in contacto.social %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ social.direccion }}" target="_blank">
-                            <img src="{{ MEDIA_URL }}{{ social.imagen }}" alt="{{ social.nombre }}"/>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="row">
+                <div class="col-md-12 offset-md-1">
+                    <h3>{{ params.titulosocial }}</h3>
+                </div>
+            </div>
+            <div class="row d-flex align-items-md-baseline">
+                <div class="col-md-11 offset-md-1">
+                    <ul class="nav">
+                        {% for social in contacto.social %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ social.direccion }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}{{ social.imagen }}" alt="{{ social.nombre }}"/>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex align-items-md-baseline">
+        <div class="col-md-3">
+            <img class="img-fluid" src="{{ MEDIA_URL }}{{ params.logo_inferior }}"/>
+        </div>
+        <div class="col-md-9 copyright">
+            <p>{{ params.copyright }}</p>
         </div>
     </div>
 </footer>

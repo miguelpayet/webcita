@@ -1,5 +1,5 @@
 from .IndexView import IndexView
-from .MyViewBase import MyViewBase
+from .ViewBase import ViewBase
 from .ContactoView import ContactoView
 from .InstalacionesView import InstalacionesAmbientesView
 from .InstalacionesView import InstalacionesCuartosView

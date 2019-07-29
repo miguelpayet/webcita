@@ -1,9 +1,9 @@
 from app.secciones import Carrusel
 from app.secciones import Texto
-from app.views.MyViewBase import MyViewBase
+from app.views.ViewBase import ViewBase
 
 
-class QuienesSomosView(MyViewBase):
+class QuienesSomosView(ViewBase):
     nombre_clase = 'quienes-somos'
     secciones = [Carrusel, Texto]
     view_name = 'Quienes Somos'

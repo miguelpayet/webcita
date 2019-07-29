@@ -11,7 +11,7 @@ def contacto(idioma):
         raise Exception('no hay texto contacto para %s' % idioma.nombre)
     contact = txt.contacto
     list_social = social()
-    return {'direccion': contact.direccion, 'mapa': contact.mapa, 'mail': contact.mail, 'social': list_social,
+    return {'direccion': contact.direccion, 'estilo': contact.clase, 'mapa': contact.mapa, 'mail': contact.mail, 'social': list_social,
             'telefonos': contact.telefonos, 'texto': txt, 'titulo': txt.titulo}
 
 
@@ -32,7 +32,7 @@ def parametros(idioma):
     try:
         txt = TextoParametro.objects.select_related('parametro').get(idioma=idioma)
     except TextoParametro.DoesNotExist:
-        raise Exception('no hay registro de parámetros en %s' % idioma,idioma.codigo)
+        raise Exception('no hay registro de parámetros en %s' % idioma, idioma.codigo)
     return {'copyright': txt.copyright, 'logo_inferior': txt.parametro.logomarron, 'logo_superior': txt.parametro.logoblanco,
             'titulosocial': txt.titulosocial}
 

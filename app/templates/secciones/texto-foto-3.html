@@ -1,0 +1,21 @@
+{% load my_markdown %}
+
+<div class="seccion-texto-con-foto " style="{{ seccion.estilo }} {{ seccion.clase }}">
+    <div class="row no-gutters">
+        <div class="col-md-10 offset-md-1">
+            {% include 'secciones/titulo-seccion.html' %}
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2 offset-md-2">
+                {% if seccion.imagen %}
+                    <img class="d-block w-100" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </div>
+            <div class="col-md-6 texto">
+                {{ seccion.texto | my_markdown }}
+            </div>
+        </div>
+    </div>
+</div>

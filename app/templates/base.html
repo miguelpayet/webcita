@@ -10,9 +10,9 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/lunarumi.css" %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <meta name="description" content="{{ pagina.descripcion_pagina }}">
+    <meta name="description" content="{{ pagina.descripcion }}">
     <script type="text/javascript" src="{% static "js/jquery-3.4.1.min.js" %}"></script>
-    <title>{{ pagina.titulo_pagina }}</title>
+    <title>{{ pagina.titulo }}</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -22,27 +22,20 @@
     <div class="web-content">
         {% block content %}{% endblock %}
     </div>
-    <div class="web-pie web-pie-fondo-gris">
+    <div class="web-pie fondo-gris">
         {% block pie %}{% include "pie.html" %}{% endblock %}
     </div>
 </div>
 <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/ga.min.js" %}"></script>
-<div>
-    <div class="d-none d-xl-block" style="background: #007bff; color: #fff; padding: 5px; text-align: center;">XL</div>
-    <div class="d-none d-lg-block d-xl-none"
-         style="background: #27a745; color: #fff; padding: 5px; text-align: center;">LG
-    </div>
-    <div class="d-none d-md-block d-lg-none"
-         style="background: #ffc108; color: #fff; padding: 5px; text-align: center;">MD
-    </div>
-    <div class="d-none d-sm-block d-md-none"
-         style="background: #18a2b8; color: #fff; padding: 5px; text-align: center;">SM
-    </div>
-    <div class="d-block d-sm-none" style="background: #dc3545; color: #fff; padding: 5px; text-align: center;">XS</div>
-</div>
-<div><p>[tiempo]</p></div>
+<div class="text-muted info-tecnica">
+    <div class="d-none d-xl-block">XL</div>
+    <div class="d-none d-lg-block d-xl-none">LG</div>
+    <div class="d-none d-md-block d-lg-none">MD</div>
+    <div class="d-none d-sm-block d-md-none">SM</div>
+    <div class="d-block d-sm-none">XS</div>
+    <p>[tiempo]</p>
 </body>
 </html>
 

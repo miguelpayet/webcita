@@ -2,24 +2,24 @@ from app.models import Opcion
 from app.models import SubOpcion
 
 
-def opciones(view_name, idioma):
-    # datos de las opciones
+def opciones(idioma, view_name):
     arr_opcion = []
-    for o in Opcion.objects.filter().order_by('posicion'):
+    for o in Opcion.objects.order_by('posicion'):
         try:
             txt = o.textoopcion_set.get(idioma=idioma)
         except Exception:
-            raise Exception("opción tiene 0 o más de 1 texto en %s" % o.nombre)
+            raise Exception("opción %s no tiene texto en %s" % (o.nombre, idioma))
+        dict_opcion = {'handle': txt.direccion, 'titulo': txt.titulo}
         if o.subopcion_set.count() > 0:
             arr_subopcion = subopciones(o, idioma)
-            arr_opcion.append({'es_padre': True, 'handle': txt.direccion, 'titulo': txt.titulo, 'hijos': arr_subopcion})
+            activo = (len(list(filter(lambda x: x['nombre'] == view_name, arr_subopcion))) > 0)
+            arr_opcion.append({**dict_opcion, 'active': 'active' if activo else '', 'es_padre': True, 'hijos': arr_subopcion})
         else:
-            arr_opcion.append({'es_padre': False, 'handle': txt.direccion, 'titulo': txt.titulo})
+            arr_opcion.append({**dict_opcion, 'active': 'active' if view_name == o.nombre else '', 'es_padre': False})
     return arr_opcion
 
 
 def opcion_actual(view_name):
-    # opción actual
     try:
         opcion = Opcion.objects.get(nombre=view_name)
     except Opcion.DoesNotExist:
@@ -36,6 +36,6 @@ def subopciones(opcion, idioma):
         try:
             txt = so.textosubopcion_set.get(idioma=idioma)
         except Exception:
-            raise Exception("subopción tiene 0 o más de 1 texto en %s" % opcion.nombre)
-        arr_subopcion.append({'handle': txt.direccion, 'titulo': txt.titulo})
+            raise Exception("subopción %s no tiene texto en %s" % (opcion.nombre, idioma))
+        arr_subopcion.append({'handle': txt.direccion, 'nombre': so.nombre, 'titulo': txt.titulo})
     return arr_subopcion

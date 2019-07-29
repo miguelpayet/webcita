@@ -5,7 +5,6 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class SeccionTextoFoto(AbstractSeccion):
-    clase = models.CharField(max_length=20, blank=True, verbose_name='Clase')
     color = models.CharField(max_length=6)
     imagen = models.ImageField(max_length=50, blank=True)
     posicion_foto = models.IntegerField(verbose_name="Posicion izquierda o derecha", blank=True)

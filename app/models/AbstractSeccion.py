@@ -2,6 +2,7 @@ from django.db import models
 
 
 class AbstractSeccion(models.Model):
+    clase = models.CharField(max_length=50, blank=True, verbose_name='Clase de diseño')
     idseccion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45)
     pagina = models.ForeignKey('Pagina', on_delete=models.CASCADE, db_column='idpagina')  # , related_name='secciones'

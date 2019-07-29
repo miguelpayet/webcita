@@ -4,6 +4,7 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class Contacto(models.Model):
+    clase = models.CharField(max_length=50, blank=True, verbose_name='Clase de diseño')
     direccion = models.TextField(max_length=512)
     idcontacto = models.AutoField(primary_key=True)
     mail = models.CharField(max_length=45)

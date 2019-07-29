@@ -24,8 +24,8 @@ class Foto(SeccionBase):
         for f in qs_filas:
             (offset, arr_fotos) = self.obtener_fotos(f, total)
             arr_filas.append({'offset': offset, 'cantidad': len(arr_fotos), 'fotos': arr_fotos})
-        dict_foto = {'clase': clase, 'filas': arr_filas, 'nombre': sec_foto.nombre, 'posicion': sec_foto.posicion,
-                     'seccion': self.template_seccion, 'titulo': txt.titulo if txt else ''}
+        dict_foto = {'clase': clase, 'estilo': sec_foto.clase, 'filas': arr_filas, 'nombre': sec_foto.nombre,
+                     'posicion': sec_foto.posicion, 'seccion': self.template_seccion, 'titulo': txt.titulo if txt else ''}
         secciones.append(dict_foto)
 
     def obtener_fotos(self, fila, total):

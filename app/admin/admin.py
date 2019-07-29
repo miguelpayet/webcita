@@ -28,7 +28,7 @@ class TextoContactoInline(admin.StackedInline):
 
 
 class ContactoAdmin(admin.ModelAdmin):
-    fields = ('mail', 'direccion', 'telefonos', 'mapa')
+    fields = ('mail', 'direccion', 'telefonos', 'mapa', 'clase',)
     inlines = (TextoContactoInline,)
     list_display = ('idcontacto',)
 
@@ -106,7 +106,7 @@ class FilaSeccionFotoInline(nested_admin.NestedTabularInline):
 
 
 class SeccionFotoAdmin(nested_admin.NestedModelAdmin):
-    fields = ('pagina', 'posicion', 'nombre', 'fotos',)
+    fields = ('pagina', 'posicion', 'nombre', 'fotos', 'clase',)
     inlines = [TextoFotoInline, FilaSeccionFotoInline]
     list_display = ('pagina', 'nombre', 'posicion')
     ordering = ('pagina', 'posicion',)
@@ -123,7 +123,7 @@ class TextoSeccionTextoInline(admin.TabularInline):
 
 
 class SeccionTextoAdmin(admin.ModelAdmin):
-    fields = ('pagina', 'nombre', 'posicion', 'tipo',)
+    fields = ('pagina', 'nombre', 'posicion', 'tipo', 'clase',)
     inlines = (TextoSeccionTextoInline,)
     list_display = ('nombre', 'posicion', 'tipo',)
     ordering = ('posicion', 'nombre')

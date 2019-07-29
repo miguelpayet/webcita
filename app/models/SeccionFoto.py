@@ -44,7 +44,7 @@ class FilaSeccionFoto(models.Model):
 
 
 class FotoFilaSeccionFoto(models.Model):
-    clase = models.CharField(max_length=15, blank=True)
+    clase = models.CharField(max_length=50, blank=True, verbose_name='Clase de diseño')
     idfoto = models.AutoField(primary_key=True)
     imagen = models.ImageField(max_length=50)
     posicion = models.IntegerField()

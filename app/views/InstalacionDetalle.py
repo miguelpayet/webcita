@@ -4,10 +4,10 @@ from app.common import utils
 from deprecated.seccion_instalacion import fotos_instalacion_detalle
 from app.models.SeccionInstalacion import FotoInstalacion
 from app.models.SeccionInstalacion import TextoFotoInstalacion
-from app.views.MyViewBase import MyViewBase
+from app.views.ViewBase import ViewBase
 
 
-class InstalacionDetalle(MyViewBase):
+class InstalacionDetalle(ViewBase):
 
     def get_context_data(self, **kwargs):
         try:

@@ -6,7 +6,7 @@ from .SeccionBase import SeccionBase
 
 
 class Instalacion(SeccionBase):
-    template_seccion = 'carrusel.html'
+    template_seccion = 'secciones/instalacion.html'
 
     def __call__(self, secciones):
         try:
@@ -17,7 +17,7 @@ class Instalacion(SeccionBase):
                 raise Exception("no existe texto para instalación %s" % self.vista.view_name)
             arr_filas = self.fotos_instalacion(seccion)
             clase = "col-md-%s" % (12 // seccion.total_fila)
-            dict_seccion = {'clase': clase, 'filas': arr_filas, 'posicion': seccion.posicion, 'seccion': 'seccion_instalacion.html',
+            dict_seccion = {'clase': clase, 'filas': arr_filas, 'posicion': seccion.posicion, 'seccion': self.template_seccion,
                             'titulo': txt.titulo}
             secciones.append(dict_seccion)
         except SeccionInstalacion.DoesNotExist:

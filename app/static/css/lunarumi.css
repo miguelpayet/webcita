@@ -1,61 +1,117 @@
-body {
-    font-size: calc(12px + 0.5vw)
+.altura-110 {
+    line-height: 100%;
 }
 
-/*
-h1 {
-    color: #858377;
-    line-height: 4rem;
-}
-*/
-
-h2 {
-    font-size: 200%;
-    line-height: 6rem;
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%00000' viewBox='0088'%3e%3cpath d='M2.750l-1.51.52.52.5-2.52.51.51.54-4-4-4z'/%3e%3c/svg%3e");
 }
 
-img, embed, object, video {
-    height: auto;
-    max-width: 100%;
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%00000' viewBox='0088'%3e%3cpath d='M5.250l-44441.5-1.5-2.5-2.52.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
 }
 
-.inicio .seccion-foto h2 {
+.carousel-inicio {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.color-gris {
+    color: #999;
+}
+
+.titulo-gris h2 {
     color: #858376;
 }
 
-.inicio .seccion-texto-con-foto .texto h1 {
-    color: #DD862D;
-    padding-bottom: 2rem;
-}
-
-.quienes-somos h1 {
+.titulo-naranja h2, .titulo-naranja h1 {
     color: #E28526;
-    margin-top: 0.5rem;
-    text-align: center;
 }
 
-.quienes-somos .texto {
-    margin: 1rem 0 0 1rem;
+.fondo-beige {
+    background-color: #FAECDF;
 }
 
-.altura-110 {
-    line-height: 100%
+.fondo-gris {
+    background-color: #999;
 }
 
-.margen-vertical-3-6 {
-    margin: 3% 0 6% 0;
+.margen-20 .texto {
+    margin: 20% 0 0 30%;
+}
+
+.margen-superior-2 {
+    margin-top: 2%;
+}
+
+.margen-superior-5 {
+    margin-top: 5%;
+}
+
+.margen-vertical-2 {
+    margin: 2% 0;
 }
 
 .margen-vertical-3 {
     margin: 3% 0;
 }
 
+.margen-vertical-3-6 {
+    margin: 3% 0 6%;
+}
+
 .margen-vertical-6 {
     margin: 6% 0;
 }
 
-.margen-20 .texto {
-    margin: 20% 0 0 30%;
+.margenes-seccion {
+    margin-top: 10px;
+}
+
+.ocultar {
+    display: none;
+}
+
+.opciones {
+    height: 70%;
+}
+
+.quienes-somos .texto {
+    margin: 1rem 5% 0 1rem;
+}
+
+.quienes-somos h1 {
+    margin-top: .5rem;
+    text-align: center;
+}
+
+.seccion-carrusel .texto-foto-1 {
+    font-weight: 300;
+}
+
+.seccion-carrusel .texto-foto-2 {
+    color: #999;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.seccion-foto {
+    background-color: #FAECDF;
+}
+
+.seccion-foto p {
+    text-align: center;
+}
+
+.seccion-instalacion .texto {
+    line-height: 1.15rem;
+}
+
+.seccion-texto-con-foto .margen-superior-5 h2 {
+    color: #fff;
+}
+
+.servicios h1 {
+    margin-left: 10%;
 }
 
 .texto-100 {
@@ -74,60 +130,13 @@ img, embed, object, video {
     font-size: 250%;
 }
 
-.servicios h1 {
-    margin-left: 10%
-}
-
-#micarrusel-3 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0088'%3e%3cpath d='M2.750l-1.51.52.52.5-2.52.51.51.54-4-4-4z'/%3e%3c/svg%3e");
-}
-
-#micarrusel-3 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0088'%3e%3cpath d='M5.250l-44441.5-1.5-2.5-2.52.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
-}
-
-.carousel-inicio {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.fondo-beige {
-    background-color: #FAECDF;
-}
-
-.margenes-seccion {
-    margin-top: 10px;
-}
-
-.ocultar {
-    display: none;
-}
-
-.opciones {
-    height: 70%;
-}
-
-.seccion-carrusel .texto-foto-1 {
-    font-weight: 300;
-}
-
-.seccion-carrusel .texto-foto-2 {
-    color: #999;
-    line-height: 2rem;
-    text-align: center;
-}
-
-.seccion-foto {
-    background-color: #FAECDF;
-}
-
-.seccion-foto p {
-    color: #999;
-    text-align: center;
+.tours .seccion-texto-con-foto .texto {
+    padding-left: 3%;
 }
 
 .web-header .idioma li {
     display: inline;
+    font-size: 90%;
 }
 
 .web-header .idioma li:after {
@@ -144,7 +153,21 @@ img, embed, object, video {
 
 .web-pie {
     color: #fff;
-    padding-top: 4rem;
+    padding: 4rem 0 1rem;
+}
+
+.web-pie .contacto, .web-pie .opciones {
+    border-right: 1px solid #FFF;
+}
+
+.web-pie .contacto, .web-pie .opciones, .web-pie .direccion, .web-pie .copyright {
+    font-size: 90%;
+    line-height: 1.25rem;
+}
+
+.web-pie .copyright {
+    padding-right: 5%;
+    text-align: right;
 }
 
 .web-pie a:active {
@@ -164,12 +187,25 @@ img, embed, object, video {
     color: #fff;
 }
 
-.web-pie .contacto, .web-pie .opciones  {
-    font-size: 90%;
-    line-height: 1.25rem;
-    border-right: 1px solid white
+body {
+    font-size: calc(12px + 0.5vw);
 }
 
-.web-pie-fondo-gris {
-    background-color: #999;
+h1 {
+    color: #858377;
+}
+
+h2 {
+    font-size: 200%;
+    line-height: 6rem;
+}
+
+img, embed, object, video {
+    height: auto;
+    max-width: 100%;
+}
+
+.info-tecnica {
+    display: none;
+    font-size: 60%;
 }
