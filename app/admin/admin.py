@@ -1,7 +1,7 @@
 import nested_admin
 from django.contrib import admin
 
-from app.models import Contacto
+from app.models import SeccionContacto
 from app.models import FilaSeccionFoto
 from app.models import FotoFilaSeccionFoto
 from app.models import Idioma
@@ -33,7 +33,7 @@ class ContactoAdmin(admin.ModelAdmin):
     list_display = ('idcontacto',)
 
 
-admin.site.register(Contacto, ContactoAdmin)
+admin.site.register(SeccionContacto, ContactoAdmin)
 
 
 # idioma

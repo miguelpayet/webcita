@@ -1,7 +1,6 @@
 from .AbstractSeccion import AbstractSeccion
 from .AbstractTextoSeccion import AbstractTextoSeccion
 from .Contacto import Contacto
-from .Contacto import TextoContacto
 from .Idioma import Idioma
 from .Opcion import Opcion
 from .Opcion import SubOpcion
@@ -15,6 +14,8 @@ from .SeccionCarrusel import ImagenSeccionCarrusel
 from .SeccionCarrusel import SeccionCarrusel
 from .SeccionCarrusel import TextoImagenSeccionCarrusel
 from .SeccionCarrusel import TextoSeccionCarrusel
+from .SeccionContacto import SeccionContacto
+from .SeccionContacto import TextoContacto
 from .SeccionFoto import FilaSeccionFoto
 from .SeccionFoto import FotoFilaSeccionFoto
 from .SeccionFoto import SeccionFoto

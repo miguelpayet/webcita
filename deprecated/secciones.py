@@ -1,7 +1,7 @@
 from app.models import Idioma
 from app.models import Social
 from app.models import TextoParametro
-from app.models.Contacto import TextoContacto
+from app.models.SeccionContacto import TextoContacto
 
 
 def contacto(idioma):

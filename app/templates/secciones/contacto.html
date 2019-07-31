@@ -13,7 +13,7 @@
             </div>
             <div class="row no-gutters">
                 <div class="col-md-12">
-                    <form action="" method="post">
+                    <form id="form_contacto" action="" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -35,8 +35,27 @@
                             <textarea id="frm_comentarios" class="form-control" type="text" name="contacto_comentarios"
                                       value="" rows="5"></textarea>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="OK">
                     </form>
+                </div>
+                <div class="col-md-12">
+                    <script>
+                        enviar_contacto = function (codigo) {
+                            if (jQuery) {
+                                let jqobj = jQuery('form#form_contacto');
+                                if (jqobj.length) {
+                                    let form = jqobj.get(0);
+                                    form.submit();
+                                    console.log('envió form');
+                                } else {
+                                    console.log("no existe form en página");
+                                }
+                            } else {
+                                console.log('no existe jQuery en página');
+                            }
+                            return false;
+                        }
+                    </script>
+                    <input type="button" class="btn btn-primary" value="OK" onclick="return enviar_contacto();">
                 </div>
             </div>
         </div>

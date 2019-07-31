@@ -69,10 +69,10 @@
                             let form = jqobj.get(0);
                             form.elements["language"].value = codigo
                             form.submit();
+                            console.log('envió código ' + codigo);
                         } else {
                             console.log("no existe form en página");
                         }
-                        console.log('bye');
                     } else {
                         console.log('no existe jQuery en página');
                     }

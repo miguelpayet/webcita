@@ -2,7 +2,7 @@
 --
 -- Host: uuubuntu    Database: lunarumi
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -142,6 +142,7 @@ CREATE TABLE `contacto` (
   `direccion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `telefonos` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `mapa` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idcontacto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -167,7 +168,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=280 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +248,7 @@ CREATE TABLE `foto_fila` (
   `imagen` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `idfila` int(11) NOT NULL,
-  `clase` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idfoto`),
   KEY `fk_foto_fila_fila_seccion_foto1_idx1` (`idfila`),
   CONSTRAINT `fk_foto_fila_fila_seccion_foto1` FOREIGN KEY (`idfila`) REFERENCES `fila_seccion_foto` (`idfila`)
@@ -341,6 +342,7 @@ CREATE TABLE `instalacion` (
   `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `total_fila` int(11) DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_instalacion_pagina_idx` (`idpagina`),
   CONSTRAINT `fk_instalacion_pagina` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
@@ -409,6 +411,7 @@ CREATE TABLE `seccion_carrusel` (
   `posicion` int(11) DEFAULT NULL,
   `fotosfila` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_carrusel_opcion1_idx` (`idpagina`),
   CONSTRAINT `fk_seccion_carrusel_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
@@ -428,6 +431,7 @@ CREATE TABLE `seccion_foto` (
   `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `fotos` int(11) DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_foto_opcion1_idx` (`idpagina`),
   CONSTRAINT `fk_seccion_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
@@ -464,6 +468,7 @@ CREATE TABLE `seccion_texto` (
   `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_sección texto_opcion1_idx` (`idpagina`),
   CONSTRAINT `fk_sección texto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
@@ -486,7 +491,8 @@ CREATE TABLE `seccion_texto_foto` (
   `tipo` int(11) NOT NULL,
   `posicion_foto` int(11) DEFAULT NULL,
   `subtipo` int(11) DEFAULT NULL,
-  `color` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idseccion`),
   KEY `fk_seccion_texto_foto_opcion1_idx` (`idpagina`),
   CONSTRAINT `fk_seccion_texto_foto_opcion1` FOREIGN KEY (`idpagina`) REFERENCES `pagina` (`idpagina`)
@@ -812,4 +818,4 @@ CREATE TABLE `texto_subopcion` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-19 21:16:04
+-- Dump completed on 2019-07-29 16:02:32
