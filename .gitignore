@@ -5,6 +5,7 @@
 .DS_Store
 .idea/
 __pycache__/
+abrirdb
 bootstrap-4.3.1/
 exportdb
 ga*.js
