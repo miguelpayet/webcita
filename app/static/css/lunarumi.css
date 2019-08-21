@@ -1,3 +1,7 @@
+.logo {
+    padding: 1%;
+}
+
 .altura-110 {
     line-height: 100%;
 }
@@ -17,6 +21,11 @@
 
 .color-gris {
     color: #999;
+}
+
+
+div.row.copyright {
+    margin-top: 1rem;
 }
 
 .titulo-gris h2 {
@@ -43,8 +52,8 @@
     margin-top: 2%;
 }
 
-.margen-superior-5 {
-    margin-top: 5%;
+.margen-superior-3 {
+    margin-top: 2%;
 }
 
 .margen-vertical-2 {
@@ -65,10 +74,6 @@
 
 .margenes-seccion {
     margin-top: 10px;
-}
-
-.ocultar {
-    display: none;
 }
 
 .opciones {
@@ -156,8 +161,14 @@
     padding: 4rem 0 1rem;
 }
 
-.web-pie .contacto, .web-pie .opciones {
+.borde-derecho {
     border-right: 1px solid #FFF;
+    height: 100%;
+}
+
+.borde-izquierdo {
+    border-left: 1px solid #FFF;
+    height: 100%;
 }
 
 .web-pie .contacto, .web-pie .opciones, .web-pie .direccion, .web-pie .copyright {
@@ -166,7 +177,7 @@
 }
 
 .web-pie .copyright {
-    padding-right: 5%;
+    padding-right: 1%;
     text-align: right;
 }
 
@@ -206,6 +217,53 @@ img, embed, object, video {
 }
 
 .info-tecnica {
-    xdisplay: none;
     font-size: 60%;
+    xdisplay: none;
+}
+
+@media all and (max-device-width: 600px) {
+
+    .web-pie {
+        padding: 1rem 0;
+    }
+
+    .web-pie .contacto, .web-pie .direccion p, .web-pie .copyright {
+        font-size: 100%;
+    }
+
+    .web-pie .contacto p, .web-pie .direccion p {
+        margin-bottom: 0rem;
+    }
+
+    .web-pie .copyright {
+        padding-right: 0%;
+        text-align: center;
+    }
+
+    .m-margen-superior-5 {
+        margin-top: 5%;
+    }
+
+    .texto-250 {
+        font-size: 150%;
+    }
+
+
+    div.col-12.social, div.col-12.telefono, div.col-12.correo {
+        margin-top: 1rem;
+    }
+
+    div.servicios .texto {
+        margin: 5%;
+        text-align: left;
+    }
+
+    div.servicios .texto h2 {
+        color: #E28526;
+    }
+
+    h2 {
+        line-height: 2.5rem;
+    }
+
 }

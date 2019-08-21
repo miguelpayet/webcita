@@ -48,7 +48,7 @@ class FotoFilaSeccionFoto(models.Model):
     idfoto = models.AutoField(primary_key=True)
     imagen = models.ImageField(max_length=50)
     posicion = models.IntegerField()
-    seccion = models.ForeignKey('FilaSeccionFoto', on_delete=models.CASCADE, db_column='idfila')
+    seccion = models.ForeignKey('FilaSeccionFoto', on_delete=models.CASCADE, db_column='idfila', related_name='fotos')
 
     def __str__(self):
         return "%s" % self.posicion
