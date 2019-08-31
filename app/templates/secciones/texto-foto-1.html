@@ -2,9 +2,10 @@
 
 <div class="seccion-texto-con-foto {{ seccion.clase }}" style="{{ seccion.estilo }}">
     <div class="row no-gutters">
-        <div class="col-md-4 col-12 {% if seccion.posicion_foto == 1 %}order-md-1 {% if seccion.subtipo == 1 %} offset-md-2
-            {% else %}{% if seccion.posicion_foto == 1 %} offset-md-1 {% endif %}{% endif %}{% else %}order-md-12{% endif %}">
-            <div class="texto">
+        <div class="col-md-4 col-12 {% if seccion.posicion_foto == 1 %}order-md-1 {% else %}order-md-12 {% endif %}
+                {% if seccion.posicion_foto == 1 and seccion.subtipo == 1 %}offset-md-2 {% endif %}
+                {% if seccion.subtipo != 1 and seccion.posicion_foto == 1 %}offset-md-1 {% endif %}">
+            <div class=" texto">
                 {% include 'secciones/titulo-seccion.html' %}
                 {{ seccion.texto | my_markdown }}
             </div>
