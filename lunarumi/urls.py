@@ -23,6 +23,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     re_path(r'^_nested_admin/', include('nested_admin.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }),
+    path('grappelli/', include('grappelli.urls')),
 ]
 
 # urls del site
