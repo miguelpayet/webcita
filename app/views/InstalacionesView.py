@@ -11,7 +11,7 @@ class InstalacionesView(ViewBase):
 
 class InstalacionesCuartosView(InstalacionesView):
     nombre_clase = 'cuartos'
-    view_name = 'Cuartos'
+    view_name = 'Habitaciones'
 
 
 class InstalacionesAmbientesView(InstalacionesView):

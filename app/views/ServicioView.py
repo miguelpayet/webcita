@@ -8,3 +8,4 @@ class ServiciosView(ViewBase):
     nombre_clase = 'servicios'
     secciones = [Carrusel, Texto, Foto]
     view_name = 'Servicios'
+

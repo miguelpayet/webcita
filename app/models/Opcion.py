@@ -24,7 +24,7 @@ class Opcion(models.Model):
 
 class TextoOpcion(AbstractTextoSeccion):
     direccion = models.CharField(max_length=255, blank=True)
-    opcion = models.ForeignKey('Opcion', on_delete=models.CASCADE, db_column='idopcion')
+    opcion = models.ForeignKey('Opcion', on_delete=models.DO_NOTHING, db_column='idopcion')
     titulo = models.CharField(max_length=45)
 
     def __str__(self):
@@ -62,7 +62,7 @@ class SubOpcion(models.Model):
 
 class TextoSubOpcion(AbstractTextoSeccion):
     direccion = models.CharField(max_length=255, blank=True)
-    subopcion = models.ForeignKey('SubOpcion', on_delete=models.CASCADE, db_column='idsubopcion')
+    subopcion = models.ForeignKey('SubOpcion', on_delete=models.DO_NOTHING, db_column='idsubopcion')
     titulo = models.CharField(max_length=45)
 
     def __str__(self):

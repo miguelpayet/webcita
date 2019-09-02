@@ -6,10 +6,11 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 
 class SeccionTextoFoto(AbstractSeccion):
     color = models.CharField(max_length=6)
-    imagen = models.ImageField(max_length=50, blank=True)
-    posicion_foto = models.IntegerField(verbose_name="Posicion izquierda o derecha", blank=True)
-    subtipo = models.IntegerField(verbose_name="Estilo de margenes", blank=True)
-    tipo = models.IntegerField(verbose_name="Estilo de título", blank=True)
+    imagen = models.ImageField(max_length=50, verbose_name='Imagen principal')
+    imagen_menor = models.ImageField(max_length=50, blank=True, verbose_name='Imagen secundaria (opcional)')
+    posicion_foto = models.IntegerField(verbose_name="Posicion izquierda o derecha (opcional)", blank=True)
+    subtipo = models.IntegerField(verbose_name="Estilo de margenes (opcional)", blank=True)
+    tipo = models.IntegerField(verbose_name="Tipo de sección")
 
     class Meta:
         db_table = 'seccion_texto_foto'
@@ -20,8 +21,8 @@ class SeccionTextoFoto(AbstractSeccion):
 
 class TextoSeccionTextoFoto(AbstractTextoSeccion):
     texto = models.TextField(max_length=1024)
-    titulo = models.CharField(max_length=128)
-    idseccion = models.ForeignKey('SeccionTextoFoto', on_delete=models.CASCADE, db_column='idseccion', related_name='textos')
+    titulo = models.CharField(max_length=128, blank=True, verbose_name='Título (opcional)')
+    idseccion = models.ForeignKey('SeccionTextoFoto', on_delete=models.DO_NOTHING, db_column='idseccion', related_name='textos')
 
     class Meta:
         db_table = 'texto_seccion_texto_foto'

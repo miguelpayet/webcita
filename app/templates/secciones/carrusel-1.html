@@ -5,8 +5,7 @@
                 <ol class="carousel-indicators">
                     {% for fila in seccion.carrusel %}
                         <li data-target="#micarrusel-{{ seccion.posicion }}" data-slide-to="{{ forloop.counter0 }}"
-                            class="{{ imagen.clase }}">
-                        </li>
+                            {% if forloop.counter0 == 0 %}class="active"{% endif %}/>
                     {% endfor %}
                 </ol>
                 <div class="carousel-inner">
@@ -15,18 +14,27 @@
                             <div class="row no-gutters d-flex align-items-end">
                                 {% for imagen in fila %}
                                     <div class="{{ seccion.clase }}">
+                                        {% if imagen.destino %}
+                                            <a href="{{ imagen.destino }}">
+                                        {% endif %}
                                         <img class="d-block w-100" src="{{ MEDIA_URL }}{{ imagen.imagen }}"
-                                             alt="{{ imagen.texto }}"/>
-                                        <p class="texto-foto {{ imagen.columnas }} texto-250 altura-110"
-                                           style="{{ imagen.estilo }}">
-                                            {{ imagen.texto }}
-                                        </p>
+                                             {% if imagen.texto %}alt="{{ imagen.texto }}{% endif %}"/>
+                                        {% if imagen.texto %}
+                                            <p class="texto-foto {{ imagen.columnas }} texto-250 altura-110"
+                                               style="{{ imagen.estilo }}">
+                                                {{ imagen.texto }}
+                                            </p>
+                                        {% endif %}
+                                        {% if imagen.destino %}
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 {% endfor %}
                             </div>
                         </div>
                     {% endfor %}
                 </div>
+                {% comment %}
                 <a class="carousel-control-prev" href="#micarrusel-{{ seccion.posicion }}" role="button"
                    data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,6 +45,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Siguiente</span>
                 </a>
+                {% endcomment %}
             </div>
         </div>
     </div>

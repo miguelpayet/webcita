@@ -16,14 +16,15 @@ class SeccionCarrusel(AbstractSeccion):
 
 
 class ImagenSeccionCarrusel(models.Model):
-    ancho = models.IntegerField()
-    color = models.CharField(max_length=6)
+    ancho = models.IntegerField(blank=True)
+    color = models.CharField(max_length=6, blank=True)
+    destino = models.CharField(max_length=200, blank=True, verbose_name='Dirección destino (opcional)')
     idimagen = models.AutoField(primary_key=True)
     imagen = models.ImageField(max_length=50)
-    posicion = models.IntegerField()
-    posx = models.IntegerField()
-    posy = models.IntegerField()
-    seccion = models.ForeignKey('SeccionCarrusel', on_delete=models.CASCADE, db_column='idseccion')
+    posicion = models.IntegerField(blank=True)
+    posx = models.IntegerField(blank=True)
+    posy = models.IntegerField(blank=True)
+    seccion = models.ForeignKey('SeccionCarrusel', on_delete=models.DO_NOTHING, db_column='idseccion')
 
     def __str__(self):
         return "%s" % self.idimagen
@@ -39,7 +40,7 @@ class ImagenSeccionCarrusel(models.Model):
 
 
 class TextoImagenSeccionCarrusel(AbstractTextoSeccion):
-    imagen = models.ForeignKey('ImagenSeccionCarrusel', on_delete=models.CASCADE, db_column='idimagen')
+    imagen = models.ForeignKey('ImagenSeccionCarrusel', on_delete=models.DO_NOTHING, db_column='idimagen')
     texto = models.CharField(max_length=255)
 
     def __str__(self):
@@ -57,7 +58,7 @@ class TextoImagenSeccionCarrusel(AbstractTextoSeccion):
 
 class TextoSeccionCarrusel(AbstractTextoSeccion):
     titulo = models.CharField(max_length=45)
-    seccion = models.ForeignKey('SeccionCarrusel', on_delete=models.CASCADE, db_column='idseccion')
+    seccion = models.ForeignKey('SeccionCarrusel', on_delete=models.DO_NOTHING, db_column='idseccion')
 
     class Meta:
         db_table = 'texto_seccion_carrusel'

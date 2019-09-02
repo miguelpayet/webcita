@@ -28,10 +28,12 @@ class Carrusel(SeccionBase):
                  'posicion': seccion.posicion, 'seccion': self.template_seccion % seccion.tipo, 'tipo': seccion.tipo, 'titulo': titulo})
 
     def obtener_fotos(self, seccion):
-        list_fotos = []
-        qs_fotos = seccion.imagenseccioncarrusel_set.all().order_by('posicion')
+        estilo = None
         list_filas = []
+        list_fotos = []
         pos = 0
+        qs_fotos = seccion.imagenseccioncarrusel_set.all().order_by('posicion')
+        urldestino = None
         for foto in qs_fotos:
             if len(list_fotos) == seccion.fotosfila:
                 list_filas.append(list_fotos)
@@ -39,17 +41,17 @@ class Carrusel(SeccionBase):
             try:
                 texto = foto.textoimagenseccioncarrusel_set.get(idioma=self.vista.idioma)
                 texto_foto = texto.texto
+                if seccion.tipo == 1 and texto_foto:
+                    estilo = 'position:absolute; top:%s%%; left:%s%%; width:%s%%;color: #%s;' % (
+                        foto.posy, foto.posx, foto.ancho, foto.color)
             except (MultipleObjectsReturned, TextoImagenSeccionCarrusel.DoesNotExist):
-                if seccion.tipo != 3:
-                    raise Exception("imagen tiene 0 o más de 1 texto en carrusel " + seccion.nombre)
-                else:
-                    texto_foto = ''
-            if seccion.tipo == 1:
-                estilo = 'position:absolute; top:%s%%; left:%s%%; width:%s%%;color: #%s;' % (foto.posy, foto.posx, foto.ancho, foto.color)
-            else:
-                estilo = ''
+                texto_foto = None
+            # dirección destino de la foto
+            if foto.destino:
+                urldestino = '/%s/%s' % (self.vista.idioma.codigo, foto.destino[1:] if foto.destino[0] == '/' else foto.destino,)
             clase = (pos == 0 if "active" else "")
-            list_fotos.append({'clase': clase, 'estilo': estilo, 'imagen': foto.imagen, 'pos': pos, 'texto': texto_foto})
+            list_fotos.append(
+                {'clase': clase, 'destino': urldestino, 'estilo': estilo, 'imagen': foto.imagen, 'pos': pos, 'texto': texto_foto})
             pos += 1
         list_filas.append(list_fotos)
         return list_filas

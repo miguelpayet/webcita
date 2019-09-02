@@ -1,9 +1,10 @@
 from app.secciones import Carrusel
-from app.secciones import Texto
+from app.secciones import Foto
+from app.secciones import TextoFoto
 from app.views.ViewBase import ViewBase
 
 
 class QuienesSomosView(ViewBase):
     nombre_clase = 'quienes-somos'
-    secciones = [Carrusel, Texto]
+    secciones = [Carrusel, Foto, TextoFoto]
     view_name = 'Quienes Somos'

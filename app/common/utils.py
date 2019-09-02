@@ -1,15 +1,16 @@
 from operator import itemgetter
 
 from django.db.models import Q
+from django.http import Http404
 from django.utils import translation
 
 from app.common.opciones import opcion_actual
 from app.common.opciones import opciones
 from app.models.Pagina import Pagina
 from app.models.Pagina import TextoPagina
-from deprecated.secciones import contacto
-from deprecated.secciones import idiomas
-from deprecated.secciones import parametros
+from app.secciones.secciones import contacto
+from app.secciones.secciones import idiomas
+from app.secciones.secciones import parametros
 
 
 def datos_comunes(view_name):
@@ -25,9 +26,11 @@ def datos_comunes(view_name):
     contact = contacto(idioma)
     # pagina
     opcion = opcion_actual(view_name)
-    (pagina, dict_pagina) = get_pagina(opcion, idioma)
+    # la opcion actual puede tener none
+    nombre_opcion = opcion.nombre if opcion else ''
+    (pagina, dict_pagina) = get_pagina(opcion, view_name, idioma)
     # diccionario de contexto
-    context = {'cur_language': idioma.codigo, 'contacto': contact, 'idiomas': arr_idioma, 'opcion_actual': opcion.nombre,
+    context = {'cur_language': idioma.codigo, 'contacto': contact, 'idiomas': arr_idioma, 'opcion_actual': nombre_opcion,
                'opciones': arr_opcion, 'pagina': dict_pagina, 'params': params}
     return context, idioma, pagina
 
@@ -36,11 +39,20 @@ def get_language():
     return translation.get_language()
 
 
-def get_pagina(view_name, idioma):
+def get_pagina(opcion, view_name, idioma):
     try:
-        pagina = Pagina.objects.get(Q(opcion__nombre=view_name) | Q(subopcion__nombre=view_name))
+        # opcion es None cuando la página no corresponde a una opción
+        if opcion is None:
+            # en este caso buscamos por view_name (nombre de la vista en duro o parámetro de url)
+            pagina = Pagina.objects.get(nombre=view_name)
+        else:
+            pagina = Pagina.objects.get(Q(opcion__nombre=opcion) | Q(subopcion__nombre=opcion))
     except Pagina.DoesNotExist:
-        raise Exception('opción %s no tiene página' % view_name)
+        if opcion is None:
+            mensaje = 'página %s no existe' % view_name
+        else:
+            mensaje = 'opción %s no tiene página' % opcion
+        raise Http404(mensaje)
     try:
         txt = pagina.textos.get(idioma=idioma)
     except TextoPagina.DoesNotExist:

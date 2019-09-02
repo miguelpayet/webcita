@@ -1,0 +1,23 @@
+{% load my_markdown %}
+
+<div class="seccion-texto-con-foto {{ seccion.clase }}" style="{{ seccion.estilo }}">
+    <div class="row no-gutters d-flex align-items-center">
+        {% comment %} columna de texto {% endcomment %}
+        <div class="col-md-8 col-12 {% if seccion.posicion_foto == 1 %}order-md-1 {% else %}order-md-12{% endif %} ">
+            <div class="row">
+                <div class="col-12 col-md-11 offset-md-1">
+                    <div class="texto">
+                        {% include 'secciones/titulo-seccion.html' %}
+                        {{ seccion.texto | my_markdown }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} columna de foto {% endcomment %}
+        <div class="col-12 col-md-4 {% if seccion.posicion_foto == 1 %}order-md-12 {% else %}order-md-1{% endif %}">
+            <div class="texto-con-foto text-center ">
+                <img class="d-block w-75" src="{{ MEDIA_URL }}{{ seccion.imagen }}"/>
+            </div>
+        </div>
+    </div>
+</div>

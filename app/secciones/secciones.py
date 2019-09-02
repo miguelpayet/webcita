@@ -66,5 +66,5 @@ def texto_foto(pagina, idioma, secciones):
             raise Exception("texto foto tiene 0 o más de 1 texto %s", pagina.nombre)
         estilo = 'background-color: #%s;' % seccion.color
         secciones.append({'estilo': estilo, 'imagen': seccion.imagen, 'nombre': seccion.nombre, 'posicion': seccion.posicion,
-                          'posicion_foto': seccion.posicion_foto, 'rango': range(2), 'seccion': 'texto-foto.html',
+                          'posicion_foto': seccion.posicion_foto, 'rango': range(2), 'seccion': 'texto-foto-1.html',
                           'subtipo': seccion.subtipo, 'texto': txt.texto, 'tipo': seccion.tipo, 'titulo': txt.titulo})

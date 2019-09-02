@@ -1,12 +1,12 @@
 import nested_admin
 from django.contrib import admin
 
-from app.models import SeccionContacto
 from app.models import FilaSeccionFoto
 from app.models import FotoFilaSeccionFoto
 from app.models import Idioma
 from app.models import Pagina
 from app.models import Parametro
+from app.models import SeccionContacto
 from app.models import SeccionFoto
 from app.models import SeccionTexto
 from app.models import SeccionTextoFoto
@@ -18,6 +18,8 @@ from app.models import TextoParametro
 from app.models import TextoSeccionFoto
 from app.models import TextoSeccionTexto
 from app.models import TextoSeccionTextoFoto
+
+admin.site.site_header = 'Luna Rumi'
 
 
 # contacto
@@ -87,13 +89,13 @@ class TextoFotoFilaInline(nested_admin.NestedTabularInline):
 
 class TextoFotoInline(nested_admin.NestedTabularInline):
     extra = 0
-    fields = ('idioma', 'titulo',)
+    fields = ('idioma', 'titulo', 'titulo_superior',)
     model = TextoSeccionFoto
 
 
 class FotoFilaSeccionFotoInline(nested_admin.NestedTabularInline):
     extra = 0
-    fields = ('imagen', 'posicion', 'clase',)
+    fields = ('imagen', 'posicion', 'destino', 'clase',)
     inlines = [TextoFotoFilaInline]
     model = FotoFilaSeccionFoto
 
@@ -106,7 +108,7 @@ class FilaSeccionFotoInline(nested_admin.NestedTabularInline):
 
 
 class SeccionFotoAdmin(nested_admin.NestedModelAdmin):
-    fields = ('pagina', 'posicion', 'nombre', 'fotos', 'clase',)
+    fields = ('pagina', 'posicion', 'nombre', 'fotos', 'tipo', 'clase',)
     inlines = [TextoFotoInline, FilaSeccionFotoInline]
     list_display = ('pagina', 'nombre', 'posicion')
     ordering = ('pagina', 'posicion',)
@@ -140,7 +142,7 @@ class TextoSeccionTextoFotoInline(admin.TabularInline):
 
 
 class SeccionTextoFotoAdmin(admin.ModelAdmin):
-    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'tipo', 'subtipo', 'posicion_foto', 'color', 'clase')
+    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'imagen_menor', 'tipo', 'subtipo', 'posicion_foto', 'color', 'clase')
     inlines = (TextoSeccionTextoFotoInline,)
     list_display = ('pagina', 'posicion', 'nombre', 'tipo', 'subtipo', 'posicion_foto',)
     ordering = ('pagina', 'posicion',)

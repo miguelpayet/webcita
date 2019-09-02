@@ -1,0 +1,33 @@
+<div class="seccion-foto {{ seccion.estilo }}">
+    {% if seccion.titulo_superior %}
+        <div class="row no-gutters">
+            <div class="col-md-12 text-center titulo-gris">
+                <h2>{{ seccion.titulo_superior }}</h2>
+            </div>
+        </div>
+    {% endif %}
+    {% if seccion.titulo %}
+        <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+                <h3>{{ seccion.titulo }}</h3>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row no-gutters">
+        {% for fila in seccion.filas %}
+            {% for foto in fila.fotos %}
+                <div class="{% if fila.offset and forloop.counter0 == 0 %} {{ fila.offset }}{% endif %}
+                                {% if foto.clase %}{{ foto.clase }} {% else %}{{ seccion.clase }}{% endif %}">
+                    {% if foto.destino %}
+                        <a href="{{ foto.destino }}">
+                    {% endif %}
+                    <img class="d-block w-100" src="{{ MEDIA_URL }}{{ foto.imagen }}" alt="{{ foto.texto }}"/>
+                    <p>{{ foto.texto }}</p>
+                    {% if foto.destino %}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>

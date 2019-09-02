@@ -3,7 +3,9 @@
     <h1>{{ seccion.titulo }}</h1>
 {% else %}
 {% endcomment %}
-<h2>{{ seccion.titulo }}</h2>
+{% if seccion.titulo %}
+    <h2>{{ seccion.titulo }}</h2>
+{% endif %}
 {% comment %}
 {% endif %}
 {% endcomment %}

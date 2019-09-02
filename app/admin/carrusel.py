@@ -22,7 +22,7 @@ class TextoSeccionCarruselInline(nested_admin.NestedTabularInline):
 
 class ImagenSeccionCarruselAdmin(nested_admin.NestedTabularInline):
     extra = 0
-    fields = ('imagen', 'posicion', 'posx', 'posy', 'ancho', 'color')
+    fields = ('imagen', 'destino', 'posicion', 'posx', 'posy', 'ancho', 'color')
     inlines = [TextoImagenSeccionCarruselInline]
     list_display = ('posicion', 'imagen',)
     model = ImagenSeccionCarrusel

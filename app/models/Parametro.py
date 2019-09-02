@@ -22,7 +22,7 @@ class Parametro(models.Model):
 
 
 class TextoParametro(AbstractTextoSeccion):
-    parametro = models.ForeignKey('Parametro', on_delete=models.CASCADE, db_column='idparametro', related_name='textos')
+    parametro = models.ForeignKey('Parametro', on_delete=models.DO_NOTHING, db_column='idparametro', related_name='textos')
     copyright = models.CharField(max_length=128)
     titulosocial = models.CharField(max_length=45)
 

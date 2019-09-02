@@ -26,7 +26,8 @@ def opcion_actual(view_name):
         try:
             opcion = SubOpcion.objects.get(nombre=view_name)
         except SubOpcion.DoesNotExist:
-            raise Exception("vista %s no tiene opción o subopción" % view_name)
+            # raise Exception("vista %s no tiene opción o subopción" % view_name)
+            opcion = None
     return opcion
 
 

@@ -21,13 +21,13 @@ class SeccionContacto(models.Model):
         db_table = 'seccion_contacto'
         managed = False
         verbose_name = 'Información de Sección Contacto'
-        verbose_name_plural = 'Inforamción de Sección Contacto'
+        verbose_name_plural = 'Información de Sección Contacto'
 
 
 class TextoContacto(AbstractTextoSeccion):
     apellido = models.CharField(max_length=45)
     comentarios = models.CharField(max_length=45)
-    contacto = models.ForeignKey('SeccionContacto', on_delete=models.CASCADE, db_column='idcontacto')
+    contacto = models.ForeignKey('SeccionContacto', on_delete=models.DO_NOTHING, db_column='idcontacto')
     email = models.CharField(max_length=45)
     nombre = models.CharField(max_length=45)
     titulo = models.CharField(max_length=45)
