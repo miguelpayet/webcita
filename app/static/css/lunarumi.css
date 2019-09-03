@@ -42,6 +42,26 @@
     color: #999;
 }
 
+.detalle-retiro .seccion-texto h1, .retiro .seccion-texto h1 {
+  font-weight: 700;
+  font-size: 180%;
+  line-height: 3rem;
+  color: #000;
+}
+
+.detalle-retiro .seccion-texto h2, .retiro .seccion-texto h2 {
+  font-weight: 700;
+  font-size: 150%;
+  line-height: 3rem;
+  color: #000;
+}
+
+.detalle-retiro .seccion-texto h3, .retiro .seccion-texto h3 {
+  font-weight: 700;
+  font-size: 120%;
+  color: #E28526;
+}
+
 .fondo-beige {
     background-color: #FAECDF;
 }
@@ -302,27 +322,6 @@ img, embed, object, video {
     }
 
 }
-
-.detalle-retiro .seccion-texto h1, .retiro .seccion-texto h1 {
-  font-weight: 700;
-  font-size: 180%;
-  line-height: 3rem;
-  color: #000;
-}
-
-.detalle-retiro .seccion-texto h2, .retiro .seccion-texto h2 {
-  font-weight: 700;
-  font-size: 150%;
-  line-height: 3rem;
-  color: #000;
-}
-
-.detalle-retiro .seccion-texto h3, .retiro .seccion-texto h3 {
-  font-weight: 700;
-  font-size: 120%;
-  color: #E28526;
-}
-
 
 /*
 .carousel-control-next-icon {
