@@ -21,7 +21,7 @@ class ImagenSeccionCarrusel(models.Model):
     destino = models.CharField(max_length=200, blank=True, verbose_name='Dirección destino (opcional)')
     idimagen = models.AutoField(primary_key=True)
     imagen = models.ImageField(max_length=50)
-    posicion = models.IntegerField(blank=True)
+    posicion = models.IntegerField()
     posx = models.IntegerField(blank=True)
     posy = models.IntegerField(blank=True)
     seccion = models.ForeignKey('SeccionCarrusel', on_delete=models.DO_NOTHING, db_column='idseccion')
