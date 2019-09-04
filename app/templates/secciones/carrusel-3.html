@@ -1,7 +1,7 @@
 <div class="seccion-carrusel {{ seccion.clase }} ">
     <div class="row no-gutters">
         <div class="col-md-12 micarrusel">
-            <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">
+            <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <ol class="carousel-indicators">
                     {% for fila in seccion.carrusel %}
                         <li data-target="#micarrusel-{{ seccion.posicion }}" data-slide-to="{{ forloop.counter0 }}"
