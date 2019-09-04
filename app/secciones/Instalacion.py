@@ -29,5 +29,5 @@ class Instalacion(SeccionBase):
             except TextoFotoInstalacion.DoesNotExist:
                 titulo = None
                 # raise Exception("no existe texto para foto %s en instalación %s" % (foto.imagen, seccion.nombre))
-            arr_fotos.append({'imagen': foto.imagen, 'titulo': txt.titulo})
+            arr_fotos.append({'imagen': foto.imagen, 'titulo': titulo})
         return arr_fotos
