@@ -1,11 +1,13 @@
 {% load my_markdown %}
 
 <div class="seccion-instalacion {{ seccion.clase }}">
-    <div class="row no-gutters">
-        <div class="col-md-12 text-center">
-            {% include 'secciones/titulo-seccion.html' %}
+    {% if seccion.titulo %}
+        <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+                {% include 'secciones/titulo-seccion.html' %}
+            </div>
         </div>
-    </div>
+    {% endif %}
     <div class="row no-gutters">
         <div class="col-12 col-md-6 offset-md-3 micarrusel">
             <div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel">

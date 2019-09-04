@@ -17,7 +17,7 @@ class SeccionInstalacion(AbstractSeccion):
 class TextoSeccionInstalacion(AbstractTextoSeccion):
     seccion = models.ForeignKey('SeccionInstalacion', on_delete=models.DO_NOTHING, db_column='idseccion')
     texto = models.TextField(max_length=512, blank=True)
-    titulo = models.CharField(max_length=45)
+    titulo = models.CharField(max_length=45, blank=True)
 
     def __str__(self):
         return "%s" % self.titulo
