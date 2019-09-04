@@ -17,7 +17,7 @@ from .carrusel import ImagenSeccionCarruselAdmin
 from .carrusel import SeccionCarruselAdmin
 from .carrusel import TextoImagenSeccionCarruselInline
 from .carrusel import TextoSeccionCarruselInline
-from .instalacion import FotoFotoInstalacionInline
+#  from .instalacion import FotoFotoInstalacionInline
 from .instalacion import FotoInstalacionInline
 from .instalacion import SeccionInstalacionAdmin
 from .instalacion import TextoFotoInstalacionInline

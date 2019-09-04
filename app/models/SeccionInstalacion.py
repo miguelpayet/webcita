@@ -16,6 +16,7 @@ class SeccionInstalacion(AbstractSeccion):
 
 class TextoSeccionInstalacion(AbstractTextoSeccion):
     seccion = models.ForeignKey('SeccionInstalacion', on_delete=models.DO_NOTHING, db_column='idseccion')
+    texto = models.TextField(max_length=512, blank=True)
     titulo = models.CharField(max_length=45)
 
     def __str__(self):
@@ -51,7 +52,6 @@ class FotoInstalacion(models.Model):
 
 class TextoFotoInstalacion(AbstractTextoSeccion):
     foto = models.ForeignKey('FotoInstalacion', on_delete=models.DO_NOTHING, db_column='idfoto')
-    texto = models.TextField(max_length=512, blank=True)
     titulo = models.CharField(max_length=45)
 
     def __str__(self):
