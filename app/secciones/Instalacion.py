@@ -25,7 +25,9 @@ class Instalacion(SeccionBase):
         for foto in seccion.fotoinstalacion_set.all():
             try:
                 txt = foto.textofotoinstalacion_set.get(idioma=self.vista.idioma)
+                titulo = txt.titulo
             except TextoFotoInstalacion.DoesNotExist:
-                raise Exception("no existe texto para foto %s en instalación %s" % (foto.imagen, seccion.nombre))
+                titulo = None
+                # raise Exception("no existe texto para foto %s en instalación %s" % (foto.imagen, seccion.nombre))
             arr_fotos.append({'imagen': foto.imagen, 'titulo': txt.titulo})
         return arr_fotos
