@@ -1,3 +1,4 @@
+*.JPG
 *.jpg
 *.log
 *.png
@@ -12,3 +13,5 @@ ga*.js
 jquery*
 popper*
 settings.py
+static/*
+

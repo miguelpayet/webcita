@@ -1,5 +1,6 @@
 from .ContactoView import ContactoView
 from .DetalleRetiroView import DetalleRetiroView
+from .EventoView import EventoView
 from .IndexView import IndexView
 from .InstalacionDetalle import InstalacionDetalle
 from .InstalacionesView import InstalacionesAmbientesView

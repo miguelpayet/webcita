@@ -43,6 +43,6 @@ class ViewBase(TemplateView):
         if hasattr(self.request, app.middleware.NOMBRE_LISTA):
             t = self.request.tiempos[0]
             t1 = t[app.middleware.NOMBRE_TIEMPO]
-            content = content.replace('[tiempo]', 'rendering: %s ms' % (time() - t1))
+            content = content.replace('[tiempo]', 'rendering: %s seg' % (time() - t1))
         response = HttpResponse(content)
         return response

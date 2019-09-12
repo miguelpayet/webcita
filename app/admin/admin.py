@@ -110,8 +110,8 @@ class FilaSeccionFotoInline(nested_admin.NestedTabularInline):
 class SeccionFotoAdmin(nested_admin.NestedModelAdmin):
     fields = ('pagina', 'posicion', 'nombre', 'fotos', 'tipo', 'clase',)
     inlines = [TextoFotoInline, FilaSeccionFotoInline]
-    list_display = ('pagina', 'nombre', 'posicion')
-    ordering = ('pagina', 'posicion',)
+    list_display = ('nombre', 'posicion', 'pagina',)
+    ordering = ('nombre', 'posicion',)
 
 
 admin.site.register(SeccionFoto, SeccionFotoAdmin)
@@ -142,7 +142,8 @@ class TextoSeccionTextoFotoInline(admin.TabularInline):
 
 
 class SeccionTextoFotoAdmin(admin.ModelAdmin):
-    fields = ('pagina', 'nombre', 'posicion', 'imagen', 'imagen_menor', 'tipo', 'subtipo', 'posicion_foto', 'color', 'clase')
+    fields = (
+    'pagina', 'nombre', 'posicion', 'imagen', 'imagen_menor', 'tipo', 'subtipo', 'posicion_foto', 'color', 'clase')
     inlines = (TextoSeccionTextoFotoInline,)
     list_display = ('pagina', 'posicion', 'nombre', 'tipo', 'subtipo', 'posicion_foto',)
     ordering = ('pagina', 'posicion',)
