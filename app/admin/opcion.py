@@ -3,34 +3,35 @@ from django.contrib import admin
 
 from app.models import Opcion
 from app.models import SubOpcion
-from app.models import TextoOpcion
-from app.models import TextoSubOpcion
+from app.models import TextoDatoOpcion
+from app.models import DatoOpcion
 
 
-class TextoSubOpcionInline(nested_admin.NestedTabularInline):
+class TextoDatoInline(nested_admin.NestedTabularInline):
     extra = 0
     fields = ('idioma', 'titulo', 'direccion')
-    model = TextoSubOpcion
+    model = TextoDatoOpcion
 
 
-class SubOpcionInline(nested_admin.NestedTabularInline):
+class DatoOpcionAdmin(nested_admin.NestedModelAdmin):
     extra = 0
-    fields = ('pagina', 'nombre', 'posicion',)
-    inlines = (TextoSubOpcionInline,)
-    model = SubOpcion
-
-
-class TextoOpcionInline(nested_admin.NestedTabularInline):
-    extra = 0
-    fields = ('idioma', 'titulo', 'direccion')
-    model = TextoOpcion
-
-
-class OpcionAdmin(nested_admin.NestedModelAdmin):
-    fields = ('pagina', 'posicion', 'nombre',)
-    inlines = (TextoOpcionInline, SubOpcionInline)
+    fields = ('pagina', 'nombre', 'posicion')
+    inlines = (TextoDatoInline,)
+    model = DatoOpcion
     list_display = ('nombre', 'posicion',)
     ordering = ('posicion',)
 
 
-admin.site.register(Opcion, OpcionAdmin)
+admin.site.register(DatoOpcion, DatoOpcionAdmin)
+
+# class SubOpcionInline(nested_admin.NestedTabularInline):
+#     extra = 0
+#     inlines = (DatoOpcionInline,)
+#     model = SubOpcion
+#
+#
+# class OpcionAdmin(nested_admin.NestedModelAdmin):
+#     inlines = (DatoOpcionInline, SubOpcionInline)
+#
+#
+# admin.site.register(Opcion, OpcionAdmin)

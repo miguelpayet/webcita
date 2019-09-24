@@ -1,4 +1,6 @@
 from .admin import ContactoAdmin
+from .opcion import DatoOpcionAdmin
+from .opcion import TextoDatoInline
 from .admin import FilaSeccionFotoInline
 from .admin import FotoFilaSeccionFotoInline
 from .admin import IdiomaAdmin
@@ -17,13 +19,11 @@ from .carrusel import ImagenSeccionCarruselAdmin
 from .carrusel import SeccionCarruselAdmin
 from .carrusel import TextoImagenSeccionCarruselInline
 from .carrusel import TextoSeccionCarruselInline
-#  from .instalacion import FotoFotoInstalacionInline
 from .instalacion import FotoInstalacionInline
 from .instalacion import SeccionInstalacionAdmin
 from .instalacion import TextoFotoInstalacionInline
 from .instalacion import TextoSeccionInstalacionInline
-from .opcion import OpcionAdmin
-from .opcion import OpcionAdmin
-from .opcion import SubOpcionInline
-from .opcion import TextoOpcionInline
-from .opcion import TextoSubOpcionInline
+# from .opcion import OpcionAdmin
+# from .opcion import OpcionAdmin
+# from .opcion import SubOpcionInline
+# from .opcion import DatoOpcionInline

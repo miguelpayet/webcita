@@ -8,5 +8,6 @@ from .InstalacionesView import InstalacionesCuartosView
 from .QuienesSomosView import QuienesSomosView
 from .RetiroView import RetiroView
 from .ServicioView import ServiciosView
+from .OpcionesView import OpcionesView
 from .ToursView import ToursView
 from .ViewBase import ViewBase

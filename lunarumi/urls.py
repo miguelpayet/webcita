@@ -13,6 +13,7 @@ from app.views import InstalacionesCuartosView
 from app.views import QuienesSomosView
 from app.views import RetiroView
 from app.views import EventoView
+from app.views import OpcionesView
 from app.views import ServiciosView
 from app.views import ToursView
 
@@ -36,5 +37,6 @@ urlpatterns += i18n_patterns(
     path('servicios/retiros/<retiro>', RetiroView.as_view(), name="retiros"),
     path('servicios/eventos/<evento>', EventoView.as_view(), name="eventos"),
     path('tours', ToursView.as_view(), name="tours"),
+    path('opciones', OpcionesView.as_view(), name="opciones")
     # re_path(r'ajax/detalle_foto/(?P<id>.*)$', InstalacionDetalle.as_view(), name='instalación_detalle'),
 )

@@ -38,3 +38,39 @@ update texto_subopcion set idsubopcion=7 where idsubopcion=3;
 update subopcion set idsubopcion=8 where idsubopcion=2;
 
 update texto_subopcion set idsubopcion=8 where idsubopcion=2;
+
+insert into dato_opcion (iddato, idpagina, posicion, nombre) select idsubopcion,idpagina,posicion,nombre from subopcion;
+
+alter table subopcion add column iddato int(11);
+
+update subopcion set iddato = idopcion;
+
+alter table subopcion modify column iddato int(11) not null;
+
+insert into dato_opcion (iddato, idpagina, posicion, nombre) select idsubopcion,idpagina,posicion,nombre from subopcion;
+
+update texto_subopcion set idtexto=idtexto+20;
+
+insert into texto_dato (idtexto,iddato,ididioma,titulo,direccion) select idtexto,idopcion,ididioma,titulo,direccion from texto_opcion;
+
+insert into texto_dato (idtexto,iddato,ididioma,titulo,direccion) select idtexto,idsubopcion,ididioma,titulo,direccion from texto_subopcion;
+
+drop table texto_opcion;
+
+drop table texto_subopcion;
+
+alter table opcion drop foreign key fk_opcion_pagina1;
+
+alter table opcion drop column posicion, drop column nombre, drop column idpagina;
+
+alter table subopcion drop foreign key fk_subopcion_pagina;
+
+alter table subopcion drop foreign key fk_subopcion_pagina;
+
+alter table subopcion modify column idopcion int(11) not null;
+
+alter table subopcion add constraint fk_subopcion_dato foreign key (iddato) references dato_opcion(iddato);
+
+alter table opcion add constraint fk_opcion_dato foreign key (iddato) references dato_opcion(iddato);
+
+

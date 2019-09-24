@@ -2,9 +2,10 @@ from .AbstractSeccion import AbstractSeccion
 from .AbstractTextoSeccion import AbstractTextoSeccion
 from .Contacto import Contacto
 from .Idioma import Idioma
+from .Opcion import DatoOpcion
 from .Opcion import Opcion
 from .Opcion import SubOpcion
-from .Opcion import TextoOpcion
+from .Opcion import TextoDatoOpcion
 from .Opcion import TextoSubOpcion
 from .Pagina import Pagina
 from .Pagina import TextoPagina
