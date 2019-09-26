@@ -3,11 +3,13 @@ from django.db import models
 from .AbstractTextoSeccion import AbstractTextoSeccion
 
 
-class DatoOpcion(models.Model):
-    iddato = models.AutoField(primary_key=True)
+class Opcion(models.Model):
+    idopcion = models.AutoField(primary_key=True)
+    idpadre = models.IntegerField(verbose_name='Identificador de la opción principal')
     nombre = models.CharField(max_length=45)
-    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina')
+    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina', )
     posicion = models.IntegerField()
+    tipo = models.IntegerField()
 
     def __str__(self):
         return "%s" % self.nombre
@@ -16,15 +18,15 @@ class DatoOpcion(models.Model):
         return u'%s' % self.nombre
 
     class Meta:
-        db_table = 'dato_opcion'
+        db_table = 'opcion'
         managed = False
         verbose_name = 'Opción'
         verbose_name_plural = 'Opciones'
 
 
-class TextoDatoOpcion(AbstractTextoSeccion):
+class TextoOpcion(AbstractTextoSeccion):
     direccion = models.CharField(max_length=255, blank=True)
-    dato = models.ForeignKey('DatoOpcion', on_delete=models.DO_NOTHING, db_column='iddato')
+    opcion = models.ForeignKey('Opcion', on_delete=models.DO_NOTHING, db_column='idopcion', related_name='texto')
     titulo = models.CharField(max_length=45)
 
     def __str__(self):
@@ -34,38 +36,24 @@ class TextoDatoOpcion(AbstractTextoSeccion):
         return u'%s' % self.titulo
 
     class Meta:
-        db_table = 'texto_dato'
+        db_table = 'texto_opcion'
         managed = False
-        verbose_name = 'Texto de opción'
-        verbose_name_plural = 'Textos de opción'
-
-
-class Opcion(models.Model):
-    idopcion = models.AutoField(primary_key=True)
-    dato = models.OneToOneField(DatoOpcion, on_delete=models.DO_NOTHING, db_column='iddato')
-
-    def __str__(self):
-        return "%s" % self.idopcion
-
-    def __unicode__(self):
-        return u'%s' % self.idopcion
-
-    class Meta:
-        db_table = 'dato_opcion'
-        managed = False
-        verbose_name = 'Dato de opción'
-        verbose_name_plural = 'Datos de opción'
+        verbose_name = 'Detalle'
+        verbose_name_plural = 'Detalle'
 
 
 class SubOpcion(models.Model):
     idsubopcion = models.AutoField(primary_key=True)
-    dato = models.OneToOneField(DatoOpcion, on_delete=models.DO_NOTHING, db_column='iddato')
+    nombre = models.CharField(max_length=45)
+    opcion = models.ForeignKey('Opcion', on_delete=models.DO_NOTHING, db_column='idopcion')
+    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina')
+    posicion = models.IntegerField()
 
     def __str__(self):
-        return "%s" % self.idsubopcion
+        return "%s" % self.nombre
 
     def __unicode__(self):
-        return u'%s' % self.idsubopcion
+        return u'%s' % self.nombre
 
     class Meta:
         db_table = 'subopcion'
