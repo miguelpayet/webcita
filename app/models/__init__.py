@@ -3,9 +3,9 @@ from .AbstractTextoSeccion import AbstractTextoSeccion
 from .Contacto import Contacto
 from .Idioma import Idioma
 from .Opcion import Opcion
-from .Opcion import SubOpcion
+# from .Opcion import SubOpcion
 from .Opcion import TextoOpcion
-from .Opcion import TextoSubOpcion
+# from .Opcion import TextoSubOpcion
 from .Pagina import Pagina
 from .Pagina import TextoPagina
 from .Parametro import Parametro

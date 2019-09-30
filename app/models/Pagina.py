@@ -23,7 +23,7 @@ class Pagina(models.Model):
 class TextoPagina(AbstractTextoSeccion):
     titulo = models.CharField(max_length=45)
     descripcion = models.TextField(max_length=512)
-    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina', related_name='textos')
+    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina', related_name='texto')
 
     class Meta:
         db_table = 'texto_pagina'

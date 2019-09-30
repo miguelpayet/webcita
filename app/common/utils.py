@@ -1,11 +1,9 @@
 from operator import itemgetter
 
-from django.db.models import Q
 from django.http import Http404
 from django.utils import translation
 
-from app.common.opciones import opcion_actual
-from app.common.opciones import opciones
+from app.common.Opciones import Opciones
 from app.models.Pagina import Pagina
 from app.models.Pagina import TextoPagina
 from app.secciones.secciones import contacto
@@ -21,13 +19,14 @@ def datos_comunes(view_name):
     # parametros
     params = parametros(idioma)
     # opciones y opción actual
-    arr_opcion = opciones(idioma, view_name)
+    op = Opciones()
+    arr_opcion = op.opciones(idioma, view_name)
+    opcion = op.opcion_actual
+    # la opcion actual puede tener none
+    nombre_opcion = opcion.nombre if opcion else ''
     # datos de contacto
     contact = contacto(idioma)
     # pagina
-    opcion = opcion_actual(view_name)
-    # la opcion actual puede tener none
-    nombre_opcion = opcion.nombre if opcion else ''
     (pagina, dict_pagina) = get_pagina(opcion, view_name, idioma)
     # diccionario de contexto
     context = {'cur_language': idioma.codigo, 'contacto': contact, 'idiomas': arr_idioma, 'opcion_actual': nombre_opcion,
@@ -44,9 +43,9 @@ def get_pagina(opcion, view_name, idioma):
         # opcion es None cuando la página no corresponde a una opción
         if opcion is None:
             # en este caso buscamos por view_name (nombre de la vista en duro o parámetro de url)
-            pagina = Pagina.objects.get(nombre=view_name)
+            pagina = Pagina.objects.prefetch_related('texto').get(nombre=view_name)
         else:
-            pagina = Pagina.objects.get(Q(opcion__nombre=opcion) | Q(subopcion__nombre=opcion))
+            pagina = Pagina.objects.prefetch_related('texto').get(opcion__nombre=opcion)
     except Pagina.DoesNotExist:
         if opcion is None:
             mensaje = 'página %s no existe' % view_name
@@ -54,9 +53,9 @@ def get_pagina(opcion, view_name, idioma):
             mensaje = 'opción %s no tiene página' % opcion
         raise Http404(mensaje)
     try:
-        txt = pagina.textos.get(idioma=idioma)
+        txt = pagina.texto.get(idioma=idioma)
     except TextoPagina.DoesNotExist:
-        raise Exception("pagina %s no tiene textos en %s" % (pagina.nombre, idioma.nombre))
+        raise Exception("pagina %s no tiene texto en %s" % (pagina.nombre, idioma.nombre))
     return pagina, {'descripcion': txt.descripcion, 'titulo': txt.titulo}
 
 
