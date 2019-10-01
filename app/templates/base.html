@@ -18,7 +18,9 @@
     <title>{{ pagina.titulo }}</title>
 </head>
 <body>
+{% comment %}
 <div class="container-fluid">
+{% endcomment %}
     <div class="web-header margenes-seccion">
         {% block header %}{% include "header.html" %}{% endblock %}
     </div>
@@ -42,7 +44,9 @@
             </div>
         </div>
     </div>
+{% comment %}
 </div>
+{% endcomment %}
 </body>
 </html>
 
