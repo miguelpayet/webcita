@@ -1,11 +1,12 @@
 from django.db import models
+from opciones.models import Pagina
 
 
 class AbstractSeccion(models.Model):
     clase = models.CharField(max_length=100, blank=True, verbose_name='Clase de diseño')
     idseccion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45)
-    pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina')  # , related_name='secciones'
+    pagina = models.ForeignKey(Pagina, on_delete=models.DO_NOTHING, db_column='idpagina')  # , related_name='secciones'
     posicion = models.IntegerField()
 
     class Meta:

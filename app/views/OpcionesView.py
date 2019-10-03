@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from app.models import TextoOpcion
+from opciones.models import TextoOpcion
 
 
 class OpcionesView(TemplateView):

@@ -1,6 +1,6 @@
 from django.db import models
 
-from app.models.AbstractTextoSeccion import AbstractTextoSeccion
+from opciones.models.AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class Pagina(models.Model):

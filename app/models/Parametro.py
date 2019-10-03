@@ -1,6 +1,6 @@
 from django.db import models
 
-from .AbstractTextoSeccion import AbstractTextoSeccion
+from opciones.models.AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class Parametro(models.Model):

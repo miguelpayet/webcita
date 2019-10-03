@@ -1,13 +1,7 @@
-from .AbstractSeccion import AbstractSeccion
-from .AbstractTextoSeccion import AbstractTextoSeccion
+from opciones.models.AbstractSeccion import AbstractSeccion
 from .Contacto import Contacto
-from .Idioma import Idioma
-from .Opcion import Opcion
-# from .Opcion import SubOpcion
-from .Opcion import TextoOpcion
-# from .Opcion import TextoSubOpcion
-from .Pagina import Pagina
-from .Pagina import TextoPagina
+from opciones.models.Idioma import Idioma
+from opciones.models.Pagina import Pagina
 from .Parametro import Parametro
 from .Parametro import TextoParametro
 from .SeccionCarrusel import ImagenSeccionCarrusel

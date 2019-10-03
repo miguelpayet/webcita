@@ -1,7 +1,7 @@
 from django.db import models
 
-from app.models.AbstractSeccion import AbstractSeccion
-from app.models.AbstractTextoSeccion import AbstractTextoSeccion
+from opciones.models.AbstractSeccion import AbstractSeccion
+from opciones.models.AbstractTextoSeccion import AbstractTextoSeccion
 
 
 class SeccionTexto(AbstractSeccion):

@@ -4,7 +4,6 @@ from django.contrib import admin
 from app.models import FilaSeccionFoto
 from app.models import FotoFilaSeccionFoto
 from app.models import Idioma
-from app.models import Pagina
 from app.models import Parametro
 from app.models import SeccionContacto
 from app.models import SeccionFoto
@@ -13,7 +12,6 @@ from app.models import SeccionTextoFoto
 from app.models import Social
 from app.models import TextoContacto
 from app.models import TextoFotoFila
-from app.models import TextoPagina
 from app.models import TextoParametro
 from app.models import TextoSeccionFoto
 from app.models import TextoSeccionTexto
@@ -45,23 +43,6 @@ class IdiomaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Idioma, IdiomaAdmin)
-
-
-# paginas
-class TextoPaginaInline(admin.TabularInline):
-    extra = 0
-    fields = ('idioma', 'titulo', 'descripcion')
-    model = TextoPagina
-
-
-class PaginaAdmin(admin.ModelAdmin):
-    fields = ('nombre',)
-    inlines = (TextoPaginaInline,)
-    list_display = ('nombre',)
-    ordering = ('nombre',)
-
-
-admin.site.register(Pagina, PaginaAdmin)
 
 
 # parametros

@@ -21,6 +21,4 @@ from .instalacion import FotoInstalacionInline
 from .instalacion import SeccionInstalacionAdmin
 from .instalacion import TextoFotoInstalacionInline
 from .instalacion import TextoSeccionInstalacionInline
-from .opcion import OpcionAdmin
-from .opcion import TextoOpcionInline
 

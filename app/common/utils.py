@@ -3,9 +3,9 @@ from operator import itemgetter
 from django.http import Http404
 from django.utils import translation
 
-from app.common.Opciones import Opciones
-from app.models.Pagina import Pagina
-from app.models.Pagina import TextoPagina
+from opciones.common.Opciones import Opciones
+from opciones.models.Pagina import Pagina
+from opciones.models.Pagina import TextoPagina
 from app.secciones.secciones import contacto
 from app.secciones.secciones import idiomas
 from app.secciones.secciones import parametros

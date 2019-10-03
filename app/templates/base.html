@@ -18,31 +18,35 @@
     <title>{{ pagina.titulo }}</title>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="web-header margenes-seccion">
-        {% block header %}{% include "header.html" %}{% endblock %}
-    </div>
-    <div class="web-content">
-        {% block content %}{% endblock %}
-    </div>
-    <div class="web-pie fondo-gris">
-        {% block pie %}{% include "pie.html" %}{% endblock %}
-    </div>
-    <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-    <div class="row info-tecnica">
-        <div class="col">
-            <div class="text-muted ">
-                <div class="d-none d-xl-block">XL</div>
-                <div class="d-none d-lg-block d-xl-none">LG</div>
-                <div class="d-none d-md-block d-lg-none">MD</div>
-                <div class="d-none d-sm-block d-md-none">SM</div>
-                <div class="d-block d-sm-none">XS</div>
-                <p>[tiempo]</p>
-            </div>
+{% comment %}
+    <div class="container-fluid">
+{% endcomment %}
+<div class="web-header margenes-seccion">
+    {% block header %}{% include "header.html" %}{% endblock %}
+</div>
+<div class="web-content">
+    {% block content %}{% endblock %}
+</div>
+<div class="web-pie fondo-gris">
+    {% block pie %}{% include "pie.html" %}{% endblock %}
+</div>
+<script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<div class="row info-tecnica">
+    <div class="col">
+        <div class="text-muted ">
+            <div class="d-none d-xl-block">XL</div>
+            <div class="d-none d-lg-block d-xl-none">LG</div>
+            <div class="d-none d-md-block d-lg-none">MD</div>
+            <div class="d-none d-sm-block d-md-none">SM</div>
+            <div class="d-block d-sm-none">XS</div>
+            <p>[tiempo]</p>
         </div>
     </div>
 </div>
+{% comment %}
+    </div>
+{% endcomment %}
 </body>
 </html>
 

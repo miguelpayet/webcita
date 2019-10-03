@@ -1,8 +1,8 @@
 import nested_admin
 from django.contrib import admin
 
-from app.models import Opcion
-from app.models import TextoOpcion
+from opciones.models import Opcion
+from opciones.models import TextoOpcion
 
 
 class TextoOpcionInline(nested_admin.NestedTabularInline):
