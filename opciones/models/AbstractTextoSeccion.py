@@ -1,6 +1,6 @@
 from django.db import models
 
-from .Idioma import Idioma
+from opciones.models.Idioma import Idioma
 
 
 class AbstractTextoSeccion(models.Model):

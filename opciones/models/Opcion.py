@@ -6,7 +6,7 @@ from opciones.models.AbstractTextoSeccion import AbstractTextoSeccion
 class Opcion(models.Model):
     idopcion = models.AutoField(primary_key=True)
     # idpadre = models.IntegerField(verbose_name='Identificador de la opción principal')
-    padre = models.ForeignKey('self', on_delete=models.CASCADE, db_column='idpadre', to_field='idopcion')
+    padre = models.ForeignKey('self', on_delete=models.CASCADE, db_column='idpadre', to_field='idopcion', blank=True)
     nombre = models.CharField(max_length=45)
     pagina = models.ForeignKey('Pagina', on_delete=models.DO_NOTHING, db_column='idpagina')
     posicion = models.IntegerField()

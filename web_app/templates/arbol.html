@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arbol</title>
+</head>
+<body>
+<p>arbol</p>
+{% for p in paginas %}
+	<div>
+		<h1>{{ p.nombre }}</h1>
+		<table>
+			{% for s in p.secciones %}
+				<tr>
+				<td>{{ s.nombre }}</td>
+				<td>{{ s.posicion }}</td>
+				<td>{{ s.tipo }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endfor %}
+</body>
+</html>

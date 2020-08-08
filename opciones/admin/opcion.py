@@ -13,7 +13,7 @@ class TextoOpcionInline(nested_admin.NestedTabularInline):
 
 class OpcionAdmin(nested_admin.NestedModelAdmin):
     extra = 0
-    fields = ('pagina', 'nombre', 'tipo', 'posicion', 'idpadre',)
+    fields = ('pagina', 'nombre', 'tipo', 'posicion', 'padre',)
     inlines = (TextoOpcionInline,)
     model = Opcion
     list_display = ('nombre', 'posicion', 'tipo',)
