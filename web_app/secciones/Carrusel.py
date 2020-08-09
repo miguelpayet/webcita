@@ -23,9 +23,11 @@ class Carrusel(SeccionBase):
                 columnas = "col-md-" + str(int(round(10 / seccion.fotosfila)))
             else:
                 columnas = "col-md-" + str(int(round(12 / seccion.fotosfila)))
-            secciones.append(
-                {'carrusel': self.obtener_fotos(seccion), 'clase': seccion.clase, 'columnas': columnas, 'fotos': seccion.fotosfila,
-                 'posicion': seccion.posicion, 'seccion': self.template_seccion % seccion.tipo, 'tipo': seccion.tipo, 'titulo': titulo})
+            lista_fotos = self.obtener_fotos(seccion)
+            secciones.append({'carrusel': lista_fotos, 'clase': seccion.clase, 'columnas': columnas,
+                              'fotos': seccion.fotosfila, 'posicion': seccion.posicion,
+                              'seccion': self.template_seccion % seccion.tipo, 'tipo': seccion.tipo,
+                              'titulo': titulo, 'total': len(lista_fotos)})
 
     def obtener_fotos(self, seccion):
         estilo = None
@@ -48,10 +50,12 @@ class Carrusel(SeccionBase):
                 texto_foto = None
             # dirección destino de la foto
             if foto.destino:
-                urldestino = '/%s/%s' % (self.vista.idioma.codigo, foto.destino[1:] if foto.destino[0] == '/' else foto.destino,)
+                urldestino = '/%s/%s' % (
+                    self.vista.idioma.codigo, foto.destino[1:] if foto.destino[0] == '/' else foto.destino,)
             clase = (pos == 0 if "active" else "")
             list_fotos.append(
-                {'clase': clase, 'destino': urldestino, 'estilo': estilo, 'imagen': foto.imagen, 'pos': pos, 'texto': texto_foto})
+                {'clase': clase, 'destino': urldestino, 'estilo': estilo, 'imagen': foto.imagen, 'pos': pos,
+                 'texto': texto_foto})
             pos += 1
         list_filas.append(list_fotos)
         return list_filas

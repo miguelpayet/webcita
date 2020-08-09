@@ -22,6 +22,10 @@
 	text-align: right;
 }
 
+.carousel-indicators .active {
+	background-color: #fff;
+}
+
 .carousel-indicators li {
 	background-color: #222;
 	border-radius: 50%;
@@ -29,13 +33,13 @@
 	width: 20px;
 }
 
-.carousel-indicators .active {
-	background-color: #fff;
-}
-
 .carousel-inicio {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.color-azul {
+	color: #4A78BA;
 }
 
 .color-gris {
@@ -73,6 +77,14 @@
 .info-tecnica {
 	font-size: 60%;
 	xdisplay: none;
+}
+
+.inicio h2, .inicio h3 {
+	color: #4A78BA;
+}
+
+.inicio .texto p {
+	font-size: 130%;
 }
 
 .logo {
@@ -140,20 +152,8 @@
 	text-align: center;
 }
 
-.xretiro {
-	padding: 4% 0;
-}
-
 .retiro h1 {
 	line-height: 4rem;
-}
-
-.texto-gris, .titulo-gris h2, .enlace-gris a, .enlace-gris a:visited {
-	color: #858376 !important;
-}
-
-.titulo-naranja h1, .titulo-naranja h2, .titulo-naranja h3 {
-	color: #E28526;
 }
 
 .seccion-carrusel .texto-foto-1 {
@@ -196,6 +196,20 @@
 
 .texto-250 {
 	font-size: 250%;
+}
+
+.texto-grande .texto {
+	color: #4A78BA;
+	font-size: 3rem;
+	margin-top: 25%;
+}
+
+.texto-gris, .titulo-gris h2, .enlace-gris a, .enlace-gris a:visited {
+	color: #858376 !important;
+}
+
+.titulo-naranja h1, .titulo-naranja h2, .titulo-naranja h3 {
+	color: #E28526;
 }
 
 .tours .seccion-texto-con-foto .texto {
@@ -251,8 +265,8 @@
 	color: #fff;
 }
 
-.xseccion-foto {
-	background-color: #FAECDF;
+.xretiro {
+	padding: 4% 0;
 }
 
 body {
@@ -267,9 +281,11 @@ div.servicios .texto h2 {
 	color: #E28526;
 }
 
-h1 {
-	color: #858377;
+h1, h2, h3 {
+	color: #4A78BA;
 }
+
+
 
 h2 {
 	font-size: 200%;
@@ -286,30 +302,29 @@ img, embed, object, video {
 }
 
 @media all and (max-device-width: 600px) {
-
-	.web-pie {
-		padding: 1rem 0;
-	}
-
-	.web-pie .contacto, .web-pie .direccion p, .web-pie .copyright {
-		font-size: 100%;
-	}
-
-	.web-pie .contacto p, .web-pie .direccion p {
-		margin-bottom: 0;
-	}
-
-	.web-pie .copyright {
-		padding-right: 0;
-		text-align: center;
-	}
-
 	.m-margen-superior-5 {
 		margin-top: 5%;
 	}
 
 	.texto-250 {
 		font-size: 150%;
+	}
+
+	.web-pie {
+		padding: 1rem 0;
+	}
+
+	.web-pie .contacto p, .web-pie .direccion p {
+		margin-bottom: 0;
+	}
+
+	.web-pie .contacto, .web-pie .direccion p, .web-pie .copyright {
+		font-size: 100%;
+	}
+
+	.web-pie .copyright {
+		padding-right: 0;
+		text-align: center;
 	}
 
 	div.col-12.social, div.col-12.telefono, div.col-12.correo {
@@ -324,10 +339,4 @@ img, embed, object, video {
 	h2 {
 		line-height: 2.5rem;
 	}
-
-}
-
-.texto-grande .texto {
-	font-size: 3rem;
-	margin-top: 25%
 }

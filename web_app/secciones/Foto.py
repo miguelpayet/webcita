@@ -31,8 +31,8 @@ class Foto(SeccionBase):
                 clase_offset = 'offset-md-%s' % str(offset * columnas_foto) if offset > 0 else ''
                 arr_filas.append({'cantidad': len(arr_fotos), 'fotos': arr_fotos, 'offset': clase_offset})
             dict_foto = {'clase': clase, 'estilo': sec_foto.clase, 'filas': arr_filas, 'nombre': sec_foto.nombre,
-                         'posicion': sec_foto.posicion, 'seccion': self.template_seccion % sec_foto.tipo, 'titulo': txt_titulo,
-                         'titulo_superior': txt_titulo_superior}
+                         'posicion': sec_foto.posicion, 'seccion': self.template_seccion % sec_foto.tipo,
+                         'titulo': txt_titulo, 'titulo_superior': txt_titulo_superior}
             secciones.append(dict_foto)
 
     def obtener_fotos(self, fila, total_fotos):
@@ -43,5 +43,6 @@ class Foto(SeccionBase):
                 txt = f.textofotofila_set.get(idioma=self.vista.idioma)
             except TextoFotoFila.DoesNotExist:
                 txt = None
-            arr_fotos.append({'clase': f.clase, 'destino': f.destino, 'imagen': f.imagen, 'texto': txt.texto if txt else ''})
+            arr_fotos.append(
+                {'clase': f.clase, 'destino': f.destino, 'imagen': f.imagen, 'texto': txt.texto if txt else ''})
         return arr_fotos

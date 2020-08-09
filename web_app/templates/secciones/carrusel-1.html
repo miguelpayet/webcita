@@ -3,12 +3,14 @@
 		<div class="col-md-12 micarrusel">
 			<div id="micarrusel-{{ seccion.posicion }}" class="carousel slide" data-ride="carousel"
 			     data-interval="3000">
-				<ol class="carousel-indicators">
+				{% if seccion.total > 1 %}
 					{% for fila in seccion.carrusel %}
-						<li data-target="#micarrusel-{{ seccion.posicion }}" data-slide-to="{{ forloop.counter0 }}"
-						    {% if forloop.counter0 == 0 %}class="active"{% endif %}/>
+						<ol class="carousel-indicators">
+							<li data-target="#micarrusel-{{ seccion.posicion }}" data-slide-to="{{ forloop.counter0 }}"
+							    {% if forloop.counter0 == 0 %}class="active"{% endif %}/>
+						</ol>
 					{% endfor %}
-				</ol>
+				{% endif %}
 				<div class="carousel-inner">
 					{% for fila in seccion.carrusel %}
 						<div class="carousel-item {% if forloop.first %}active{% endif %}">
