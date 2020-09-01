@@ -285,8 +285,6 @@ h1, h2, h3 {
 	color: #4A78BA;
 }
 
-
-
 h2 {
 	font-size: 200%;
 	line-height: 6rem;
@@ -339,4 +337,12 @@ img, embed, object, video {
 	h2 {
 		line-height: 2.5rem;
 	}
+
+}
+
+@media all and (max-device-width: 1800px) {
+	.texto-grande .texto {
+		font-size: 2rem;
+	}
+
 }

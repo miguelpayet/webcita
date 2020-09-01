@@ -16,7 +16,7 @@
 			{% for fila in seccion.filas %}
 				<div class="row">
 					{% for foto in fila.fotos %}
-						<div class="col {% if fila.offset and forloop.counter0 == 0 %} {{ fila.offset }}{% endif %}">
+						<div class="col-md {% if fila.offset and forloop.counter0 == 0 %} {{ fila.offset }}{% endif %}">
 							{% if foto.destino %}
 								<a href="{{ foto.destino }}">
 							{% endif %}
